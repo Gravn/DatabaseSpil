@@ -40,7 +40,6 @@ namespace CyclingManager
             currentFps = 1000 / milliseconds;
             myDeltaTime = 1 / (float)currentFps;
             endTime = DateTime.Now;
-            
 
         }
 
@@ -48,5 +47,17 @@ namespace CyclingManager
         { 
         
         }
+
+        public void SellRider()
+        { 
+            
+        }
+
+        public void BuyRider()
+        { 
+            
+        }
+
+
     }
 }

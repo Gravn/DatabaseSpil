@@ -20,7 +20,7 @@ namespace CyclingManager
             InitializeComponent();
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             dc = CreateGraphics();
             gW = new GameWorld(dc, DisplayRectangle); 
@@ -31,9 +31,10 @@ namespace CyclingManager
             gW.GameLoop();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }
