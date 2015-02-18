@@ -23,7 +23,8 @@ namespace CyclingManager
         private void Form1_Load(object sender, EventArgs e)
         {
             dc = CreateGraphics();
-            gW = new GameWorld(dc, DisplayRectangle); 
+            gW = new GameWorld(dc, DisplayRectangle);
+
         }
 
         private void ticker_Tick_1(object sender, EventArgs e)
@@ -31,9 +32,58 @@ namespace CyclingManager
             gW.GameLoop();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ToggleUI()
         {
+            //hide start suff
+            Title.Enabled = !Title.Enabled;
+            Title.Visible = !Title.Visible;  
 
+            NavnLabel.Enabled = !NavnLabel.Enabled;
+            NavnLabel.Visible = !NavnLabel.Visible;
+
+            NewNameInput.Enabled = !NewNameInput.Enabled;
+            NewNameInput.Visible = !NewNameInput.Visible;
+
+            NewGame.Enabled = !NewGame.Enabled;
+            NewGame.Visible = !NewGame.Visible;
+
+            LoadLabel.Enabled = !LoadLabel.Enabled;
+            LoadLabel.Visible = !LoadLabel.Visible;
+
+            LoadList.Enabled = !LoadList.Enabled;
+            LoadList.Visible = !LoadList.Visible;
+
+            LoadGame.Enabled = !LoadGame.Enabled;
+            LoadGame.Visible = !LoadGame.Visible;
+        }
+
+        private void LoadGame_Click(object sender, EventArgs e)
+        {
+            //Load specific Database
+
+            ToggleUI();
+
+            
+        }
+
+        private void NewGame_Click(object sender, EventArgs e)
+        {
+            //Create new database
+
+            ToggleUI();
+            
+
+            
+
+
+
+            
+            
+        }
+
+        private void MenuBtn_Click(object sender, EventArgs e)
+        {
+            ToggleUI();
         }
 
     }
