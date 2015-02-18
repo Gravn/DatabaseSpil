@@ -12,9 +12,28 @@ namespace CyclingManager
 {
     public partial class Form1 : Form
     {
+        private Graphics dc;
+        private GameWorld gW;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            dc = CreateGraphics();
+            gW = new GameWorld(dc, DisplayRectangle); 
+        }
+
+        private void ticker_Tick_1(object sender, EventArgs e)
+        {
+            gW.GameLoop();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

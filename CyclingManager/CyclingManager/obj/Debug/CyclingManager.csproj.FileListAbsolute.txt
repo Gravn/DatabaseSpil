@@ -1,1 +1,9 @@
 C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.exe.config
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.exe
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.pdb
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csprojResolveAssemblyReference.cache
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Form1.resources
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Properties.Resources.resources
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csproj.GenerateResource.Cache
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.exe
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.pdb
