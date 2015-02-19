@@ -17,6 +17,7 @@ namespace CyclingManager
         private GameWorld gW;
         public static string dbname = "test";
 
+        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public SQLiteConnection dbConnection;
 
@@ -32,6 +33,17 @@ namespace CyclingManager
 
             MenuBtn.Visible = false;
             MenuBtn.Enabled = false;
+
+            LoadList.Items.Add("hej");
+
+            string[] saves = System.IO.Directory.GetFiles(path+@"saves\", ".db");
+
+            foreach (string s in saves)
+            {
+                LoadList.Items.Add(s);
+            }
+
+            //LoadList.Items.Add("hej");
         }
         
         private void ticker_Tick_1(object sender, EventArgs e)
@@ -76,7 +88,7 @@ namespace CyclingManager
         private void NewGame_Click(object sender, EventArgs e)
         {
             //Create new database
-            SQLiteConnection.CreateFile("Data Source="+dbname+".db;version=3;");
+            SQLiteConnection.CreateFile(@"saves\"+dbname+".db");
 
             OpenConnection();
 
@@ -111,7 +123,7 @@ namespace CyclingManager
 
         private void OpenConnection()
         {
-            dbConnection = new SQLiteConnection("Data Source="+dbname+".db;Version=3;");
+            dbConnection = new SQLiteConnection(@"saves\Data Source="+dbname+".db;Version=3;");
 
             ///Åbner databasen
             dbConnection.Open();
