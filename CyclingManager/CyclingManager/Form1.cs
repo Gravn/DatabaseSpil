@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace CyclingManager
 {
@@ -25,8 +26,10 @@ namespace CyclingManager
             dc = CreateGraphics();
             gW = new GameWorld(dc, DisplayRectangle);
 
+            MenuBtn.Visible = false;
+            MenuBtn.Enabled = false;
         }
-
+        
         private void ticker_Tick_1(object sender, EventArgs e)
         {
             gW.GameLoop();
@@ -55,36 +58,31 @@ namespace CyclingManager
 
             LoadGame.Enabled = !LoadGame.Enabled;
             LoadGame.Visible = !LoadGame.Visible;
+
+            MenuBtn.Enabled = !LoadGame.Enabled;
+            MenuBtn.Visible = !LoadGame.Enabled;
         }
 
         private void LoadGame_Click(object sender, EventArgs e)
         {
             //Load specific Database
 
-            ToggleUI();
-
-            
+            ToggleUI();        
         }
 
         private void NewGame_Click(object sender, EventArgs e)
         {
             //Create new database
+            SQLiteConnection.CreateFile("Data Source=.db;version=3;");
+
 
             ToggleUI();
-            
-
-            
-
-
-
-            
-            
         }
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
+
             ToggleUI();
         }
-
     }
 }

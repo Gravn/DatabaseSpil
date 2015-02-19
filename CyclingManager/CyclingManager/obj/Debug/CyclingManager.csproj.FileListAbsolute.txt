@@ -7,3 +7,5 @@ C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\Cy
 C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csproj.GenerateResource.Cache
 C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.exe
 C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.pdb
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\bin\Debug\System.Data.SQLite.dll
+C:\Users\Gravn\Documents\DatabaseSpil\CyclingManager\CyclingManager\bin\Debug\System.Data.SQLite.pdb
