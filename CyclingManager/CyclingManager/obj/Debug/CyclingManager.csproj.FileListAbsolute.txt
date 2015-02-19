@@ -12,3 +12,12 @@ C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\obj\De
 C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Form1.resources
 C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Properties.Resources.resources
 C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csproj.GenerateResource.Cache
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.exe.config
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.exe
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.pdb
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csprojResolveAssemblyReference.cache
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Form1.resources
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Properties.Resources.resources
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csproj.GenerateResource.Cache
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.exe
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Database\Projekt\Spil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.pdb
