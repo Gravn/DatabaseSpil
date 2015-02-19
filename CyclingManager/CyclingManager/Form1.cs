@@ -36,11 +36,11 @@ namespace CyclingManager
 
             LoadList.Items.Add("hello.db");
 
-            string[] saves = System.IO.Directory.GetFiles(@"saves", ".db");
+            string[] saves = System.IO.Directory.GetFiles(@"saves\*", ".db");
 
             foreach (string s in saves)
             {
-                LoadList.Items.Add(s);
+                //LoadList.Items.Add(s);
             }
 
             //LoadList.Items.Add("hej");
@@ -90,11 +90,9 @@ namespace CyclingManager
             ToggleUI();
 
             //Create new database
-<<<<<<< HEAD
             SQLiteConnection.CreateFile(@"saves\"+dbname+".db");
-=======
-            SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
->>>>>>> 5e4dc3707c6c0278cffe9c27987df103aaafecb9
+
+            //SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
 
             OpenConnection();
 
@@ -228,16 +226,12 @@ namespace CyclingManager
             }
         }
 
-
-
-
         private void OpenConnection()
         {
-<<<<<<< HEAD
-            dbConnection = new SQLiteConnection("Data Source="+"saves\\"+dbname+".db;Version=3;");
-=======
+
+            dbConnection = new SQLiteConnection("Data Source="+@"saves\"+dbname+".db;Version=3;");
+
             dbConnection = new SQLiteConnection("Data Source=" + dbname + ".db;Version=3;");
->>>>>>> 5e4dc3707c6c0278cffe9c27987df103aaafecb9
 
             ///Åbner databasen
             dbConnection.Open();
