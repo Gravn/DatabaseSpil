@@ -90,11 +90,11 @@ namespace CyclingManager
             ToggleUI();
 
             //Create new database
-<<<<<<< HEAD
+
             SQLiteConnection.CreateFile(@"saves\"+dbname+".db");
-=======
+
             SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
->>>>>>> 5e4dc3707c6c0278cffe9c27987df103aaafecb9
+
 
             OpenConnection();
 
@@ -120,6 +120,9 @@ namespace CyclingManager
             cmd.CommandText = "Create table Sponsor(ID integer primary key, HoldID integer, Præmie integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
 
+            cmd.CommandText = "create table SponsorNavne(ID integer primary key, Navn varchar(40))";
+            cmd.ExecuteNonQuery();
+
             cmd.CommandText = "Create table Transfer(ID integer primary key, HoldID integer, RytterID integer, Bud integer, Auktionspris integer, Tid real, Foreign Key (HoldID) references Hold(ID), Foreign Key (RytterID) references Rytter(ID))";
             cmd.ExecuteNonQuery();
 
@@ -135,6 +138,10 @@ namespace CyclingManager
             string directoryHold = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string[] holdNavne = System.IO.File.ReadAllLines(directoryHold + @"\Holdnavn.txt");
 
+            //Bruges til Sponsor og Sponsornavne
+            string secondDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string[] sponsorNavne = System.IO.File.ReadAllLines(secondDirectory + @"\SponsorNavne.txt");
+
             //Indsætter rytternavne i RytterNavne tabellen
             for (int i = 0; i < rytterNavne.Length; i++)
             {
@@ -149,7 +156,14 @@ namespace CyclingManager
                 cmd.ExecuteNonQuery();
             }
 
-            ////Random som bruges til variablerne/attributterne i Rytter tabellen.
+            //Indsætter Sponsornavne i sponsorNavne tabellen
+            for (int i = 0; i < sponsorNavne.Length; i++)
+            {
+                cmd.CommandText = String.Format("Insert into SponsorNavne (Navn) values ('{0}')", sponsorNavne[i]);
+                cmd.ExecuteNonQuery();
+            }
+
+            ////Random som bruges til variablerne/attributterne i Rytter og Sponsor tabellen.
             Random r = new Random();
 
             //Indsætter værdier i Rytter tabellen.
@@ -222,9 +236,17 @@ namespace CyclingManager
                 //SQLite command for at sætte værdierne ind i rytter tabellen.
                 cmd.CommandText = String.Format("Insert into Rytter (HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
                 cmd.ExecuteNonQuery();
+            }
 
+            //Indsætter værdierne i Sponsor tabellen
+            for (int i = 0; i < sponsorNavne.Length; i++)
+            {
+                //Variable til at genere præmie attributten i sponsor tabellen
+                int præmie = r.Next(2500, 10000);
 
-
+                //SQLite command for at sætte værdierne ind i sponsor tabellen
+                cmd.CommandText = string.Format("insert into sponsor (Præmie) values ('{0}')", præmie);
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -233,11 +255,11 @@ namespace CyclingManager
 
         private void OpenConnection()
         {
-<<<<<<< HEAD
+
             dbConnection = new SQLiteConnection("Data Source="+"saves\\"+dbname+".db;Version=3;");
-=======
+
             dbConnection = new SQLiteConnection("Data Source=" + dbname + ".db;Version=3;");
->>>>>>> 5e4dc3707c6c0278cffe9c27987df103aaafecb9
+
 
             ///Åbner databasen
             dbConnection.Open();
