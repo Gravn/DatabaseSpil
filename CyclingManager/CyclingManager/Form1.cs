@@ -34,9 +34,9 @@ namespace CyclingManager
             MenuBtn.Visible = false;
             MenuBtn.Enabled = false;
 
-            LoadList.Items.Add("hej");
+            LoadList.Items.Add("hello.db");
 
-            string[] saves = System.IO.Directory.GetFiles(path+@"saves\", ".db");
+            string[] saves = System.IO.Directory.GetFiles(@"saves", ".db");
 
             foreach (string s in saves)
             {
@@ -123,7 +123,7 @@ namespace CyclingManager
 
         private void OpenConnection()
         {
-            dbConnection = new SQLiteConnection(@"saves\Data Source="+dbname+".db;Version=3;");
+            dbConnection = new SQLiteConnection("Data Source="+"saves\\"+dbname+".db;Version=3;");
 
             ///Åbner databasen
             dbConnection.Open();
