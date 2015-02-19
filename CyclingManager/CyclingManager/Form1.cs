@@ -33,17 +33,18 @@ namespace CyclingManager
 
             MenuBtn.Visible = false;
             MenuBtn.Enabled = false;
+            dataGridView1.Enabled = false;
+            dataGridView1.Visible = false;
 
-            LoadList.Items.Add("hello.db");
-
-            string[] saves = System.IO.Directory.GetFiles(@"saves\*", ".db");
+            string[] saves = System.IO.Directory.GetFiles(@"saves\", "*.db");
 
             foreach (string s in saves)
             {
-                //LoadList.Items.Add(s);
+                string[] splitS = s.Split('\\','.');
+                
+                LoadList.Items.Add(splitS[1]);
+                
             }
-
-            //LoadList.Items.Add("hej");
         }
 
         private void ticker_Tick_1(object sender, EventArgs e)
@@ -77,12 +78,20 @@ namespace CyclingManager
 
             MenuBtn.Enabled = !LoadGame.Enabled;
             MenuBtn.Visible = !LoadGame.Enabled;
+
+            dataGridView1.Enabled = !dataGridView1.Enabled;
+            dataGridView1.Visible = !dataGridView1.Visible;
+           
+
         }
 
         private void LoadGame_Click(object sender, EventArgs e)
         {
             //Load specific Database
+            OpenConnection();
+            
             ToggleUI();
+            fillDataGridView1();
         }
 
         private void NewGame_Click(object sender, EventArgs e)
@@ -90,17 +99,7 @@ namespace CyclingManager
             ToggleUI();
 
             //Create new database
-<<<<<<< HEAD
             SQLiteConnection.CreateFile(@"saves\"+dbname+".db");
-
-            //SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
-=======
-
-            SQLiteConnection.CreateFile(@"saves\"+dbname+".db");
-
-            SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
-
->>>>>>> fa4b41c6205118eb90cc85dcfda52bddb6a04d9b
 
             OpenConnection();
 
@@ -198,6 +197,10 @@ namespace CyclingManager
                 }
 
                 //Fordeler rytterene på 10 hold, med ti ryttere på hver hold.
+
+                //eller:
+                //holdID = i/100+1;
+
                 if (i < 10)
                 {
                     holdID = 1;
@@ -254,22 +257,15 @@ namespace CyclingManager
                 cmd.CommandText = string.Format("insert into sponsor (Præmie) values ('{0}')", præmie);
                 cmd.ExecuteNonQuery();
             }
+
+            fillDataGridView1();
         }
 
         private void OpenConnection()
         {
 
-<<<<<<< HEAD
             dbConnection = new SQLiteConnection("Data Source="+@"saves\"+dbname+".db;Version=3;");
-
-            dbConnection = new SQLiteConnection("Data Source=" + dbname + ".db;Version=3;");
-=======
-            dbConnection = new SQLiteConnection("Data Source="+"saves\\"+dbname+".db;Version=3;");
-
-            dbConnection = new SQLiteConnection("Data Source=" + dbname + ".db;Version=3;");
-
->>>>>>> fa4b41c6205118eb90cc85dcfda52bddb6a04d9b
-
+            
             ///Åbner databasen
             dbConnection.Open();
 
@@ -284,6 +280,24 @@ namespace CyclingManager
         private void NewNameInput_TextChanged(object sender, EventArgs e)
         {
             dbname = NewNameInput.Text;
+        }
+
+        private void LoadList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LoadList.SelectedText != "")
+            {
+                dbname = LoadList.SelectedText;
+            }
+        }
+
+        private void fillDataGridView1()
+        {
+            SQLiteDataAdapter a = new SQLiteDataAdapter("Select * From Rytter", dbConnection);
+            DataTable t = new DataTable();
+            a.Fill(t);
+
+            dataGridView1.DataSource = t;
+            dataGridView1.Show();
         }
     }
 }

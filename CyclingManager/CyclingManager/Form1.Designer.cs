@@ -39,6 +39,8 @@
             this.LoadList = new System.Windows.Forms.ComboBox();
             this.LoadLabel = new System.Windows.Forms.Label();
             this.MenuBtn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ticker
@@ -103,14 +105,11 @@
             // LoadList
             // 
             this.LoadList.FormattingEnabled = true;
-            this.LoadList.Items.AddRange(new object[] {
-            "EasyOn",
-            "Holdet der aldrig vinder ;(",
-            "Rotary"});
             this.LoadList.Location = new System.Drawing.Point(568, 74);
             this.LoadList.Name = "LoadList";
             this.LoadList.Size = new System.Drawing.Size(121, 21);
             this.LoadList.TabIndex = 5;
+            this.LoadList.SelectedIndexChanged += new System.EventHandler(this.LoadList_SelectedIndexChanged);
             // 
             // LoadLabel
             // 
@@ -131,11 +130,20 @@
             this.MenuBtn.UseVisualStyleBackColor = true;
             this.MenuBtn.Click += new System.EventHandler(this.MenuBtn_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 10);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(760, 328);
+            this.dataGridView1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.MenuBtn);
             this.Controls.Add(this.LoadLabel);
             this.Controls.Add(this.LoadList);
@@ -148,6 +156,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,6 +174,7 @@
         private System.Windows.Forms.ComboBox LoadList;
         private System.Windows.Forms.Label LoadLabel;
         private System.Windows.Forms.Button MenuBtn;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
