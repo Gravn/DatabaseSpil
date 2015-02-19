@@ -80,7 +80,8 @@ namespace CyclingManager
 
         private void OpenConnection()
         {
-            SQLiteConnection dbConnection = new SQLiteConnection("Data Source={0}.db;Version=3;",dbname);
+            string dbname = "test";
+            SQLiteConnection dbConnection = new SQLiteConnection("Data Source="+dbname+".db;Version=3;");
 
             ///Åbner databasen
             dbConnection.Open();
