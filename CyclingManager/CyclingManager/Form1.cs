@@ -75,8 +75,19 @@ namespace CyclingManager
             //Create new database
             SQLiteConnection.CreateFile("Data Source=.db;version=3;");
 
-
             ToggleUI();
+        }
+
+        private void OpenConnection()
+        {
+            SQLiteConnection dbConnection = new SQLiteConnection("Data Source={0}.db;Version=3;",dbname);
+
+            ///Åbner databasen
+            dbConnection.Open();
+
+            ////Laver en command til at bruge insert, delete, update og create. 
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = dbConnection;
         }
 
         private void MenuBtn_Click(object sender, EventArgs e)
