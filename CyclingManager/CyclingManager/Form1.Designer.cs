@@ -63,6 +63,7 @@
             this.NewNameInput.Name = "NewNameInput";
             this.NewNameInput.Size = new System.Drawing.Size(219, 20);
             this.NewNameInput.TabIndex = 1;
+            this.NewNameInput.TextChanged += new System.EventHandler(this.NewNameInput_TextChanged);
             // 
             // Title
             // 

@@ -15,6 +15,10 @@ namespace CyclingManager
     {
         private Graphics dc;
         private GameWorld gW;
+        public static string dbname = "test";
+
+
+        public SQLiteConnection dbConnection;
 
         public Form1()
         {
@@ -66,35 +70,63 @@ namespace CyclingManager
         private void LoadGame_Click(object sender, EventArgs e)
         {
             //Load specific Database
-
-            ToggleUI();        
+            ToggleUI();
         }
 
         private void NewGame_Click(object sender, EventArgs e)
         {
             //Create new database
-            SQLiteConnection.CreateFile("Data Source=.db;version=3;");
+            SQLiteConnection.CreateFile("Data Source="+dbname+".db;version=3;");
+
+            OpenConnection();
+
+            ////Laver en command til at bruge insert, delete, update og create. 
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = dbConnection;
+
+            cmd.CommandText = "Create table Hold(ID integer primary key, LøbID integer, Point integer, Division integer, Budget integer, Score integer, Foreign Key (LøbID) references Løb(ID))";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table Løb(ID integer primary key, Type text, Point integer, Km real, Etape text)";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table Rytter(ID integer primary key, HoldID integer, Alder integer, Løn integer, Udholdenhed integer, Styrke integer, Type integer, Støtte integer, Overblik integer, Talent integer, Foreign Key (HoldID) references Hold(ID))";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table RytterNavne(ID integer primary key, Navn varchar(40))";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table Sponsor(ID integer primary key, HoldID integer, Præmie integer, Foreign Key (HoldID) references Hold(ID))";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table Transfer(ID integer primary key, HoldID integer, RytterID integer, Bud integer, Auktionspris integer, Tid real, Foreign Key (HoldID) references Hold(ID), Foreign Key (RytterID) references Rytter(ID))";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table Træner(ID integer primary key, HoldID integer, Erfaring integer, Fokus integer, Løn integer, Foreign Key (HoldID) references Hold(ID))";
+            cmd.ExecuteNonQuery();
+
 
             ToggleUI();
         }
 
         private void OpenConnection()
         {
-            string dbname = "test";
-            SQLiteConnection dbConnection = new SQLiteConnection("Data Source="+dbname+".db;Version=3;");
+            dbConnection = new SQLiteConnection("Data Source="+dbname+".db;Version=3;");
 
             ///Åbner databasen
             dbConnection.Open();
 
-            ////Laver en command til at bruge insert, delete, update og create. 
-            SQLiteCommand cmd = new SQLiteCommand();
-            cmd.Connection = dbConnection;
         }
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
 
             ToggleUI();
+        }
+
+        private void NewNameInput_TextChanged(object sender, EventArgs e)
+        {
+            dbname = NewNameInput.Text; 
         }
     }
 }
