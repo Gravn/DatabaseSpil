@@ -33,7 +33,7 @@ namespace CyclingManager
             MenuBtn.Visible = false;
             MenuBtn.Enabled = false;
         }
-        
+
         private void ticker_Tick_1(object sender, EventArgs e)
         {
             gW.GameLoop();
@@ -43,7 +43,7 @@ namespace CyclingManager
         {
             //hide start suff
             Title.Enabled = !Title.Enabled;
-            Title.Visible = !Title.Visible;  
+            Title.Visible = !Title.Visible;
 
             NavnLabel.Enabled = !NavnLabel.Enabled;
             NavnLabel.Visible = !NavnLabel.Visible;
@@ -75,8 +75,10 @@ namespace CyclingManager
 
         private void NewGame_Click(object sender, EventArgs e)
         {
+            ToggleUI();
+
             //Create new database
-            SQLiteConnection.CreateFile("Data Source="+dbname+".db;version=3;");
+            SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
 
             OpenConnection();
 
@@ -87,13 +89,16 @@ namespace CyclingManager
             cmd.CommandText = "Create table Hold(ID integer primary key, LøbID integer, Point integer, Division integer, Budget integer, Score integer, Foreign Key (LøbID) references Løb(ID))";
             cmd.ExecuteNonQuery();
 
+            cmd.CommandText = "Create table Holdnavn(ID integer primary key, Navn varchar(40))";
+            cmd.ExecuteNonQuery();
+
             cmd.CommandText = "Create table Løb(ID integer primary key, Type text, Point integer, Km real, Etape text)";
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "Create table Rytter(ID integer primary key, HoldID integer, Alder integer, Løn integer, Udholdenhed integer, Styrke integer, Type integer, Støtte integer, Overblik integer, Talent integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table RytterNavne(ID integer primary key, Navn varchar(40))";
+            cmd.CommandText = "Create table Rytternavn(ID integer primary key, Navn varchar(40))";
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "Create table Sponsor(ID integer primary key, HoldID integer, Præmie integer, Foreign Key (HoldID) references Hold(ID))";
@@ -106,12 +111,113 @@ namespace CyclingManager
             cmd.ExecuteNonQuery();
 
 
-            ToggleUI();
+            //Bruges til Rytter og Rytternavne
+            string directoryRytter = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string[] rytterNavne = System.IO.File.ReadAllLines(directoryRytter + @"\RytterNavn.txt");
+
+            //Bruges til Holdnavne
+            string directoryHold = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string[] holdNavne = System.IO.File.ReadAllLines(directoryHold + @"\Holdnavn.txt");
+
+            //Indsætter rytternavne i RytterNavne tabellen
+            for (int i = 0; i < rytterNavne.Length; i++)
+            {
+                cmd.CommandText = String.Format("Insert into Rytternavn (Navn) values ('{0}')", rytterNavne[i]);
+                cmd.ExecuteNonQuery();
+            }
+
+            //Indsætter holdnavne i Holdnavne tabellen
+            for(int i = 0; i < holdNavne.Length; i++)
+            {
+                cmd.CommandText = String.Format("Insert into Holdnavn (Navn) values ('{0}')", holdNavne[i]);
+                cmd.ExecuteNonQuery();
+            }
+
+            ////Random som bruges til variablerne/attributterne i Rytter tabellen.
+            Random r = new Random();
+
+            //Indsætter værdier i Rytter tabellen.
+            for (int i = 0; i < rytterNavne.Length; i++)
+            {
+                //Variabler for alle attributterne i Rytter tabellen. 
+                int alder = r.Next(17, 34);
+                int udholdenhed = r.Next(0, 100);
+                int styrke = r.Next(0, 100);
+                int type = 1;
+                int overblik = 0;
+                int støtte = 0;
+                int holdID = 0;
+                int talent = r.Next(0, 100);
+                int løn = alder + udholdenhed + styrke + 2 * talent;
+
+                if (udholdenhed > styrke)
+                {
+                    type = 0;
+                    støtte = r.Next(0, 100);
+                }
+                else
+                {
+                    overblik = r.Next(0, 100);
+                    type = 1;
+                }
+
+                //Fordeler rytterene på 10 hold, med ti ryttere på hver hold.
+                if (i < 10)
+                {
+                    holdID = 1;
+                }
+                else if (i < 20)
+                {
+                    holdID = 2;
+                }
+                else if (i < 30)
+                {
+                    holdID = 3;
+                }
+                else if (i < 40)
+                {
+                    holdID = 4;
+                }
+                else if (i < 50)
+                {
+                    holdID = 5;
+                }
+                else if (i < 60)
+                {
+                    holdID = 6;
+                }
+                else if (i < 70)
+                {
+                    holdID = 7;
+                }
+                else if (i < 80)
+                {
+                    holdID = 8;
+                }
+                else if (i < 90)
+                {
+                    holdID = 9;
+                }
+                else
+                {
+                    holdID = 10;
+                }
+
+                //SQLite command for at sætte værdierne ind i rytter tabellen.
+                cmd.CommandText = String.Format("Insert into Rytter (HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
+                cmd.ExecuteNonQuery();
+
+
+
+            }
         }
+
+
+
 
         private void OpenConnection()
         {
-            dbConnection = new SQLiteConnection("Data Source="+dbname+".db;Version=3;");
+            dbConnection = new SQLiteConnection("Data Source=" + dbname + ".db;Version=3;");
 
             ///Åbner databasen
             dbConnection.Open();
@@ -126,7 +232,7 @@ namespace CyclingManager
 
         private void NewNameInput_TextChanged(object sender, EventArgs e)
         {
-            dbname = NewNameInput.Text; 
+            dbname = NewNameInput.Text;
         }
     }
 }
