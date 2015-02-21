@@ -13,10 +13,13 @@ namespace CyclingManager
 {
     public partial class Form1 : Form
     {
-        private Graphics dc;
-        private GameWorld gW;
-        public static string dbname = "test";
+        //string to send to sqlite as command
+        public static string dbname;
 
+        //databases saved in /saves.
+        public static string[] saves;
+
+        //current location path
         string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public SQLiteConnection dbConnection;
@@ -28,28 +31,19 @@ namespace CyclingManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dc = CreateGraphics();
-            gW = new GameWorld(dc, DisplayRectangle);
-
             MenuBtn.Visible = false;
             MenuBtn.Enabled = false;
             dataGridView1.Enabled = false;
             dataGridView1.Visible = false;
 
-            string[] saves = System.IO.Directory.GetFiles(@"saves\", "*.db");
-
+            //Checks for .db files and adds the names onto the dropdown load list.
+            saves = System.IO.Directory.GetFiles(@"saves\", "*.db");
             foreach (string s in saves)
             {
                 string[] splitS = s.Split('\\','.');
                 
                 LoadList.Items.Add(splitS[1]);
-                
             }
-        }
-
-        private void ticker_Tick_1(object sender, EventArgs e)
-        {
-            gW.GameLoop();
         }
 
         private void ToggleUI()
@@ -91,12 +85,23 @@ namespace CyclingManager
             OpenConnection();
             
             ToggleUI();
-            fillDataGridView1();
+            fillDataGridViews();
         }
 
         private void NewGame_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < saves.Length; i++)
+                {
+                    if ("saves\\"+dbname+".db" == saves[i])
+                    {
+                        Exists.Visible = true;
+                        return;
+                    }
+                }
+
             ToggleUI();
+
+                
 
             //Create new database
             SQLiteConnection.CreateFile(@"saves\"+dbname+".db");
@@ -198,9 +203,6 @@ namespace CyclingManager
 
                 //Fordeler rytterene på 10 hold, med ti ryttere på hver hold.
 
-                //eller:
-                //holdID = i/100+1;
-
                 if (i < 10)
                 {
                     holdID = 1;
@@ -241,6 +243,8 @@ namespace CyclingManager
                 {
                     holdID = 10;
                 }
+                //eller:
+                //holdID = i/10+1;
 
                 //SQLite command for at sætte værdierne ind i rytter tabellen.
                 cmd.CommandText = String.Format("Insert into Rytter (HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
@@ -252,34 +256,44 @@ namespace CyclingManager
             {
                 //Variable til at genere præmie attributten i sponsor tabellen
                 int præmie = r.Next(2500, 10000);
-
                 //SQLite command for at sætte værdierne ind i sponsor tabellen
                 cmd.CommandText = string.Format("insert into sponsor (Præmie) values ('{0}')", præmie);
                 cmd.ExecuteNonQuery();
             }
 
-            fillDataGridView1();
+            //Opret spillerhold:
+            cmd.CommandText = String.Format("Insert into Hold (Point,Division, Budget, Score) values ('{0}','{1}','{2}','{3}')",0,1,2000,0);
+            cmd.ExecuteNonQuery();
+
+            fillDataGridViews();
         }
 
         private void OpenConnection()
         {
-
-            dbConnection = new SQLiteConnection("Data Source="+@"saves\"+dbname+".db;Version=3;");
+            //specifies database name via dbname
+            dbConnection = new SQLiteConnection("Data Source="+@"saves\"+dbname+".db;Version=3;");  
             
-            ///Åbner databasen
+            //Opens the connection
             dbConnection.Open();
 
         }
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
-
             ToggleUI();
         }
 
         private void NewNameInput_TextChanged(object sender, EventArgs e)
         {
-            dbname = NewNameInput.Text;
+            if (NewNameInput.Text != "")
+            {
+                Exists.Visible = false;
+                dbname = NewNameInput.Text;
+            }
+            else
+            {
+                NewNameInput.Text = "Indtast Navn";
+            }
         }
 
         private void LoadList_SelectedIndexChanged(object sender, EventArgs e)
@@ -290,14 +304,31 @@ namespace CyclingManager
             }
         }
 
-        private void fillDataGridView1()
+        private void fillDataGridViews()
         {
-            SQLiteDataAdapter a = new SQLiteDataAdapter("Select * From Rytter", dbConnection);
-            DataTable t = new DataTable();
-            a.Fill(t);
+            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter WHERE HoldID = 10", dbConnection);
+            DataTable ryttere = new DataTable();
+            a.Fill(ryttere);
 
-            dataGridView1.DataSource = t;
-            dataGridView1.Show();
+            SQLiteDataAdapter b = new SQLiteDataAdapter("SELECT * FROM Hold", dbConnection);
+            DataTable division = new DataTable();
+            b.Fill(division);
+
+            dataGridView1.DataSource = ryttere;
+
+            dataGridView2.DataSource = division;
+        }
+
+        private void DeleteSave_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < saves.Length; i++)
+            {
+                if ("saves\\" + deleteTextBox.Text + ".db" == saves[i])
+                {
+                    System.IO.File.Delete(saves[i]);
+                    LoadList.Items.Remove(deleteTextBox.Text);
+                }
+            }
         }
     }
 }

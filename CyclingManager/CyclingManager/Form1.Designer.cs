@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.ticker = new System.Windows.Forms.Timer(this.components);
             this.NewGame = new System.Windows.Forms.Button();
             this.NewNameInput = new System.Windows.Forms.TextBox();
             this.Title = new System.Windows.Forms.Label();
@@ -40,18 +38,18 @@
             this.LoadLabel = new System.Windows.Forms.Label();
             this.MenuBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DeleteSave = new System.Windows.Forms.Button();
+            this.deleteTextBox = new System.Windows.Forms.TextBox();
+            this.DeleteHelp = new System.Windows.Forms.Label();
+            this.Exists = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ticker
-            // 
-            this.ticker.Enabled = true;
-            this.ticker.Interval = 1;
-            this.ticker.Tick += new System.EventHandler(this.ticker_Tick_1);
             // 
             // NewGame
             // 
-            this.NewGame.Location = new System.Drawing.Point(76, 116);
+            this.NewGame.Location = new System.Drawing.Point(12, 100);
             this.NewGame.Name = "NewGame";
             this.NewGame.Size = new System.Drawing.Size(75, 23);
             this.NewGame.TabIndex = 0;
@@ -94,7 +92,7 @@
             // 
             // LoadGame
             // 
-            this.LoadGame.Location = new System.Drawing.Point(569, 116);
+            this.LoadGame.Location = new System.Drawing.Point(569, 101);
             this.LoadGame.Name = "LoadGame";
             this.LoadGame.Size = new System.Drawing.Size(75, 23);
             this.LoadGame.TabIndex = 4;
@@ -122,7 +120,7 @@
             // 
             // MenuBtn
             // 
-            this.MenuBtn.Location = new System.Drawing.Point(358, 505);
+            this.MenuBtn.Location = new System.Drawing.Point(368, 527);
             this.MenuBtn.Name = "MenuBtn";
             this.MenuBtn.Size = new System.Drawing.Size(75, 23);
             this.MenuBtn.TabIndex = 7;
@@ -133,16 +131,69 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 10);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 243);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(760, 328);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(440, 278);
             this.dataGridView1.TabIndex = 8;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(455, 243);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(317, 278);
+            this.dataGridView2.TabIndex = 9;
+            // 
+            // DeleteSave
+            // 
+            this.DeleteSave.Location = new System.Drawing.Point(12, 190);
+            this.DeleteSave.Name = "DeleteSave";
+            this.DeleteSave.Size = new System.Drawing.Size(75, 23);
+            this.DeleteSave.TabIndex = 10;
+            this.DeleteSave.Text = "Slet Spil";
+            this.DeleteSave.UseVisualStyleBackColor = true;
+            this.DeleteSave.Click += new System.EventHandler(this.DeleteSave_Click);
+            // 
+            // deleteTextBox
+            // 
+            this.deleteTextBox.Location = new System.Drawing.Point(12, 164);
+            this.deleteTextBox.Name = "deleteTextBox";
+            this.deleteTextBox.Size = new System.Drawing.Size(219, 20);
+            this.deleteTextBox.TabIndex = 11;
+            // 
+            // DeleteHelp
+            // 
+            this.DeleteHelp.AutoSize = true;
+            this.DeleteHelp.Location = new System.Drawing.Point(12, 148);
+            this.DeleteHelp.Name = "DeleteHelp";
+            this.DeleteHelp.Size = new System.Drawing.Size(183, 13);
+            this.DeleteHelp.TabIndex = 12;
+            this.DeleteHelp.Text = "Indtast navn på spillet der skal slettes";
+            // 
+            // Exists
+            // 
+            this.Exists.AutoEllipsis = true;
+            this.Exists.AutoSize = true;
+            this.Exists.Enabled = false;
+            this.Exists.Location = new System.Drawing.Point(93, 106);
+            this.Exists.Name = "Exists";
+            this.Exists.Size = new System.Drawing.Size(81, 13);
+            this.Exists.TabIndex = 13;
+            this.Exists.Text = "Findes allerede!";
+            this.Exists.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.Exists);
+            this.Controls.Add(this.DeleteHelp);
+            this.Controls.Add(this.deleteTextBox);
+            this.Controls.Add(this.DeleteSave);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.MenuBtn);
             this.Controls.Add(this.LoadLabel);
@@ -155,8 +206,10 @@
             this.Controls.Add(this.NewGame);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.TransparencyKey = System.Drawing.Color.Magenta;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,7 +217,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer ticker;
         private System.Windows.Forms.Button NewGame;
         private System.Windows.Forms.TextBox NewNameInput;
         private System.Windows.Forms.Label Title;
@@ -175,6 +227,11 @@
         private System.Windows.Forms.Label LoadLabel;
         private System.Windows.Forms.Button MenuBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button DeleteSave;
+        private System.Windows.Forms.TextBox deleteTextBox;
+        private System.Windows.Forms.Label DeleteHelp;
+        private System.Windows.Forms.Label Exists;
     }
 }
 
