@@ -37,14 +37,22 @@
             this.LoadList = new System.Windows.Forms.ComboBox();
             this.LoadLabel = new System.Windows.Forms.Label();
             this.MenuBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.DeleteSave = new System.Windows.Forms.Button();
             this.deleteTextBox = new System.Windows.Forms.TextBox();
             this.DeleteHelp = new System.Windows.Forms.Label();
             this.Exists = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabControl.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // NewGame
@@ -102,12 +110,13 @@
             // 
             // LoadList
             // 
+            this.LoadList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LoadList.FormattingEnabled = true;
             this.LoadList.Location = new System.Drawing.Point(568, 74);
             this.LoadList.Name = "LoadList";
             this.LoadList.Size = new System.Drawing.Size(121, 21);
+            this.LoadList.Sorted = true;
             this.LoadList.TabIndex = 5;
-            this.LoadList.SelectedIndexChanged += new System.EventHandler(this.LoadList_SelectedIndexChanged);
             // 
             // LoadLabel
             // 
@@ -120,7 +129,7 @@
             // 
             // MenuBtn
             // 
-            this.MenuBtn.Location = new System.Drawing.Point(368, 527);
+            this.MenuBtn.Location = new System.Drawing.Point(697, 12);
             this.MenuBtn.Name = "MenuBtn";
             this.MenuBtn.Size = new System.Drawing.Size(75, 23);
             this.MenuBtn.TabIndex = 7;
@@ -128,22 +137,14 @@
             this.MenuBtn.UseVisualStyleBackColor = true;
             this.MenuBtn.Click += new System.EventHandler(this.MenuBtn_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 243);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(440, 278);
-            this.dataGridView1.TabIndex = 8;
-            // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToOrderColumns = true;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(455, 243);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(317, 278);
+            this.dataGridView2.Size = new System.Drawing.Size(767, 489);
             this.dataGridView2.TabIndex = 9;
             // 
             // DeleteSave
@@ -184,17 +185,80 @@
             this.Exists.Text = "Findes allerede!";
             this.Exists.Visible = false;
             // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Enabled = false;
+            this.tabControl.Location = new System.Drawing.Point(3, 41);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(781, 521);
+            this.tabControl.TabIndex = 14;
+            this.tabControl.Visible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(773, 495);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Mine Ryttere";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(773, 495);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Budget";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dataGridView2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(773, 495);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Divison";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(773, 495);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Transfer";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(762, 486);
+            this.dataGridView1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.Exists);
             this.Controls.Add(this.DeleteHelp);
             this.Controls.Add(this.deleteTextBox);
             this.Controls.Add(this.DeleteSave);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.MenuBtn);
             this.Controls.Add(this.LoadLabel);
             this.Controls.Add(this.LoadList);
@@ -208,8 +272,11 @@
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Magenta;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,12 +293,17 @@
         private System.Windows.Forms.ComboBox LoadList;
         private System.Windows.Forms.Label LoadLabel;
         private System.Windows.Forms.Button MenuBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button DeleteSave;
         private System.Windows.Forms.TextBox deleteTextBox;
         private System.Windows.Forms.Label DeleteHelp;
         private System.Windows.Forms.Label Exists;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
