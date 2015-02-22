@@ -91,7 +91,7 @@ namespace CyclingManager
 
             //Create new database
 
-            SQLiteConnection.CreateFile(@"saves\"+dbname+".db");
+            SQLiteConnection.CreateFile(@"saves\" + dbname + ".db");
 
             SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
 
@@ -108,7 +108,10 @@ namespace CyclingManager
             cmd.CommandText = "Create table Holdnavn(ID integer primary key, Navn varchar(40))";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table Løb(ID integer primary key, Type text, Point integer, Km real, Etape text)";
+            cmd.CommandText = "Create table Løb(ID integer primary key, Type text, Point integer, Km integer, Etape integer)";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table Løbsnavn(ID integer primary key, Navn text)";
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "Create table Rytter(ID integer primary key, HoldID integer, Alder integer, Løn integer, Udholdenhed integer, Styrke integer, Type integer, Støtte integer, Overblik integer, Talent integer, Foreign Key (HoldID) references Hold(ID))";
@@ -129,6 +132,11 @@ namespace CyclingManager
             cmd.CommandText = "Create table Træner(ID integer primary key, HoldID integer, Erfaring integer, Fokus integer, Løn integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
 
+            cmd.CommandText = "Create table Trænernavn(ID integer primary key, Navn varchar(40))";
+            cmd.ExecuteNonQuery();
+
+
+
 
             //Bruges til Rytter og Rytternavne
             string directoryRytter = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -142,6 +150,14 @@ namespace CyclingManager
             string secondDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string[] sponsorNavne = System.IO.File.ReadAllLines(secondDirectory + @"\SponsorNavne.txt");
 
+            //Bruges til at finde tekstfilen "løbsnavne"
+            string directoryLøb = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string[] løbsnavne = System.IO.File.ReadAllLines(directoryLøb + @"\Løbsnavne.txt");
+
+            //Bruges til at finde tekstfilen "Trænernavne"
+            string directoryTræner = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string[] trænernavne = System.IO.File.ReadAllLines(directoryTræner + @"\Trænernavne.txt");
+
             //Indsætter rytternavne i RytterNavne tabellen
             for (int i = 0; i < rytterNavne.Length; i++)
             {
@@ -150,7 +166,7 @@ namespace CyclingManager
             }
 
             //Indsætter holdnavne i Holdnavne tabellen
-            for(int i = 0; i < holdNavne.Length; i++)
+            for (int i = 0; i < holdNavne.Length; i++)
             {
                 cmd.CommandText = String.Format("Insert into Holdnavn (Navn) values ('{0}')", holdNavne[i]);
                 cmd.ExecuteNonQuery();
@@ -163,7 +179,21 @@ namespace CyclingManager
                 cmd.ExecuteNonQuery();
             }
 
-            ////Random som bruges til variablerne/attributterne i Rytter og Sponsor tabellen.
+            //Indsætter Løbsnavne i løbsnavn tabellen
+            for (int i = 0; i < løbsnavne.Length; i++)
+            {
+                cmd.CommandText = String.Format("Insert into Løbsnavn (Navn) values ('{0}')", løbsnavne[i]);
+                cmd.ExecuteNonQuery();
+            }
+
+            //Indsætter Trænernavne i trænernavne tabellen
+            for (int i = 0; i < trænernavne.Length; i++)
+            {
+                cmd.CommandText = String.Format("Insert into Trænernavn (Navn) values ('{0}')", trænernavne[i]);
+                cmd.ExecuteNonQuery();
+            }
+
+            ////Random som bruges til variablerne/attributterne i Rytter, Sponsor, Løb og Træner tabellerne.
             Random r = new Random();
 
             //Indsætter værdier i Rytter tabellen.
@@ -248,15 +278,53 @@ namespace CyclingManager
                 cmd.CommandText = string.Format("insert into sponsor (Præmie) values ('{0}')", præmie);
                 cmd.ExecuteNonQuery();
             }
+
+            //Indsætter værdierne i Løbs tabellen
+            for (int i = 0; i < løbsnavne.Length; i++)
+            {
+                int etaper = r.Next(1, 5);
+                int kmLængde = 150;
+                string løbstype = "";
+
+                if (i == 0 | i == 2 | i == 4 | i == 5 | i == 8)
+                {
+                    løbstype = "Flad";
+                }
+                else if (i == 1 | i == 3 | i == 6 | i == 7 | i == 9)
+                {
+                    løbstype = "Bjergrig";
+                }
+
+                cmd.CommandText = String.Format("Insert into Løb(Type, Point, Km, Etape) values ('{0}', 'NULL', '{1}', '{2}')", løbstype, kmLængde, etaper);
+                cmd.ExecuteNonQuery();
+            }
+            //Indsætter værdier i Træner tabellen
+            for (int i = 0; i < trænernavne.Length; i++)
+            {
+                int erfaring = r.Next(1, 100);
+                int løn = erfaring + 150;
+                string fokus = "";
+                
+                if (i < 13)
+                {
+                    fokus = "Sprinter";
+                }
+                else
+                {
+                    fokus = "Bjergrytter";
+                }
+
+                cmd.CommandText = String.Format("Insert into Træner(HoldID, Erfaring, Fokus, Løn) values ('NULL', '{0}', '{1}', '{2}')", erfaring, fokus, løn);
+                cmd.ExecuteNonQuery();
+
+            }
+
         }
-
-
-
 
         private void OpenConnection()
         {
 
-            dbConnection = new SQLiteConnection("Data Source="+"saves\\"+dbname+".db;Version=3;");
+            dbConnection = new SQLiteConnection("Data Source=" + "saves\\" + dbname + ".db;Version=3;");
 
             dbConnection = new SQLiteConnection("Data Source=" + dbname + ".db;Version=3;");
 
