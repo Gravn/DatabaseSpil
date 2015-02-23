@@ -62,6 +62,10 @@ namespace CyclingManager
 
             string[] sponsorNavne = System.IO.File.ReadAllLines("SponsorNavne.txt");
 
+            string[] løbsnavne = System.IO.File.ReadAllLines("Løbsnavne.txt");
+
+            string[] trænernavne = System.IO.File.ReadAllLines("Trænernavne.txt");
+
             //Indsætter rytternavne i RytterNavne tabellen
             for (int i = 0; i < rytterNavne.Length; i++)
             {
@@ -127,6 +131,47 @@ namespace CyclingManager
                 //SQLite command for at sætte værdierne ind i sponsor tabellen
                 cmd.CommandText = string.Format("insert into sponsor (Præmie) values ('{0}')", præmie);
                 cmd.ExecuteNonQuery();
+            }
+
+
+            //Indsætter værdierne i Løbs tabellen
+            for (int i = 0; i < løbsnavne.Length; i++)
+            {
+                int etaper = r.Next(1, 5);
+                int kmLængde = 150;
+                string løbstype = "";
+
+                if (i == 0 | i == 2 | i == 4 | i == 5 | i == 8)
+                {
+                    løbstype = "Flad";
+                }
+                else if (i == 1 | i == 3 | i == 6 | i == 7 | i == 9)
+                {
+                    løbstype = "Bjergrig";
+                }
+
+                cmd.CommandText = String.Format("Insert into Løb(Type, Point, Km, Etape) values ('{0}', 'NULL', '{1}', '{2}')", løbstype, kmLængde, etaper);
+                cmd.ExecuteNonQuery();
+            }
+            //Indsætter værdier i Træner tabellen
+            for (int i = 0; i < trænernavne.Length; i++)
+            {
+                int erfaring = r.Next(1, 100);
+                int løn = erfaring + 150;
+                string fokus = "";
+
+                if (i < 13)
+                {
+                    fokus = "Sprinter";
+                }
+                else
+                {
+                    fokus = "Bjergrytter";
+                }
+
+                cmd.CommandText = String.Format("Insert into Træner(HoldID, Erfaring, Fokus, Løn) values ('NULL', '{0}', '{1}', '{2}')", erfaring, fokus, løn);
+                cmd.ExecuteNonQuery();
+
             }
 
             //Opret spillerhold:
