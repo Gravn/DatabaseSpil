@@ -214,45 +214,66 @@ namespace CyclingManager
                 input = "0";
             }
 
-            string cmdString;
+            int i = 0;
+            int i1 = 0;
+            bool inputisInt = Int32.TryParse(input, out i);
+            bool input1isInt = Int32.TryParse(input1, out i1);
 
-            if (comboBoxKøbTræner5.Visible == true)
+            string secondString;
+
+            if (comboBoxKøbTræner5.Visible)
             {
-                input = comboBoxKøbTræner5.SelectedItem.ToString()+" '%" + input + "%'";
+                    input = comboBoxKøbTræner5.SelectedItem.ToString() + " '%" + input + "%'";
             }
             else
             {
-                input = comboBoxKøbTræner2.SelectedItem.ToString()+" "+input + " order by " + comboBoxKøbTræner1.SelectedItem.ToString() + " desc"; 
-            }
+                if (inputisInt)
+                {
+                    input = i.ToString();
+                    input = comboBoxKøbTræner2.SelectedItem.ToString() + " " + input;
+                }
+                else
+                {
+                    //Input type must be int.
 
-            
+                    return;
+                }
+            }
 
             if (checkBoxKøbTræner1.Checked)
             {
-                if (comboBoxKøbTræner6.Visible == true)
+                if (comboBoxKøbTræner6.Visible)
                 {
                     input1 = comboBoxKøbTræner6.SelectedItem.ToString()+" '%" + input1 + "%'";
                 }
                 else
                 {
-                    input1 = comboBoxKøbTræner4.SelectedItem.ToString()+" "+input1 + " order by " + comboBoxKøbTræner3.SelectedItem.ToString() + " desc";
-                }
+                    if (inputisInt)
+                    {
+                        input1 = i1.ToString();
+                        input1 = comboBoxKøbTræner4.SelectedItem.ToString() + " " + input1 + " order by " + comboBoxKøbTræner1.SelectedItem.ToString() + " desc";
+                    }
+                    else
+                    {
+                        //Input type must be int.
 
-                cmdString = String.Format(" AND {0} {1}", comboBoxKøbTræner3.SelectedItem.ToString(),input1);
+                        return;
+                    }
+                }
+                secondString = String.Format(" AND {0} {1}", comboBoxKøbTræner3.SelectedItem.ToString(),input1);
             }
             else
             {
-                cmdString = "";
+                secondString = " order by " + comboBoxKøbTræner1.SelectedItem.ToString() + " desc";
             }
                 
-            cmd.CommandText =String.Format("Select * from Træner where {0} {1}{2}", comboBoxKøbTræner1.SelectedItem.ToString(),input,cmdString);
+            cmd.CommandText =String.Format("Select * from Træner where {0} {1}{2}", comboBoxKøbTræner1.SelectedItem.ToString(),input,secondString);
 
             SQLiteDataAdapter c = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
             DataTable træner = new DataTable();
             c.Fill(træner);
 
             dataGridTræner.DataSource = træner;
-
         }
 
         private void comboBoxKøbTræner1_SelectedIndexChanged(object sender, EventArgs e)
@@ -261,7 +282,6 @@ namespace CyclingManager
             {
                 comboBoxKøbTræner5.Visible = true;
                 comboBoxKøbTræner2.Visible = false;
-
             }
             else
             {
@@ -276,7 +296,6 @@ namespace CyclingManager
             {
                 comboBoxKøbTræner6.Visible = true;
                 comboBoxKøbTræner4.Visible = false;
-
             }
             else
             {
