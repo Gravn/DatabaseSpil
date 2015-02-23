@@ -37,9 +37,9 @@ namespace CyclingManager
             dataGridView1.Enabled = false;
             dataGridView1.Visible = false;
 
-            
+
             AddtoLoadList();
-            
+
         }
 
         private void AddtoLoadList()
@@ -50,7 +50,7 @@ namespace CyclingManager
             {
                 string[] splitS = s.Split('\\', '.');
 
-                if(LoadList.Items.Contains(splitS[1])==false)
+                if (LoadList.Items.Contains(splitS[1]) == false)
                 {
                     LoadList.Items.Add(splitS[1]);
                 }
@@ -89,7 +89,7 @@ namespace CyclingManager
 
             tabControl.Enabled = !tabControl.Enabled;
             tabControl.Visible = !tabControl.Visible;
-            
+
         }
 
         private void LoadGame_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace CyclingManager
 
             //Load specific Database
             OpenConnection();
-            
+
             ToggleUI();
             fillDataGridViews();
         }
@@ -176,11 +176,17 @@ namespace CyclingManager
             SQLiteDataAdapter b = new SQLiteDataAdapter("SELECT * FROM Hold", dbConnection);
             DataTable division = new DataTable();
             b.Fill(division);
-            
+
+            SQLiteDataAdapter c = new SQLiteDataAdapter("SELECT * FROM Træner", dbConnection);
+            DataTable træner = new DataTable();
+            c.Fill(træner);
+
 
             dataGridView1.DataSource = ryttere;
 
             dataGridView2.DataSource = division;
+
+            dataGridTræner.DataSource = træner;
         }
 
         private void DeleteSave_Click(object sender, EventArgs e)
@@ -193,6 +199,85 @@ namespace CyclingManager
                     System.IO.File.Delete(saves[i]);
                     LoadList.Items.Remove(deleteTextBox.Text);
                 }
+            }
+        }
+
+
+        private void buttonSøgTræner_Click(object sender, EventArgs e)
+        {
+            string input1 = textBoxKøbTræner2.Text;
+            string input = textBoxKøbTræner1.Text;
+            cmd.Connection = dbConnection;
+
+            if (input == "")
+            {
+                input = "0";
+            }
+
+            if(comboBoxKøbTræner5.Visible == true)
+            {
+                cmd.CommandText = String.Format("Select * from Træner where {0} {1} '%{2}%'", comboBoxKøbTræner1.SelectedItem.ToString(), comboBoxKøbTræner5.SelectedItem.ToString(), input);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                cmd.CommandText = String.Format("Select * from Træner where {0} {1} {2} order by {0} desc", comboBoxKøbTræner1.SelectedItem.ToString(), comboBoxKøbTræner2.SelectedItem.ToString(), input);
+                cmd.ExecuteNonQuery();
+            }
+           
+
+            if (checkBoxKøbTræner1.Checked)
+            {
+                if (comboBoxKøbTræner6.Visible == true)
+                {
+                    cmd.CommandText = String.Format("Select * form Træner where {0} {1} '{2}' order by {0} desc", comboBoxKøbTræner3.SelectedItem.ToString(), comboBoxKøbTræner6.SelectedItem.ToString(), input1);
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    cmd.CommandText = String.Format("Select * from Træner where {0} {1} {2} order by {0} desc", comboBoxKøbTræner3.SelectedItem.ToString(), comboBoxKøbTræner4.SelectedItem.ToString(), input1);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                SQLiteDataAdapter c = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
+                DataTable træner = new DataTable();
+                c.Fill(træner);
+
+                dataGridTræner.DataSource = træner;
+
+            }
+
+        }
+
+        private void comboBoxKøbTræner1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKøbTræner1.SelectedItem.ToString() == "Navn" || comboBoxKøbTræner1.SelectedItem.ToString() == "Fokus")
+            {
+                comboBoxKøbTræner5.Visible = true;
+                comboBoxKøbTræner2.Visible = false;
+
+            }
+            else
+            {
+                comboBoxKøbTræner5.Visible = false;
+                comboBoxKøbTræner2.Visible = true; 
+            }
+        }
+
+        private void comboBoxKøbTræner3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKøbTræner3.SelectedItem.ToString() == "Navn" || comboBoxKøbTræner3.SelectedItem.ToString() == "Fokus")
+            {
+                comboBoxKøbTræner6.Visible = true;
+                comboBoxKøbTræner4.Visible = false;
+
+            }
+            else
+            {
+                comboBoxKøbTræner6.Visible = false;
+                comboBoxKøbTræner4.Visible = true;
             }
         }
     }
