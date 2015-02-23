@@ -10,8 +10,6 @@ namespace CyclingManager
     class Generate
     {
         public static SQLiteCommand cmd = new SQLiteCommand();
-        
-        
 
         public static void DataTables()
         {
