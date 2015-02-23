@@ -181,12 +181,20 @@ namespace CyclingManager
             DataTable træner = new DataTable();
             c.Fill(træner);
 
+            SQLiteDataAdapter d = new SQLiteDataAdapter("SELECT * FROM Rytter", dbConnection);
+            DataTable købRytter = new DataTable();
+            d.Fill(købRytter);
+
+            
+
 
             dataGridView1.DataSource = ryttere;
 
             dataGridView2.DataSource = division;
 
             dataGridTræner.DataSource = træner;
+
+            dataGridRytter.DataSource = købRytter;
         }
 
         private void DeleteSave_Click(object sender, EventArgs e)
@@ -202,17 +210,23 @@ namespace CyclingManager
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSøgTræner_Click(object sender, EventArgs e)
         {
-            string input1 = textBoxKøbTræner2.Text;
+            
             string input = textBoxKøbTræner1.Text;
+            string input1 = textBoxKøbTræner2.Text;
             cmd.Connection = dbConnection;
 
             if (input == "")
             {
                 input = "0";
             }
+
 
             int i = 0;
             int i1 = 0;
@@ -276,6 +290,84 @@ namespace CyclingManager
             dataGridTræner.DataSource = træner;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSøgRytter_Click(object sender, EventArgs e)
+        {
+            string input = textBoxKøbRytter1.Text;
+            string input1 = textBoxKøbRytter2.Text;
+            cmd.Connection = dbConnection;
+
+            if (input == "")
+            {
+                input = "0";
+            }
+
+            int i = 0;
+            int i1 = 0;
+            bool inputisInt = Int32.TryParse(input, out i);
+            bool input1isInt = Int32.TryParse(input1, out i1);
+
+            string secondString;
+
+            if (comboBoxKøbRytter3.Visible)
+            {
+                input = comboBoxKøbRytter3.SelectedItem.ToString() + " '%" + input + "%'";
+            }
+            else
+            {
+                if (inputisInt)
+                {
+                    input = i.ToString();
+                    input = comboBoxKøbRytter2.SelectedItem.ToString() + " " + input;
+                }
+                else
+                {
+                    //Input type must be int.
+
+                    return;
+                }
+            }
+
+            if (checkBoxKøbRytter1.Checked)
+            {
+                if (comboBoxKøbRytter6.Visible)
+                {
+                    input1 = comboBoxKøbRytter6.SelectedItem.ToString() + " '%" + input1 + "%'";
+                }
+                else
+                {
+                    if (inputisInt)
+                    {
+                        input1 = i1.ToString();
+                        input1 = comboBoxKøbRytter3.SelectedItem.ToString() + " " + input1 + " order by " + comboBoxKøbRytter1.SelectedItem.ToString() + " desc";
+                    }
+                    else
+                    {
+                        //Input type must be int.
+
+                        return;
+                    }
+                }
+                secondString = String.Format(" AND {0} {1}", comboBoxKøbRytter4.SelectedItem.ToString(), input1);
+            }
+            else
+            {
+                secondString = " order by " + comboBoxKøbRytter1.SelectedItem.ToString() + " desc";
+            }
+
+            cmd.CommandText = String.Format("Select * from Rytter where {0} {1}{2}", comboBoxKøbRytter1.SelectedItem.ToString(), input, secondString);
+
+            SQLiteDataAdapter d = new SQLiteDataAdapter("SELECT * FROM Rytter", dbConnection);
+            DataTable købRytter = new DataTable();
+            d.Fill(købRytter);
+
+            dataGridRytter.DataSource = købRytter;
+        }
+
         private void comboBoxKøbTræner1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxKøbTræner1.SelectedItem.ToString() == "Navn" || comboBoxKøbTræner1.SelectedItem.ToString() == "Fokus")
@@ -301,6 +393,34 @@ namespace CyclingManager
             {
                 comboBoxKøbTræner6.Visible = false;
                 comboBoxKøbTræner4.Visible = true;
+            }
+        }
+
+        private void comboBoxKøbRytter1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxKøbRytter1.SelectedItem.ToString() == "Navn")
+            {
+                comboBoxKøbRytter3.Visible = true;
+                comboBoxKøbRytter2.Visible = false;
+            }
+            else
+            {
+                comboBoxKøbRytter3.Visible = false;
+                comboBoxKøbRytter2.Visible = true;
+            }
+        }
+
+        private void comboBoxKøbRytter4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKøbRytter4.SelectedItem.ToString() == "Navn")
+            {
+                comboBoxKøbRytter6.Visible = true;
+                comboBoxKøbRytter5.Visible = false;
+            }
+            else
+            {
+                comboBoxKøbRytter6.Visible = false;
+                comboBoxKøbRytter5.Visible = true;
             }
         }
     }

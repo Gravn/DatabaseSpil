@@ -65,6 +65,17 @@
             this.dataGridTræner = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.comboBoxKøbRytter1 = new System.Windows.Forms.ComboBox();
+            this.textBoxKøbRytter1 = new System.Windows.Forms.TextBox();
+            this.comboBoxKøbRytter2 = new System.Windows.Forms.ComboBox();
+            this.checkBoxKøbRytter1 = new System.Windows.Forms.CheckBox();
+            this.comboBoxKøbRytter3 = new System.Windows.Forms.ComboBox();
+            this.textBoxKøbRytter2 = new System.Windows.Forms.TextBox();
+            this.buttonSøgRytter = new System.Windows.Forms.Button();
+            this.comboBoxKøbRytter4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxKøbRytter5 = new System.Windows.Forms.ComboBox();
+            this.comboBoxKøbRytter6 = new System.Windows.Forms.ComboBox();
+            this.dataGridRytter = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -72,8 +83,10 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTræner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRytter)).BeginInit();
             this.SuspendLayout();
             // 
             // NewGame
@@ -306,6 +319,17 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.dataGridRytter);
+            this.tabPage5.Controls.Add(this.textBoxKøbRytter2);
+            this.tabPage5.Controls.Add(this.buttonSøgRytter);
+            this.tabPage5.Controls.Add(this.comboBoxKøbRytter4);
+            this.tabPage5.Controls.Add(this.checkBoxKøbRytter1);
+            this.tabPage5.Controls.Add(this.comboBoxKøbRytter1);
+            this.tabPage5.Controls.Add(this.textBoxKøbRytter1);
+            this.tabPage5.Controls.Add(this.comboBoxKøbRytter3);
+            this.tabPage5.Controls.Add(this.comboBoxKøbRytter2);
+            this.tabPage5.Controls.Add(this.comboBoxKøbRytter6);
+            this.tabPage5.Controls.Add(this.comboBoxKøbRytter5);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
@@ -328,17 +352,17 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.comboBoxKøbTræner6);
-            this.tabPage7.Controls.Add(this.comboBoxKøbTræner5);
+            this.tabPage7.Controls.Add(this.comboBoxKøbTræner2);
             this.tabPage7.Controls.Add(this.textBoxKøbTræner2);
-            this.tabPage7.Controls.Add(this.comboBoxKøbTræner4);
             this.tabPage7.Controls.Add(this.checkBoxKøbTræner1);
             this.tabPage7.Controls.Add(this.buttonSøgTræner);
             this.tabPage7.Controls.Add(this.textBoxKøbTræner1);
-            this.tabPage7.Controls.Add(this.comboBoxKøbTræner2);
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner3);
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner1);
             this.tabPage7.Controls.Add(this.dataGridTræner);
+            this.tabPage7.Controls.Add(this.comboBoxKøbTræner6);
+            this.tabPage7.Controls.Add(this.comboBoxKøbTræner4);
+            this.tabPage7.Controls.Add(this.comboBoxKøbTræner5);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
@@ -363,7 +387,7 @@
             // 
             this.comboBoxKøbTræner5.FormattingEnabled = true;
             this.comboBoxKøbTræner5.Items.AddRange(new object[] {
-            "LIKE",
+            "LIKE ",
             "NOT LIKE"});
             this.comboBoxKøbTræner5.Location = new System.Drawing.Point(43, 117);
             this.comboBoxKøbTræner5.Name = "comboBoxKøbTræner5";
@@ -416,7 +440,7 @@
             // 
             // textBoxKøbTræner1
             // 
-            this.textBoxKøbTræner1.Location = new System.Drawing.Point(43, 165);
+            this.textBoxKøbTræner1.Location = new System.Drawing.Point(43, 161);
             this.textBoxKøbTræner1.Name = "textBoxKøbTræner1";
             this.textBoxKøbTræner1.Size = new System.Drawing.Size(111, 22);
             this.textBoxKøbTræner1.TabIndex = 4;
@@ -486,6 +510,135 @@
             this.tabPage8.Text = "Sælg Træner";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // comboBoxKøbRytter1
+            // 
+            this.comboBoxKøbRytter1.FormattingEnabled = true;
+            this.comboBoxKøbRytter1.Items.AddRange(new object[] {
+            "ID",
+            "Navn",
+            "Alder",
+            "Overblik",
+            "Støtte",
+            "Løn"});
+            this.comboBoxKøbRytter1.Location = new System.Drawing.Point(43, 73);
+            this.comboBoxKøbRytter1.Name = "comboBoxKøbRytter1";
+            this.comboBoxKøbRytter1.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbRytter1.TabIndex = 12;
+            this.comboBoxKøbRytter1.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter1_SelectedIndexChanged);
+            // 
+            // textBoxKøbRytter1
+            // 
+            this.textBoxKøbRytter1.Location = new System.Drawing.Point(43, 161);
+            this.textBoxKøbRytter1.Name = "textBoxKøbRytter1";
+            this.textBoxKøbRytter1.Size = new System.Drawing.Size(111, 22);
+            this.textBoxKøbRytter1.TabIndex = 11;
+            // 
+            // comboBoxKøbRytter2
+            // 
+            this.comboBoxKøbRytter2.FormattingEnabled = true;
+            this.comboBoxKøbRytter2.Items.AddRange(new object[] {
+            ">",
+            "<",
+            "=",
+            ">=",
+            "<="});
+            this.comboBoxKøbRytter2.Location = new System.Drawing.Point(43, 117);
+            this.comboBoxKøbRytter2.Name = "comboBoxKøbRytter2";
+            this.comboBoxKøbRytter2.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbRytter2.TabIndex = 10;
+            // 
+            // checkBoxKøbRytter1
+            // 
+            this.checkBoxKøbRytter1.AutoSize = true;
+            this.checkBoxKøbRytter1.Location = new System.Drawing.Point(43, 295);
+            this.checkBoxKøbRytter1.Name = "checkBoxKøbRytter1";
+            this.checkBoxKøbRytter1.Size = new System.Drawing.Size(111, 21);
+            this.checkBoxKøbRytter1.TabIndex = 13;
+            this.checkBoxKøbRytter1.Text = "2. parameter";
+            this.checkBoxKøbRytter1.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxKøbRytter3
+            // 
+            this.comboBoxKøbRytter3.FormattingEnabled = true;
+            this.comboBoxKøbRytter3.Items.AddRange(new object[] {
+            "LIKE",
+            "NOT LIKE"});
+            this.comboBoxKøbRytter3.Location = new System.Drawing.Point(43, 117);
+            this.comboBoxKøbRytter3.Name = "comboBoxKøbRytter3";
+            this.comboBoxKøbRytter3.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbRytter3.TabIndex = 17;
+            this.comboBoxKøbRytter3.Visible = false;
+            // 
+            // textBoxKøbRytter2
+            // 
+            this.textBoxKøbRytter2.Location = new System.Drawing.Point(43, 427);
+            this.textBoxKøbRytter2.Name = "textBoxKøbRytter2";
+            this.textBoxKøbRytter2.Size = new System.Drawing.Size(111, 22);
+            this.textBoxKøbRytter2.TabIndex = 16;
+            // 
+            // buttonSøgRytter
+            // 
+            this.buttonSøgRytter.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonSøgRytter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSøgRytter.Location = new System.Drawing.Point(43, 478);
+            this.buttonSøgRytter.Name = "buttonSøgRytter";
+            this.buttonSøgRytter.Size = new System.Drawing.Size(111, 33);
+            this.buttonSøgRytter.TabIndex = 15;
+            this.buttonSøgRytter.Text = "Søg";
+            this.buttonSøgRytter.UseVisualStyleBackColor = false;
+            this.buttonSøgRytter.Click += new System.EventHandler(this.buttonSøgRytter_Click);
+            // 
+            // comboBoxKøbRytter4
+            // 
+            this.comboBoxKøbRytter4.FormattingEnabled = true;
+            this.comboBoxKøbRytter4.Items.AddRange(new object[] {
+            "ID",
+            "Navn",
+            "Alder",
+            "Overblik",
+            "Støtte",
+            "Løn"});
+            this.comboBoxKøbRytter4.Location = new System.Drawing.Point(43, 335);
+            this.comboBoxKøbRytter4.Name = "comboBoxKøbRytter4";
+            this.comboBoxKøbRytter4.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbRytter4.TabIndex = 14;
+            this.comboBoxKøbRytter4.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter4_SelectedIndexChanged);
+            // 
+            // comboBoxKøbRytter5
+            // 
+            this.comboBoxKøbRytter5.FormattingEnabled = true;
+            this.comboBoxKøbRytter5.Items.AddRange(new object[] {
+            ">",
+            "<",
+            "=",
+            ">=",
+            "<="});
+            this.comboBoxKøbRytter5.Location = new System.Drawing.Point(43, 381);
+            this.comboBoxKøbRytter5.Name = "comboBoxKøbRytter5";
+            this.comboBoxKøbRytter5.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbRytter5.TabIndex = 18;
+            // 
+            // comboBoxKøbRytter6
+            // 
+            this.comboBoxKøbRytter6.FormattingEnabled = true;
+            this.comboBoxKøbRytter6.Items.AddRange(new object[] {
+            "LIKE",
+            "NOT LIKE"});
+            this.comboBoxKøbRytter6.Location = new System.Drawing.Point(43, 381);
+            this.comboBoxKøbRytter6.Name = "comboBoxKøbRytter6";
+            this.comboBoxKøbRytter6.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbRytter6.TabIndex = 19;
+            this.comboBoxKøbRytter6.Visible = false;
+            // 
+            // dataGridRytter
+            // 
+            this.dataGridRytter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRytter.Location = new System.Drawing.Point(292, 3);
+            this.dataGridRytter.Name = "dataGridRytter";
+            this.dataGridRytter.RowTemplate.Height = 24;
+            this.dataGridRytter.Size = new System.Drawing.Size(721, 577);
+            this.dataGridRytter.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -517,9 +670,12 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTræner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRytter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,6 +720,17 @@
         private System.Windows.Forms.TextBox textBoxKøbTræner2;
         private System.Windows.Forms.ComboBox comboBoxKøbTræner5;
         private System.Windows.Forms.ComboBox comboBoxKøbTræner6;
+        private System.Windows.Forms.DataGridView dataGridRytter;
+        private System.Windows.Forms.TextBox textBoxKøbRytter2;
+        private System.Windows.Forms.Button buttonSøgRytter;
+        private System.Windows.Forms.ComboBox comboBoxKøbRytter4;
+        private System.Windows.Forms.CheckBox checkBoxKøbRytter1;
+        private System.Windows.Forms.ComboBox comboBoxKøbRytter1;
+        private System.Windows.Forms.TextBox textBoxKøbRytter1;
+        private System.Windows.Forms.ComboBox comboBoxKøbRytter6;
+        private System.Windows.Forms.ComboBox comboBoxKøbRytter5;
+        private System.Windows.Forms.ComboBox comboBoxKøbRytter3;
+        private System.Windows.Forms.ComboBox comboBoxKøbRytter2;
     }
 }
 
