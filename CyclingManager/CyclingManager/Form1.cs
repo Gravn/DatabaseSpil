@@ -214,40 +214,44 @@ namespace CyclingManager
                 input = "0";
             }
 
-            if(comboBoxKøbTræner5.Visible == true)
+            string cmdString;
+
+            if (comboBoxKøbTræner5.Visible == true)
             {
-                cmd.CommandText = String.Format("Select * from Træner where {0} {1} '%{2}%'", comboBoxKøbTræner1.SelectedItem.ToString(), comboBoxKøbTræner5.SelectedItem.ToString(), input);
-                cmd.ExecuteNonQuery();
+                input = comboBoxKøbTræner5.SelectedItem.ToString()+" '%" + input + "%'";
             }
             else
             {
-                cmd.CommandText = String.Format("Select * from Træner where {0} {1} {2} order by {0} desc", comboBoxKøbTræner1.SelectedItem.ToString(), comboBoxKøbTræner2.SelectedItem.ToString(), input);
-                cmd.ExecuteNonQuery();
+                input = comboBoxKøbTræner2.SelectedItem.ToString()+" "+input + " order by " + comboBoxKøbTræner1.SelectedItem.ToString() + " desc"; 
             }
-           
+
+            
 
             if (checkBoxKøbTræner1.Checked)
             {
                 if (comboBoxKøbTræner6.Visible == true)
                 {
-                    cmd.CommandText = String.Format("Select * form Træner where {0} {1} '{2}' order by {0} desc", comboBoxKøbTræner3.SelectedItem.ToString(), comboBoxKøbTræner6.SelectedItem.ToString(), input1);
-                    cmd.ExecuteNonQuery();
+                    input1 = comboBoxKøbTræner6.SelectedItem.ToString()+" '%" + input1 + "%'";
                 }
                 else
                 {
-                    cmd.CommandText = String.Format("Select * from Træner where {0} {1} {2} order by {0} desc", comboBoxKøbTræner3.SelectedItem.ToString(), comboBoxKøbTræner4.SelectedItem.ToString(), input1);
-                    cmd.ExecuteNonQuery();
+                    input1 = comboBoxKøbTræner4.SelectedItem.ToString()+" "+input1 + " order by " + comboBoxKøbTræner3.SelectedItem.ToString() + " desc";
                 }
+
+                cmdString = String.Format(" AND {0} {1}", comboBoxKøbTræner3.SelectedItem.ToString(),input1);
             }
             else
             {
-                SQLiteDataAdapter c = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
-                DataTable træner = new DataTable();
-                c.Fill(træner);
-
-                dataGridTræner.DataSource = træner;
-
+                cmdString = "";
             }
+                
+            cmd.CommandText =String.Format("Select * from Træner where {0} {1}{2}", comboBoxKøbTræner1.SelectedItem.ToString(),input,cmdString);
+
+            SQLiteDataAdapter c = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
+            DataTable træner = new DataTable();
+            c.Fill(træner);
+
+            dataGridTræner.DataSource = træner;
 
         }
 
