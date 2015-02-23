@@ -25,3 +25,12 @@ C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\obj\De
 C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\obj\Debug\CyclingManager.pdb
 C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\bin\Debug\CyclingManager.exe
 C:\Users\Jon\Desktop\Cycling Manager\Github\CyclingManager\CyclingManager\bin\Debug\CyclingManager.pdb
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.exe.config
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.exe
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\bin\Debug\CyclingManager.pdb
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csprojResolveAssemblyReference.cache
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Form1.resources
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.Properties.Resources.resources
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.csproj.GenerateResource.Cache
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.exe
+C:\Users\Comrade\Github\databaseSpil\CyclingManager\CyclingManager\obj\Debug\CyclingManager.pdb

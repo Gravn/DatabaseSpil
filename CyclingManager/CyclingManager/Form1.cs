@@ -13,13 +13,17 @@ namespace CyclingManager
 {
     public partial class Form1 : Form
     {
-        private Graphics dc;
-        private GameWorld gW;
-        public static string dbname = "test";
+        //string to send to sqlite as command
+        public static string dbname;
 
-        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        //databases saved in /saves.
+        public static string[] saves;
 
-        public SQLiteConnection dbConnection;
+        //current location path
+        string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+        public static SQLiteConnection dbConnection;
+        SQLiteCommand cmd = new SQLiteCommand();
 
         public Form1()
         {
@@ -28,27 +32,29 @@ namespace CyclingManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dc = CreateGraphics();
-            gW = new GameWorld(dc, DisplayRectangle);
-
             MenuBtn.Visible = false;
             MenuBtn.Enabled = false;
+            dataGridView1.Enabled = false;
+            dataGridView1.Visible = false;
 
-            LoadList.Items.Add("hello.db");
-
-            string[] saves = System.IO.Directory.GetFiles(@"saves", ".db");
-
-            foreach (string s in saves)
-            {
-                LoadList.Items.Add(s);
-            }
-
-            //LoadList.Items.Add("hej");
+            
+            AddtoLoadList();
+            
         }
 
-        private void ticker_Tick_1(object sender, EventArgs e)
+        private void AddtoLoadList()
         {
-            gW.GameLoop();
+            //Checks for .db files and adds the names onto the dropdown load list.
+            saves = System.IO.Directory.GetFiles(@"saves\", "*.db");
+            foreach (string s in saves)
+            {
+                string[] splitS = s.Split('\\', '.');
+
+                if(LoadList.Items.Contains(splitS[1])==false)
+                {
+                    LoadList.Items.Add(splitS[1]);
+                }
+            }
         }
 
         private void ToggleUI()
@@ -77,272 +83,117 @@ namespace CyclingManager
 
             MenuBtn.Enabled = !LoadGame.Enabled;
             MenuBtn.Visible = !LoadGame.Enabled;
+
+            dataGridView1.Enabled = !dataGridView1.Enabled;
+            dataGridView1.Visible = !dataGridView1.Visible;
+
+            tabControl.Enabled = !tabControl.Enabled;
+            tabControl.Visible = !tabControl.Visible;
+            
         }
 
         private void LoadGame_Click(object sender, EventArgs e)
         {
+            if (LoadList.SelectedItem != null)
+            {
+                if (LoadList.SelectedItem.ToString() != "")
+                {
+                    dbname = LoadList.SelectedItem.ToString();
+                }
+            }
+            else
+            {
+                return;
+                //tell user why load cancels.
+
+            }
+
             //Load specific Database
+            OpenConnection();
+            
             ToggleUI();
+            fillDataGridViews();
         }
 
         private void NewGame_Click(object sender, EventArgs e)
         {
+            if (saves != null)
+            {
+
+                for (int i = 0; i < saves.Length; i++)
+                {
+                    if ("saves\\" + dbname + ".db" == saves[i])
+                    {
+                        Exists.Visible = true;
+                        return;
+                    }
+                }
+            }
+
             ToggleUI();
 
-            //Create new database
-
-            SQLiteConnection.CreateFile(@"saves\" + dbname + ".db");
-
-            SQLiteConnection.CreateFile("Data Source=" + dbname + ".db;version=3;");
-
-
-            OpenConnection();
-
-            ////Laver en command til at bruge insert, delete, update og create. 
-            SQLiteCommand cmd = new SQLiteCommand();
-            cmd.Connection = dbConnection;
-
-            cmd.CommandText = "Create table Hold(ID integer primary key, LøbID integer, Point integer, Division integer, Budget integer, Score integer, Foreign Key (LøbID) references Løb(ID))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Holdnavn(ID integer primary key, Navn varchar(40))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Løb(ID integer primary key, Type text, Point integer, Km integer, Etape integer)";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Løbsnavn(ID integer primary key, Navn text)";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Rytter(ID integer primary key, HoldID integer, Alder integer, Løn integer, Udholdenhed integer, Styrke integer, Type integer, Støtte integer, Overblik integer, Talent integer, Foreign Key (HoldID) references Hold(ID))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Rytternavn(ID integer primary key, Navn varchar(40))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Sponsor(ID integer primary key, HoldID integer, Præmie integer, Foreign Key (HoldID) references Hold(ID))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "create table SponsorNavne(ID integer primary key, Navn varchar(40))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Transfer(ID integer primary key, HoldID integer, RytterID integer, Bud integer, Auktionspris integer, Tid real, Foreign Key (HoldID) references Hold(ID), Foreign Key (RytterID) references Rytter(ID))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Træner(ID integer primary key, HoldID integer, Erfaring integer, Fokus integer, Løn integer, Foreign Key (HoldID) references Hold(ID))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Trænernavn(ID integer primary key, Navn varchar(40))";
-            cmd.ExecuteNonQuery();
-
-
-
-
-            //Bruges til Rytter og Rytternavne
-            string directoryRytter = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string[] rytterNavne = System.IO.File.ReadAllLines(directoryRytter + @"\RytterNavn.txt");
-
-            //Bruges til Holdnavne
-            string directoryHold = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string[] holdNavne = System.IO.File.ReadAllLines(directoryHold + @"\Holdnavn.txt");
-
-            //Bruges til Sponsor og Sponsornavne
-            string secondDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string[] sponsorNavne = System.IO.File.ReadAllLines(secondDirectory + @"\SponsorNavne.txt");
-
-            //Bruges til at finde tekstfilen "løbsnavne"
-            string directoryLøb = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string[] løbsnavne = System.IO.File.ReadAllLines(directoryLøb + @"\Løbsnavne.txt");
-
-            //Bruges til at finde tekstfilen "Trænernavne"
-            string directoryTræner = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string[] trænernavne = System.IO.File.ReadAllLines(directoryTræner + @"\Trænernavne.txt");
-
-            //Indsætter rytternavne i RytterNavne tabellen
-            for (int i = 0; i < rytterNavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into Rytternavn (Navn) values ('{0}')", rytterNavne[i]);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter holdnavne i Holdnavne tabellen
-            for (int i = 0; i < holdNavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into Holdnavn (Navn) values ('{0}')", holdNavne[i]);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter Sponsornavne i sponsorNavne tabellen
-            for (int i = 0; i < sponsorNavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into SponsorNavne (Navn) values ('{0}')", sponsorNavne[i]);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter Løbsnavne i løbsnavn tabellen
-            for (int i = 0; i < løbsnavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into Løbsnavn (Navn) values ('{0}')", løbsnavne[i]);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter Trænernavne i trænernavne tabellen
-            for (int i = 0; i < trænernavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into Trænernavn (Navn) values ('{0}')", trænernavne[i]);
-                cmd.ExecuteNonQuery();
-            }
-
-            ////Random som bruges til variablerne/attributterne i Rytter, Sponsor, Løb og Træner tabellerne.
-            Random r = new Random();
-
-            //Indsætter værdier i Rytter tabellen.
-            for (int i = 0; i < rytterNavne.Length; i++)
-            {
-                //Variabler for alle attributterne i Rytter tabellen. 
-                int alder = r.Next(17, 34);
-                int udholdenhed = r.Next(0, 100);
-                int styrke = r.Next(0, 100);
-                int type = 1;
-                int overblik = 0;
-                int støtte = 0;
-                int holdID = 0;
-                int talent = r.Next(0, 100);
-                int løn = alder + udholdenhed + styrke + 2 * talent;
-
-                if (udholdenhed > styrke)
-                {
-                    type = 0;
-                    støtte = r.Next(0, 100);
-                }
-                else
-                {
-                    overblik = r.Next(0, 100);
-                    type = 1;
-                }
-
-                //Fordeler rytterene på 10 hold, med ti ryttere på hver hold.
-                if (i < 10)
-                {
-                    holdID = 1;
-                }
-                else if (i < 20)
-                {
-                    holdID = 2;
-                }
-                else if (i < 30)
-                {
-                    holdID = 3;
-                }
-                else if (i < 40)
-                {
-                    holdID = 4;
-                }
-                else if (i < 50)
-                {
-                    holdID = 5;
-                }
-                else if (i < 60)
-                {
-                    holdID = 6;
-                }
-                else if (i < 70)
-                {
-                    holdID = 7;
-                }
-                else if (i < 80)
-                {
-                    holdID = 8;
-                }
-                else if (i < 90)
-                {
-                    holdID = 9;
-                }
-                else
-                {
-                    holdID = 10;
-                }
-
-                //SQLite command for at sætte værdierne ind i rytter tabellen.
-                cmd.CommandText = String.Format("Insert into Rytter (HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter værdierne i Sponsor tabellen
-            for (int i = 0; i < sponsorNavne.Length; i++)
-            {
-                //Variable til at genere præmie attributten i sponsor tabellen
-                int præmie = r.Next(2500, 10000);
-
-                //SQLite command for at sætte værdierne ind i sponsor tabellen
-                cmd.CommandText = string.Format("insert into sponsor (Præmie) values ('{0}')", præmie);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter værdierne i Løbs tabellen
-            for (int i = 0; i < løbsnavne.Length; i++)
-            {
-                int etaper = r.Next(1, 5);
-                int kmLængde = 150;
-                string løbstype = "";
-
-                if (i == 0 | i == 2 | i == 4 | i == 5 | i == 8)
-                {
-                    løbstype = "Flad";
-                }
-                else if (i == 1 | i == 3 | i == 6 | i == 7 | i == 9)
-                {
-                    løbstype = "Bjergrig";
-                }
-
-                cmd.CommandText = String.Format("Insert into Løb(Type, Point, Km, Etape) values ('{0}', 'NULL', '{1}', '{2}')", løbstype, kmLængde, etaper);
-                cmd.ExecuteNonQuery();
-            }
-            //Indsætter værdier i Træner tabellen
-            for (int i = 0; i < trænernavne.Length; i++)
-            {
-                int erfaring = r.Next(1, 100);
-                int løn = erfaring + 150;
-                string fokus = "";
-                
-                if (i < 13)
-                {
-                    fokus = "Sprinter";
-                }
-                else
-                {
-                    fokus = "Bjergrytter";
-                }
-
-                cmd.CommandText = String.Format("Insert into Træner(HoldID, Erfaring, Fokus, Løn) values ('NULL', '{0}', '{1}', '{2}')", erfaring, fokus, løn);
-                cmd.ExecuteNonQuery();
-
-            }
-
+            Generate.DataTables();
+            AddtoLoadList();
+            fillDataGridViews();
         }
+
 
         private void OpenConnection()
         {
+            //specifies database name via dbname
+            Form1.dbConnection = new SQLiteConnection("Data Source=" + @"saves\" + Form1.dbname + ".db;Version=3;");
 
-            dbConnection = new SQLiteConnection("Data Source=" + "saves\\" + dbname + ".db;Version=3;");
-
-            dbConnection = new SQLiteConnection("Data Source=" + dbname + ".db;Version=3;");
-
-
-            ///Åbner databasen
-            dbConnection.Open();
+            //Opens the connection
+            Form1.dbConnection.Open();
 
         }
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
-
+            Form1.dbConnection.Close();
             ToggleUI();
         }
 
         private void NewNameInput_TextChanged(object sender, EventArgs e)
         {
-            dbname = NewNameInput.Text;
+            if (NewNameInput.Text != "")
+            {
+                Exists.Visible = false;
+                dbname = NewNameInput.Text;
+            }
+            else
+            {
+                NewNameInput.Text = "Indtast Navn";
+            }
+        }
+
+        private void fillDataGridViews()
+        {
+            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter WHERE HoldID = 10", dbConnection);
+            DataTable ryttere = new DataTable();
+            a.Fill(ryttere);
+
+            SQLiteDataAdapter b = new SQLiteDataAdapter("SELECT * FROM Hold", dbConnection);
+            DataTable division = new DataTable();
+            b.Fill(division);
+            
+
+            dataGridView1.DataSource = ryttere;
+
+            dataGridView2.DataSource = division;
+        }
+
+        private void DeleteSave_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < saves.Length; i++)
+            {
+                if ("saves\\" + deleteTextBox.Text + ".db" == saves[i])
+                {
+                    System.IO.File.Delete(saves[i]);
+                    LoadList.Items.Remove(deleteTextBox.Text);
+                }
+            }
         }
     }
 }
