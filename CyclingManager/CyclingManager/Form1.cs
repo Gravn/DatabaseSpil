@@ -343,7 +343,7 @@ namespace CyclingManager
                     if (inputisInt)
                     {
                         input1 = i1.ToString();
-                        input1 = comboBoxKøbRytter3.SelectedItem.ToString() + " " + input1 + " order by " + comboBoxKøbRytter1.SelectedItem.ToString() + " desc";
+                        input1 = comboBoxKøbRytter5.SelectedItem.ToString() + " " + input1 + " order by " + comboBoxKøbRytter1.SelectedItem.ToString() + " desc";
                     }
                     else
                     {
@@ -361,7 +361,7 @@ namespace CyclingManager
 
             cmd.CommandText = String.Format("Select * from Rytter where {0} {1}{2}", comboBoxKøbRytter1.SelectedItem.ToString(), input, secondString);
 
-            SQLiteDataAdapter d = new SQLiteDataAdapter("SELECT * FROM Rytter", dbConnection);
+            SQLiteDataAdapter d = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
             DataTable købRytter = new DataTable();
             d.Fill(købRytter);
 
