@@ -24,33 +24,24 @@ namespace CyclingManager
             cmd.Connection = Form1.dbConnection;
 
             //CREATE
-
-            cmd.CommandText = "Create table Hold(ID integer primary key, LøbID integer, Point integer, Division integer, Budget integer, Score integer, Foreign Key (LøbID) references Løb(ID))";
+            cmd.CommandText = "Create table Hold(ID integer primary key, Navn varchar(40), LøbID integer, Sæson_Point integer, Division integer, Budget integer, Foreign Key (LøbID) references Løb(ID))";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table Holdnavn(ID integer primary key, Navn varchar(40))";
+            cmd.CommandText = "Create table Løb(ID integer primary key, Navn text, Type text, Point integer, Km integer, Etape integer)";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table Løb(ID integer primary key, Type text, Point integer, Km real, Etape text)";
+            cmd.CommandText = "Create table Rytter(ID integer primary key, Navn varchar(40), HoldID integer, Alder integer, Løn integer, Udholdenhed integer, Styrke integer, Type integer, Støtte integer, Overblik integer, Talent integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table Rytter(ID integer primary key, HoldID integer, Alder integer, Løn integer, Udholdenhed integer, Styrke integer, Type integer, Støtte integer, Overblik integer, Talent integer, Foreign Key (HoldID) references Hold(ID))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Rytternavn(ID integer primary key, Navn varchar(40))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "Create table Sponsor(ID integer primary key, HoldID integer, Præmie integer, Foreign Key (HoldID) references Hold(ID))";
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "create table SponsorNavne(ID integer primary key, Navn varchar(40))";
+            cmd.CommandText = "Create table Sponsor(ID integer primary key, Navn varchar(40), HoldID integer, Præmie integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "Create table Transfer(ID integer primary key, HoldID integer, RytterID integer, Bud integer, Auktionspris integer, Tid real, Foreign Key (HoldID) references Hold(ID), Foreign Key (RytterID) references Rytter(ID))";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table Træner(ID integer primary key, HoldID integer, Erfaring integer, Fokus integer, Løn integer, Foreign Key (HoldID) references Hold(ID))";
+            cmd.CommandText = "Create table Træner(ID integer primary key, Navn varchar(40), HoldID integer, Erfaring integer, Fokus text, Løn integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
+            
 
             //INSERT
 
@@ -64,26 +55,6 @@ namespace CyclingManager
 
             string[] trænernavne = System.IO.File.ReadAllLines("Trænernavne.txt");
 
-            //Indsætter rytternavne i RytterNavne tabellen
-            for (int i = 0; i < rytterNavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into Rytternavn (Navn) values ('{0}')", rytterNavne[i]);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter holdnavne i Holdnavne tabellen
-            for (int i = 0; i < holdNavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into Holdnavn (Navn) values ('{0}')", holdNavne[i]);
-                cmd.ExecuteNonQuery();
-            }
-
-            //Indsætter Sponsornavne i sponsorNavne tabellen
-            for (int i = 0; i < sponsorNavne.Length; i++)
-            {
-                cmd.CommandText = String.Format("Insert into SponsorNavne (Navn) values ('{0}')", sponsorNavne[i]);
-                cmd.ExecuteNonQuery();
-            }
 
             ////Random som bruges til variablerne/attributterne i Rytter og Sponsor tabellen.
             Random r = new Random();
@@ -117,7 +88,7 @@ namespace CyclingManager
                 holdID = i/10+1;
 
                 //SQLite command for at sætte værdierne ind i rytter tabellen.
-                cmd.CommandText = String.Format("Insert into Rytter (HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
+                cmd.CommandText = String.Format("Insert into Rytter (Navn, HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}','{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", rytterNavne[i], holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
                 cmd.ExecuteNonQuery();
             }
 
@@ -126,8 +97,9 @@ namespace CyclingManager
             {
                 //Variable til at genere præmie attributten i sponsor tabellen
                 int præmie = r.Next(2500, 10000);
+
                 //SQLite command for at sætte værdierne ind i sponsor tabellen
-                cmd.CommandText = string.Format("insert into sponsor (Præmie) values ('{0}')", præmie);
+                cmd.CommandText = String.Format("Insert into Sponsor (Navn, HoldID, Præmie) values ('{0}','NULL','{1}')", sponsorNavne[i], præmie);
                 cmd.ExecuteNonQuery();
             }
 
@@ -148,7 +120,7 @@ namespace CyclingManager
                     løbstype = "Bjergrig";
                 }
 
-                cmd.CommandText = String.Format("Insert into Løb(Type, Point, Km, Etape) values ('{0}', 'NULL', '{1}', '{2}')", løbstype, kmLængde, etaper);
+                cmd.CommandText = String.Format("Insert into Løb (Navn, Type, Point, Km, Etape) values ('{0}','{1}', 'NULL', '{2}', '{3}')", løbsnavne[i], løbstype, kmLængde, etaper);
                 cmd.ExecuteNonQuery();
             }
             //Indsætter værdier i Træner tabellen
@@ -167,13 +139,36 @@ namespace CyclingManager
                     fokus = "Bjergrytter";
                 }
 
-                cmd.CommandText = String.Format("Insert into Træner(HoldID, Erfaring, Fokus, Løn) values ('NULL', '{0}', '{1}', '{2}')", erfaring, fokus, løn);
+                cmd.CommandText = String.Format("Insert into Træner (Navn, HoldID, Erfaring, Fokus, Løn) values ('{0}', 'NULL', '{1}', '{2}', '{3}')", trænernavne[i], erfaring, fokus, løn);
                 cmd.ExecuteNonQuery();
 
             }
 
+            //Indsætter værdier i Hold og AI hold i holdtabel
+            
+
+            for (int i = 0; i < holdNavne.Length; i++)
+            {
+
+                int division = 0;
+                int startBudget = r.Next(2500, 5000);
+
+                if (i < 5)
+                {
+                    division = 1;
+                }
+                else if (i < 10)
+                {
+                    division = 2;
+                }
+
+                cmd.CommandText = String.Format("Insert into Hold (Navn, LøbID, Sæson_Point, Division, Budget) values ('{0}', 'NULL', 'NULL', '{1}', '{2}')", holdNavne[i], division, startBudget);
+                cmd.ExecuteNonQuery();
+            }
+
             //Opret spillerhold:
-            cmd.CommandText = String.Format("Insert into Hold (Point,Division, Budget, Score) values ('{0}','{1}','{2}','{3}')", 0, 1, 2000, 0);
+
+            cmd.CommandText = String.Format("Insert into Hold (Navn,LøbID, Sæson_Point, Division, Budget) values ('{0}', 'NULL', 'NULL', '{1}', '{2}')",Form1.dbname, 2, 2500);
             cmd.ExecuteNonQuery();
 
         }
