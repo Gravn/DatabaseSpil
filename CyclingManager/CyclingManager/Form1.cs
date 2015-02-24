@@ -168,7 +168,7 @@ namespace CyclingManager
 
         private void fillDataGridViews()
         {
-            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter WHERE HoldID = 10", dbConnection);
+            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter", dbConnection);
             DataTable ryttere = new DataTable();
             a.Fill(ryttere);
 
@@ -184,8 +184,9 @@ namespace CyclingManager
             DataTable købRytter = new DataTable();
             d.Fill(købRytter);
 
-            
-
+            SQLiteDataAdapter f = new SQLiteDataAdapter("SELECT * FROM Sponsor", dbConnection);
+            DataTable sponsorer = new DataTable();
+            f.Fill(sponsorer);
 
             dataGridView1.DataSource = ryttere;
 
@@ -194,6 +195,8 @@ namespace CyclingManager
             dataGridTræner.DataSource = træner;
 
             dataGridRytter.DataSource = købRytter;
+
+            dataGridSponsor.DataSource = sponsorer;
         }
 
         private void DeleteSave_Click(object sender, EventArgs e)
@@ -420,6 +423,62 @@ namespace CyclingManager
             {
                 comboBoxKøbRytter6.Visible = false;
                 comboBoxKøbRytter5.Visible = true;
+            }
+        }
+        
+        private void buttonSøgSponsor_Click_1(object sender, EventArgs e)
+        {
+            string input = textBoxSøgSponsor.Text;
+            cmd.Connection = dbConnection;
+
+            if (input == "")
+            {
+                input = "0";
+            }
+            
+            int i = 0;
+            bool inputisInt = Int32.TryParse(input, out i);
+
+            if (comboBoxSøgSponsor3.Visible)
+            {
+                input = comboBoxSøgSponsor3.SelectedItem.ToString() + " '%" + input + "%'";
+            }
+            else
+            {
+                if (inputisInt)
+                {
+                    input = i.ToString();
+                    input = comboBoxSøgSponsor2.SelectedItem.ToString() + " " + input;
+                }
+                else
+                {
+                    //Input type must be int.
+                    return;
+                }
+            }
+            
+            string secondString = " order by " + comboBoxSøgSponsor1.SelectedItem.ToString() + " desc";
+
+            cmd.CommandText = String.Format("Select * from Sponsor where {0} {1} {2}", comboBoxSøgSponsor1.SelectedItem.ToString(), input, secondString);
+
+            SQLiteDataAdapter f = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
+            DataTable sponsorer = new DataTable();
+            f.Fill(sponsorer);
+
+            dataGridSponsor.DataSource = sponsorer;
+        }
+
+        private void comboBoxSøgSponsor1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (comboBoxSøgSponsor1.SelectedItem.ToString() == "Navn")
+            {
+                comboBoxSøgSponsor3.Visible = true;
+                comboBoxSøgSponsor2.Visible = false;
+            }
+            else
+            {
+                comboBoxSøgSponsor3.Visible = false;
+                comboBoxSøgSponsor2.Visible = true;
             }
         }
 
