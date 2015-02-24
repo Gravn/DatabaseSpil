@@ -25,6 +25,8 @@ namespace CyclingManager
         public static SQLiteConnection dbConnection;
         SQLiteCommand cmd = new SQLiteCommand();
 
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -89,6 +91,10 @@ namespace CyclingManager
             tabControl.Enabled = !tabControl.Enabled;
             tabControl.Visible = !tabControl.Visible;
 
+            label15.Visible = !label15.Visible;
+
+            
+
         }
 
         private void LoadGame_Click(object sender, EventArgs e)
@@ -112,6 +118,8 @@ namespace CyclingManager
 
             ToggleUI();
             fillDataGridViews();
+
+            label15.Text = "Budget: " + GetBudget() + " kr";
         }
 
         private void NewGame_Click(object sender, EventArgs e)
@@ -134,6 +142,7 @@ namespace CyclingManager
             Generate.DataTables();
             AddtoLoadList();
             fillDataGridViews();
+            label15.Text = "Budget: " + GetBudget() + " kr";
         }
 
 
@@ -149,6 +158,7 @@ namespace CyclingManager
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
+            label15.Text = "Budget: " + GetBudget() + " kr";
             Form1.dbConnection.Close();
             ToggleUI();
         }
@@ -168,7 +178,7 @@ namespace CyclingManager
 
         private void fillDataGridViews()
         {
-            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter WHERE HoldID = 10", dbConnection);
+            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter WHERE HoldID = 51", dbConnection);
             DataTable ryttere = new DataTable();
             a.Fill(ryttere);
 
@@ -184,7 +194,7 @@ namespace CyclingManager
             DataTable købRytter = new DataTable();
             d.Fill(købRytter);
 
-            
+
 
 
             dataGridView1.DataSource = ryttere;
@@ -216,7 +226,7 @@ namespace CyclingManager
         /// <param name="e"></param>
         private void buttonSøgTræner_Click(object sender, EventArgs e)
         {
-            
+
             string input = textBoxKøbTræner1.Text;
             string input1 = textBoxKøbTræner2.Text;
             cmd.Connection = dbConnection;
@@ -236,7 +246,7 @@ namespace CyclingManager
 
             if (comboBoxKøbTræner5.Visible)
             {
-                    input = comboBoxKøbTræner5.SelectedItem.ToString() + " '%" + input + "%'";
+                input = comboBoxKøbTræner5.SelectedItem.ToString() + " '%" + input + "%'";
             }
             else
             {
@@ -257,7 +267,7 @@ namespace CyclingManager
             {
                 if (comboBoxKøbTræner6.Visible)
                 {
-                    input1 = comboBoxKøbTræner6.SelectedItem.ToString()+" '%" + input1 + "%'";
+                    input1 = comboBoxKøbTræner6.SelectedItem.ToString() + " '%" + input1 + "%'";
                 }
                 else
                 {
@@ -273,14 +283,14 @@ namespace CyclingManager
                         return;
                     }
                 }
-                secondString = String.Format(" AND {0} {1}", comboBoxKøbTræner3.SelectedItem.ToString(),input1);
+                secondString = String.Format(" AND {0} {1}", comboBoxKøbTræner3.SelectedItem.ToString(), input1);
             }
             else
             {
                 secondString = " order by " + comboBoxKøbTræner1.SelectedItem.ToString() + " desc";
             }
-                
-            cmd.CommandText =String.Format("Select * from Træner where {0} {1}{2}", comboBoxKøbTræner1.SelectedItem.ToString(),input,secondString);
+
+            cmd.CommandText = String.Format("Select * from Træner where {0} {1}{2}", comboBoxKøbTræner1.SelectedItem.ToString(), input, secondString);
 
             SQLiteDataAdapter c = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
             DataTable træner = new DataTable();
@@ -367,6 +377,50 @@ namespace CyclingManager
             dataGridRytter.DataSource = købRytter;
         }
 
+        
+        private void btnKøbTræner_Click(object sender, EventArgs e)
+        {
+            cmd.Connection = dbConnection;
+            string input = textBoxAngivID.Text;
+
+            cmd.CommandText = String.Format("Select * from Træner where ID = {0}", input);
+            cmd.ExecuteNonQuery();
+
+
+            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            int løn = 0;
+            
+            while(reader.Read())
+            {
+                løn = Int32.Parse((reader["Løn"]).ToString());
+            }
+
+            int trænerPris = løn * 4;
+
+            if (GetBudget() >= trænerPris)
+            {
+                cmd.CommandText = String.Format("Update Træner set HoldID = 51 where ID = {0}", input);
+                cmd.ExecuteNonQuery();
+
+                SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Træner", dbConnection);
+                DataTable træner = new DataTable();
+                c.Fill(træner);
+
+                dataGridTræner.DataSource = træner;
+
+                SetBudget(-trænerPris);
+
+                fillDataGridViews();
+            }
+            else
+            {
+                label14.Visible = true;
+            }
+
+        }
+
         private void comboBoxKøbTræner1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxKøbTræner1.SelectedItem.ToString() == "Navn" || comboBoxKøbTræner1.SelectedItem.ToString() == "Fokus")
@@ -377,7 +431,7 @@ namespace CyclingManager
             else
             {
                 comboBoxKøbTræner5.Visible = false;
-                comboBoxKøbTræner2.Visible = true; 
+                comboBoxKøbTræner2.Visible = true;
             }
         }
 
@@ -397,7 +451,7 @@ namespace CyclingManager
 
         private void comboBoxKøbRytter1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBoxKøbRytter1.SelectedItem.ToString() == "Navn")
+            if (comboBoxKøbRytter1.SelectedItem.ToString() == "Navn")
             {
                 comboBoxKøbRytter3.Visible = true;
                 comboBoxKøbRytter2.Visible = false;
@@ -421,6 +475,38 @@ namespace CyclingManager
                 comboBoxKøbRytter6.Visible = false;
                 comboBoxKøbRytter5.Visible = true;
             }
+        }
+
+        private int GetBudget()
+        {
+            cmd.Connection = dbConnection;
+            
+            cmd.CommandText = String.Format("Select * from Hold where ID = 51", dbConnection);
+            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            int i = 0;
+
+            while (reader.Read())
+            {
+                i = Int32.Parse((reader["Budget"]).ToString());
+            }
+
+
+            return i;
+        }
+
+        private void SetBudget(int change)
+        {
+            
+            int newBudget = GetBudget() + change;
+
+            cmd.CommandText = String.Format("Update Hold set Budget = {0} where ID = 51", newBudget);
+            cmd.ExecuteNonQuery();
+
+            label15.Text = "Budget: " + newBudget + " kr";
+
+            fillDataGridViews();
         }
 
     }
