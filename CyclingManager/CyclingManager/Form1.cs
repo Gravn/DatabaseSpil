@@ -60,8 +60,7 @@ namespace CyclingManager
         private void ToggleUI()
         {
             //hide start suff
-            Title.Enabled = !Title.Enabled;
-            Title.Visible = !Title.Visible;
+            Title.Visible = true;
 
             NavnLabel.Enabled = !NavnLabel.Enabled;
             NavnLabel.Visible = !NavnLabel.Visible;
@@ -423,5 +422,6 @@ namespace CyclingManager
                 comboBoxKøbRytter5.Visible = true;
             }
         }
+
     }
 }
