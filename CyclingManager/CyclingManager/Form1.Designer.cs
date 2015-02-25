@@ -117,15 +117,15 @@
             this.comboBoxKøbTræner6 = new System.Windows.Forms.ComboBox();
             this.comboBoxKøbTræner4 = new System.Windows.Forms.ComboBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.budgetLabel = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.STrænerGridView = new System.Windows.Forms.DataGridView();
             this.STrænerWarningLbl = new System.Windows.Forms.Label();
             this.textBoxSTræner = new System.Windows.Forms.TextBox();
             this.STrænerIDlbl = new System.Windows.Forms.Label();
             this.btnSTræner = new System.Windows.Forms.Button();
+            this.STrænerGridView = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.budgetLabel = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tabControl.SuspendLayout();
             this.DivisionTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.divisionDataGrid)).BeginInit();
@@ -426,7 +426,6 @@
             this.btnVælgSponsor.TabIndex = 35;
             this.btnVælgSponsor.Text = "Vælg";
             this.btnVælgSponsor.UseVisualStyleBackColor = false;
-            this.btnVælgSponsor.Click += new System.EventHandler(this.btnVælgSponsor_Click);
             // 
             // labelInputSøgSponsor
             // 
@@ -1194,49 +1193,6 @@
             this.tabPage8.Text = "Sælg Træner";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1297, 612);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Divison";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // budgetLabel
-            // 
-            this.budgetLabel.AutoSize = true;
-            this.budgetLabel.Location = new System.Drawing.Point(88, 14);
-            this.budgetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.budgetLabel.Name = "budgetLabel";
-            this.budgetLabel.Size = new System.Drawing.Size(61, 17);
-            this.budgetLabel.TabIndex = 15;
-            this.budgetLabel.Text = "Budget: ";
-            this.budgetLabel.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(38, 84);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 13);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Vælg operator";
-            // 
-            // STrænerGridView
-            // 
-            this.STrænerGridView.AllowUserToOrderColumns = true;
-            this.STrænerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.STrænerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.STrænerGridView.Location = new System.Drawing.Point(-3, 5);
-            this.STrænerGridView.Margin = new System.Windows.Forms.Padding(4);
-            this.STrænerGridView.Name = "STrænerGridView";
-            this.STrænerGridView.ReadOnly = true;
-            this.STrænerGridView.Size = new System.Drawing.Size(1273, 308);
-            this.STrænerGridView.TabIndex = 41;
-            // 
             // STrænerWarningLbl
             // 
             this.STrænerWarningLbl.AutoSize = true;
@@ -1276,6 +1232,49 @@
             this.btnSTræner.Text = "Sælg";
             this.btnSTræner.UseVisualStyleBackColor = false;
             this.btnSTræner.Click += new System.EventHandler(this.btnSTræner_Click);
+            // 
+            // STrænerGridView
+            // 
+            this.STrænerGridView.AllowUserToOrderColumns = true;
+            this.STrænerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.STrænerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.STrænerGridView.Location = new System.Drawing.Point(-3, 5);
+            this.STrænerGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.STrænerGridView.Name = "STrænerGridView";
+            this.STrænerGridView.ReadOnly = true;
+            this.STrænerGridView.Size = new System.Drawing.Size(1273, 308);
+            this.STrænerGridView.TabIndex = 41;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1297, 612);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Divison";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // budgetLabel
+            // 
+            this.budgetLabel.AutoSize = true;
+            this.budgetLabel.Location = new System.Drawing.Point(88, 14);
+            this.budgetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.budgetLabel.Name = "budgetLabel";
+            this.budgetLabel.Size = new System.Drawing.Size(61, 17);
+            this.budgetLabel.TabIndex = 15;
+            this.budgetLabel.Text = "Budget: ";
+            this.budgetLabel.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(38, 84);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "Vælg operator";
             // 
             // Form1
             // 

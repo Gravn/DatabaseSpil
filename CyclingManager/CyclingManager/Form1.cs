@@ -199,9 +199,14 @@ namespace CyclingManager
             DataTable træner = new DataTable();
             c.Fill(træner);
 
-            SQLiteDataAdapter d = new SQLiteDataAdapter("SELECT * FROM Rytter Where HoldID = 0", dbConnection);
+            SQLiteDataAdapter d = new SQLiteDataAdapter("Select * FROM Træner Where HoldID = 5", dbConnection);
+            DataTable mineTrænere = new DataTable();
+            d.Fill(mineTrænere);
+
+
+            SQLiteDataAdapter e = new SQLiteDataAdapter("SELECT * FROM Rytter Where HoldID = 0", dbConnection);
             DataTable købRytter = new DataTable();
-            d.Fill(købRytter);
+            e.Fill(købRytter);
 
             SQLiteDataAdapter f = new SQLiteDataAdapter("SELECT * FROM Sponsor", dbConnection);
             DataTable sponsorer = new DataTable();
@@ -213,6 +218,7 @@ namespace CyclingManager
             divisionDataGrid.DataSource = division;
 
             dataGridTræner.DataSource = træner;
+            STrænerGridView.DataSource = mineTrænere;
 
             dataGridRytter.DataSource = købRytter;
 
@@ -707,6 +713,26 @@ namespace CyclingManager
                 SRytterWarning.Visible = true;
             }
             
+        }
+
+        private void btnSTræner_Click(object sender, EventArgs e)
+        {
+            string input = textBoxSTræner.Text;
+            if (GetDataString("Træner", "HoldID", "5", "HoldID", Int32.Parse(input)) == "5")
+            {
+                STrænerWarningLbl.Visible = false;
+
+                int trænerID = Int32.Parse(textBoxSTræner.Text);
+
+                UpdateDataAbsolute("Træner", "HoldID", "0", "ID", trænerID.ToString());
+                SetBudget(Int32.Parse(GetDataString("Træner", "ID", trænerID.ToString(), "Løn", trænerID).ToString()) * 4);
+
+            }
+            else
+            {
+                STrænerWarningLbl.Visible = true;
+            }
+
         }
 
         
