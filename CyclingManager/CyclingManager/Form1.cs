@@ -396,45 +396,115 @@ namespace CyclingManager
         
         private void btnKøbTræner_Click(object sender, EventArgs e)
         {
-            cmd.Connection = dbConnection;
-            string input = textBoxAngivIDKTræner.Text;
-
-            cmd.CommandText = String.Format("Select * from Træner where ID = {0}", input);
-            cmd.ExecuteNonQuery();
-
-
-            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-
-            int løn = 0;
             
-            while(reader.Read())
-            {
-                løn = Int32.Parse((reader["Løn"]).ToString());
-            }
+            string input = textBoxAngivIDKTræner.Text;
+            cmd.Connection = dbConnection;
 
-            int trænerPris = løn * 4;
-
-            if (GetBudget() >= trænerPris)
+            if(GetDataString("Træner", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
             {
-                cmd.CommandText = String.Format("Update Træner set HoldID = 5 where ID = {0}", input);
+                cmd.CommandText = String.Format("Select * from Træner where ID = {0}", input);
                 cmd.ExecuteNonQuery();
 
-                SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Træner", dbConnection);
-                DataTable træner = new DataTable();
-                c.Fill(træner);
 
-                dataGridTræner.DataSource = træner;
+                SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+                SQLiteDataReader reader = command.ExecuteReader();
 
-                SetBudget(-trænerPris);
+                int løn = 0;
 
-                fillDataGridViews();
+                while (reader.Read())
+                {
+                    løn = Int32.Parse((reader["Løn"]).ToString());
+                }
+
+                int trænerPris = løn * 4;
+
+                if (GetBudget() >= trænerPris)
+                {
+                    cmd.CommandText = String.Format("Update Træner set HoldID = 5 where ID = {0}", input);
+                    cmd.ExecuteNonQuery();
+
+                    SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Træner", dbConnection);
+                    DataTable træner = new DataTable();
+                    c.Fill(træner);
+
+                    dataGridTræner.DataSource = træner;
+
+                    SetBudget(-trænerPris);
+
+                    fillDataGridViews();
+                }
+                else
+                {
+                    budgetWarningTræner.Visible = true;
+                }
+
             }
             else
             {
-                budgetWarningTræner.Visible = true;
+                WarningTrænerlbl.Visible = true;
             }
 
+        }
+
+        private void btnKøbRytter_Click(object sender, EventArgs e)
+        {
+            string input = textBoxAngivIDKRytter.Text;
+            cmd.Connection = dbConnection;
+
+            if (GetDataString("Rytter", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
+            {
+                cmd.CommandText = String.Format("Select * from Rytter where ID = {0}", input);
+                cmd.ExecuteNonQuery();
+
+
+                SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                int løn = 0;
+
+                while (reader.Read())
+                {
+                    løn = Int32.Parse((reader["Løn"]).ToString());
+                }
+
+                int rytterPris = løn * 5;
+
+                if (GetBudget() >= rytterPris)
+                {
+                    cmd.CommandText = String.Format("Update Rytter set HoldID = 5 where ID = {0}", input);
+                    cmd.ExecuteNonQuery();
+
+                    SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Rytter", dbConnection);
+                    DataTable rytter = new DataTable();
+                    c.Fill(rytter);
+
+                    dataGridRytter.DataSource = rytter;
+
+                    SetBudget(-rytterPris);
+
+                    fillDataGridViews();
+
+                    vaelgRytterCheckBox.Items.Clear();
+
+
+                    for (int i = 0; i < 100; i++)
+                    {
+                        if (GetDataString("Rytter", "HoldID", "5", "Navn", i) != "")
+                        {
+                            vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                        }
+                    }
+                }
+                else
+                {
+                    budgetWarningRytter.Visible = true;
+                }
+
+            }
+            else
+            {
+                WarningRytterlbl.Visible = true;
+            }
         }
 
         private void buttonSøgSponsor_Click(object sender, EventArgs e)
@@ -616,51 +686,33 @@ namespace CyclingManager
         private void SRytterBtn_Click(object sender, EventArgs e)
         {
             //debug. Sælger rytter.
-            int rytterID =Int32.Parse(SRytterInput.Text);
-
-            UpdateDataAbsolute("Rytter", "holdID", "0", "ID",rytterID.ToString());
-            SetBudget(Int32.Parse(GetDataString("Rytter", "ID",rytterID.ToString(), "Løn",rytterID).ToString()) * 4);
-        }
-
-        private void btnVælgSponsor_Click(object sender, EventArgs e)
-        {
-            cmd.Connection = dbConnection;
-            string input = textBoxAngivIDSøgSponsor.Text;
-
-            cmd.CommandText = String.Format("Select * from Sponsor where ID = {0}", input);
-            cmd.ExecuteNonQuery();
-
-            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-
-            int præmie = 0;
-
-            while(reader.Read())
+            string input = SRytterInput.Text;
+            if (GetDataString("Rytter", "HoldID", "5", "HoldID", Int32.Parse(input)) == "5")
             {
-                præmie = int.Parse((reader["Præmie"]).ToString());
-            }
+                SRytterWarning.Visible = false;
+                
+                int rytterID = Int32.Parse(SRytterInput.Text);
 
-            if (true)
-            {
-                cmd.CommandText = String.Format("Update Sponsor set HoldID = 5 where ID = {0}", input);
-                cmd.ExecuteNonQuery();
+                UpdateDataAbsolute("Rytter", "holdID", "0", "ID", rytterID.ToString());
+                SetBudget(Int32.Parse(GetDataString("Rytter", "ID", rytterID.ToString(), "Løn", rytterID).ToString()) * 5);
 
-                SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Sponsor", dbConnection);
-                DataTable sponsorer = new DataTable();
-                c.Fill(sponsorer);
-
-                dataGridSponsor.DataSource = sponsorer;
-
-                SetBudget(+præmie);
-
-                fillDataGridViews(); 
+                vaelgRytterCheckBox.Items.Clear();
+                for (int i = 0; i < 100; i++)
+                {
+                    if (GetDataString("Rytter", "HoldID", "5", "Navn", i) != "")
+                    {
+                        vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                    }
+                }
             }
             else
             {
-                //textbox with stuff in it
+                SRytterWarning.Visible = true;
             }
             
         }
+
+        
 
 
         //Når vi køber/sælger ryttere:
