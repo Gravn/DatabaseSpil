@@ -210,6 +210,7 @@ namespace CyclingManager
             f.Fill(sponsorer);
 
             mineRyttereDataGrid.DataSource = ryttere;
+            SRytterGridView.DataSource = ryttere;
 
             divisionDataGrid.DataSource = division;
 
@@ -600,9 +601,20 @@ namespace CyclingManager
             return s;
         }
 
-        private void vaelgRytterCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void UpdateDataAbsolute(string table, string parameter1, string value1,string parameter2, string value2)
         {
-            //check at max 5 er valgt.
+            cmd.Connection = dbConnection;
+            cmd.CommandText = String.Format("Update {0} set {1} = {2} where {3} = {4}", table, parameter1, value1, parameter2, value2, dbConnection);
+            cmd.ExecuteNonQuery();
+        }
+
+        private void SRytterBtn_Click(object sender, EventArgs e)
+        {
+            //debug. Sælger rytter.
+            int rytterID =Int32.Parse(SRytterInput.Text);
+
+            UpdateDataAbsolute("Rytter", "holdID", "0", "ID",rytterID.ToString());
+            SetBudget(Int32.Parse(GetDataString("Rytter", "ID",rytterID.ToString(), "Løn",rytterID).ToString()) * 4);
         }
 
 

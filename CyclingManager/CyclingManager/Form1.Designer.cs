@@ -87,6 +87,10 @@
             this.comboBoxOperator1KøbRytterINT = new System.Windows.Forms.ComboBox();
             this.comboBoxOperator1KøbRytterString = new System.Windows.Forms.ComboBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.SRytterGridView = new System.Windows.Forms.DataGridView();
+            this.SRytterInput = new System.Windows.Forms.TextBox();
+            this.SRytterLb1 = new System.Windows.Forms.Label();
+            this.SRytterBtn = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.budgetWarningTræner = new System.Windows.Forms.Label();
             this.textBoxAngivIDKTræner = new System.Windows.Forms.TextBox();
@@ -126,6 +130,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRytter)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SRytterGridView)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTræner)).BeginInit();
             this.SuspendLayout();
@@ -285,7 +291,6 @@
             this.vaelgRytterCheckBox.Name = "vaelgRytterCheckBox";
             this.vaelgRytterCheckBox.Size = new System.Drawing.Size(159, 229);
             this.vaelgRytterCheckBox.TabIndex = 36;
-            this.vaelgRytterCheckBox.SelectedIndexChanged += new System.EventHandler(this.vaelgRytterCheckBox_SelectedIndexChanged);
             // 
             // AfholdLoebBtn
             // 
@@ -788,6 +793,10 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.SRytterGridView);
+            this.tabPage6.Controls.Add(this.SRytterInput);
+            this.tabPage6.Controls.Add(this.SRytterLb1);
+            this.tabPage6.Controls.Add(this.SRytterBtn);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -795,6 +804,45 @@
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Sælg Rytter";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // SRytterGridView
+            // 
+            this.SRytterGridView.AllowUserToOrderColumns = true;
+            this.SRytterGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SRytterGridView.Location = new System.Drawing.Point(-2, 4);
+            this.SRytterGridView.Name = "SRytterGridView";
+            this.SRytterGridView.ReadOnly = true;
+            this.SRytterGridView.Size = new System.Drawing.Size(955, 250);
+            this.SRytterGridView.TabIndex = 40;
+            // 
+            // SRytterInput
+            // 
+            this.SRytterInput.Location = new System.Drawing.Point(26, 366);
+            this.SRytterInput.Name = "SRytterInput";
+            this.SRytterInput.Size = new System.Drawing.Size(111, 20);
+            this.SRytterInput.TabIndex = 38;
+            // 
+            // SRytterLb1
+            // 
+            this.SRytterLb1.AutoSize = true;
+            this.SRytterLb1.Location = new System.Drawing.Point(61, 349);
+            this.SRytterLb1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SRytterLb1.Name = "SRytterLb1";
+            this.SRytterLb1.Size = new System.Drawing.Size(48, 13);
+            this.SRytterLb1.TabIndex = 37;
+            this.SRytterLb1.Text = "Angiv ID";
+            // 
+            // SRytterBtn
+            // 
+            this.SRytterBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.SRytterBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SRytterBtn.Location = new System.Drawing.Point(26, 411);
+            this.SRytterBtn.Name = "SRytterBtn";
+            this.SRytterBtn.Size = new System.Drawing.Size(111, 33);
+            this.SRytterBtn.TabIndex = 36;
+            this.SRytterBtn.Text = "Sælg";
+            this.SRytterBtn.UseVisualStyleBackColor = false;
+            this.SRytterBtn.Click += new System.EventHandler(this.SRytterBtn_Click);
             // 
             // tabPage7
             // 
@@ -1141,6 +1189,9 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRytter)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SRytterGridView)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTræner)).EndInit();
@@ -1238,6 +1289,10 @@
         private System.Windows.Forms.CheckedListBox vaelgRytterCheckBox;
         private System.Windows.Forms.Button AfholdLoebBtn;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView SRytterGridView;
+        private System.Windows.Forms.TextBox SRytterInput;
+        private System.Windows.Forms.Label SRytterLb1;
+        private System.Windows.Forms.Button SRytterBtn;
     }
 }
 
