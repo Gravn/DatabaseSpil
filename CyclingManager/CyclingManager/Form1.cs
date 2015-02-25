@@ -36,8 +36,8 @@ namespace CyclingManager
         {
             MenuBtn.Visible = false;
             MenuBtn.Enabled = false;
-            dataGridView1.Enabled = false;
-            dataGridView1.Visible = false;
+            mineRyttereDataGrid.Enabled = false;
+            mineRyttereDataGrid.Visible = false;
 
             AddtoLoadList();
 
@@ -84,13 +84,28 @@ namespace CyclingManager
             MenuBtn.Enabled = !LoadGame.Enabled;
             MenuBtn.Visible = !LoadGame.Enabled;
 
-            dataGridView1.Enabled = !dataGridView1.Enabled;
-            dataGridView1.Visible = !dataGridView1.Visible;
+            mineRyttereDataGrid.Enabled = !mineRyttereDataGrid.Enabled;
+            mineRyttereDataGrid.Visible = !mineRyttereDataGrid.Visible;
 
             tabControl.Enabled = !tabControl.Enabled;
             tabControl.Visible = !tabControl.Visible;
 
-            budgetLabel.Visible = !budgetLabel.Visible;         
+            budgetLabel.Visible = !budgetLabel.Visible;
+            budgetLabel.Text = "Budget: " + GetBudget() + " kr";
+
+
+            //update check rytter box
+
+            vaelgRytterCheckBox.Items.Clear();
+            for (int i = 0; i < 100; i++)
+            {
+                if (GetDataString("Rytter", "HoldID", "5", "Navn", i) != "")
+                {
+                    vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                }
+            }
+   
+
 
         }
 
@@ -116,7 +131,7 @@ namespace CyclingManager
             ToggleUI();
             fillDataGridViews();
 
-            budgetLabel.Text = "Budget: " + GetBudget() + " kr";
+            
         }
 
         private void NewGame_Click(object sender, EventArgs e)
@@ -139,7 +154,7 @@ namespace CyclingManager
             Generate.DataTables();
             AddtoLoadList();
             fillDataGridViews();
-            budgetLabel.Text = "Budget: " + GetBudget() + " kr";
+           
         }
 
 
@@ -154,10 +169,9 @@ namespace CyclingManager
         }
 
         private void MenuBtn_Click(object sender, EventArgs e)
-        {
-            budgetLabel.Text = "Budget: " + GetBudget() + " kr";
-            Form1.dbConnection.Close();
+        { 
             ToggleUI();
+            Form1.dbConnection.Close();
         }
 
         private void NewNameInput_TextChanged(object sender, EventArgs e)
@@ -195,9 +209,9 @@ namespace CyclingManager
             DataTable sponsorer = new DataTable();
             f.Fill(sponsorer);
 
-            dataGridView1.DataSource = ryttere;
+            mineRyttereDataGrid.DataSource = ryttere;
 
-            dataGridView2.DataSource = division;
+            divisionDataGrid.DataSource = division;
 
             dataGridTræner.DataSource = træner;
 
@@ -568,6 +582,38 @@ namespace CyclingManager
             fillDataGridViews();
         }
 
+        private string GetDataString(string table,string parameter,string value,string returnValue,int resultIndex)
+        {
+            cmd.Connection = dbConnection;
+
+            cmd.CommandText = String.Format("Select {0} from {1} where {2} = {3} AND RowID = {4}",returnValue,table,parameter,value,resultIndex, dbConnection);
+            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+            
+            SQLiteDataReader reader = command.ExecuteReader();
+            
+            string s = "";
+            while (reader.Read())
+            {
+                s = reader[0].ToString();
+            }
+
+            return s;
+        }
+
+        private void vaelgRytterCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //check at max 5 er valgt.
+        }
+
+
+        //Når vi køber/sælger ryttere:
+        //for (int i = 0; i < 100; i++)
+        //    {
+        //        if (GetDataString("Rytter", "HoldID", "5", "Navn", i) != "")
+        //        {
+        //            vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+        //        }
+        //    } 
 
     }
 }

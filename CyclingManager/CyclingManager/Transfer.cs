@@ -14,5 +14,15 @@ namespace CyclingManager
         { 
                 
         }
+
+        public void KoebTraener()
+        {
+            
+        }
+
+        public void KoebRytter()
+        { 
+            
+        }
     }
 }

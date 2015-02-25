@@ -37,27 +37,38 @@
             this.LoadList = new System.Windows.Forms.ComboBox();
             this.LoadLabel = new System.Windows.Forms.Label();
             this.MenuBtn = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.DeleteSave = new System.Windows.Forms.Button();
             this.deleteTextBox = new System.Windows.Forms.TextBox();
             this.DeleteHelp = new System.Windows.Forms.Label();
             this.Exists = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.mineRyttereTab = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DivisionTab = new System.Windows.Forms.TabPage();
+            this.vaelgRytterCheckBox = new System.Windows.Forms.CheckedListBox();
+            this.AfholdLoebBtn = new System.Windows.Forms.Button();
+            this.divisionDataGrid = new System.Windows.Forms.DataGridView();
+            this.mineRyttereDataGrid = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.textBoxAngivIDSøgSponsor = new System.Windows.Forms.TextBox();
+            this.LabelIDSøgRytter = new System.Windows.Forms.Label();
+            this.btnVælgSponsor = new System.Windows.Forms.Button();
+            this.labelInputSøgSponsor = new System.Windows.Forms.Label();
+            this.labelOpeSøgSponsor = new System.Windows.Forms.Label();
+            this.labelParamSøgSponsor = new System.Windows.Forms.Label();
             this.buttonSøgSponsor = new System.Windows.Forms.Button();
             this.textBoxSøgSponsor = new System.Windows.Forms.TextBox();
             this.comboBoxParamSøgSponsor = new System.Windows.Forms.ComboBox();
             this.dataGridSponsor = new System.Windows.Forms.DataGridView();
             this.comboBoxSøgOpeSponsorINT = new System.Windows.Forms.ComboBox();
             this.comboBoxSøgOpeSponsorString = new System.Windows.Forms.ComboBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.budgetWarningRytter = new System.Windows.Forms.Label();
+            this.textBoxAngivIDKRytter = new System.Windows.Forms.TextBox();
+            this.LabelIDkRytter = new System.Windows.Forms.Label();
+            this.btnKøbRytter = new System.Windows.Forms.Button();
             this.labelInput2KRytter = new System.Windows.Forms.Label();
             this.labelOpe2KRytter = new System.Windows.Forms.Label();
             this.labelParam2KRytter = new System.Windows.Forms.Label();
@@ -99,28 +110,18 @@
             this.comboBoxKøbTræner6 = new System.Windows.Forms.ComboBox();
             this.comboBoxKøbTræner4 = new System.Windows.Forms.ComboBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.budgetLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.budgetWarningRytter = new System.Windows.Forms.Label();
-            this.textBoxAngivIDKRytter = new System.Windows.Forms.TextBox();
-            this.LabelIDkRytter = new System.Windows.Forms.Label();
-            this.btnKøbRytter = new System.Windows.Forms.Button();
-            this.labelInputSøgSponsor = new System.Windows.Forms.Label();
-            this.labelOpeSøgSponsor = new System.Windows.Forms.Label();
-            this.labelParamSøgSponsor = new System.Windows.Forms.Label();
-            this.textBoxAngivIDSøgSponsor = new System.Windows.Forms.TextBox();
-            this.LabelIDSøgRytter = new System.Windows.Forms.Label();
-            this.btnVælgSponsor = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabControl.SuspendLayout();
-            this.mineRyttereTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DivisionTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.divisionDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mineRyttereDataGrid)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSponsor)).BeginInit();
-            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -211,16 +212,6 @@
             this.MenuBtn.UseVisualStyleBackColor = true;
             this.MenuBtn.Click += new System.EventHandler(this.MenuBtn_Click);
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(767, 489);
-            this.dataGridView2.TabIndex = 9;
-            // 
             // DeleteSave
             // 
             this.DeleteSave.Location = new System.Drawing.Point(12, 190);
@@ -261,38 +252,71 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.mineRyttereTab);
+            this.tabControl.Controls.Add(this.DivisionTab);
             this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Enabled = false;
             this.tabControl.Location = new System.Drawing.Point(3, 41);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(969, 521);
+            this.tabControl.Size = new System.Drawing.Size(979, 521);
             this.tabControl.TabIndex = 14;
             this.tabControl.Visible = false;
             // 
-            // mineRyttereTab
+            // DivisionTab
             // 
-            this.mineRyttereTab.Controls.Add(this.dataGridView1);
-            this.mineRyttereTab.Location = new System.Drawing.Point(4, 22);
-            this.mineRyttereTab.Name = "mineRyttereTab";
-            this.mineRyttereTab.Padding = new System.Windows.Forms.Padding(3);
-            this.mineRyttereTab.Size = new System.Drawing.Size(773, 495);
-            this.mineRyttereTab.TabIndex = 0;
-            this.mineRyttereTab.Text = "Mine Ryttere";
-            this.mineRyttereTab.UseVisualStyleBackColor = true;
+            this.DivisionTab.Controls.Add(this.vaelgRytterCheckBox);
+            this.DivisionTab.Controls.Add(this.AfholdLoebBtn);
+            this.DivisionTab.Controls.Add(this.divisionDataGrid);
+            this.DivisionTab.Controls.Add(this.mineRyttereDataGrid);
+            this.DivisionTab.Location = new System.Drawing.Point(4, 22);
+            this.DivisionTab.Name = "DivisionTab";
+            this.DivisionTab.Padding = new System.Windows.Forms.Padding(3);
+            this.DivisionTab.Size = new System.Drawing.Size(971, 495);
+            this.DivisionTab.TabIndex = 0;
+            this.DivisionTab.Text = "Division";
+            this.DivisionTab.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // vaelgRytterCheckBox
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(762, 418);
-            this.dataGridView1.TabIndex = 8;
+            this.vaelgRytterCheckBox.FormattingEnabled = true;
+            this.vaelgRytterCheckBox.Location = new System.Drawing.Point(614, 261);
+            this.vaelgRytterCheckBox.Name = "vaelgRytterCheckBox";
+            this.vaelgRytterCheckBox.Size = new System.Drawing.Size(159, 229);
+            this.vaelgRytterCheckBox.TabIndex = 36;
+            this.vaelgRytterCheckBox.SelectedIndexChanged += new System.EventHandler(this.vaelgRytterCheckBox_SelectedIndexChanged);
+            // 
+            // AfholdLoebBtn
+            // 
+            this.AfholdLoebBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.AfholdLoebBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AfholdLoebBtn.Location = new System.Drawing.Point(802, 435);
+            this.AfholdLoebBtn.Name = "AfholdLoebBtn";
+            this.AfholdLoebBtn.Size = new System.Drawing.Size(111, 33);
+            this.AfholdLoebBtn.TabIndex = 35;
+            this.AfholdLoebBtn.Text = "Afhold Løb";
+            this.AfholdLoebBtn.UseVisualStyleBackColor = false;
+            // 
+            // divisionDataGrid
+            // 
+            this.divisionDataGrid.AllowUserToOrderColumns = true;
+            this.divisionDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.divisionDataGrid.Location = new System.Drawing.Point(5, 260);
+            this.divisionDataGrid.Name = "divisionDataGrid";
+            this.divisionDataGrid.ReadOnly = true;
+            this.divisionDataGrid.Size = new System.Drawing.Size(600, 227);
+            this.divisionDataGrid.TabIndex = 10;
+            // 
+            // mineRyttereDataGrid
+            // 
+            this.mineRyttereDataGrid.AllowUserToOrderColumns = true;
+            this.mineRyttereDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mineRyttereDataGrid.Location = new System.Drawing.Point(5, 4);
+            this.mineRyttereDataGrid.Name = "mineRyttereDataGrid";
+            this.mineRyttereDataGrid.ReadOnly = true;
+            this.mineRyttereDataGrid.Size = new System.Drawing.Size(955, 250);
+            this.mineRyttereDataGrid.TabIndex = 8;
             // 
             // tabPage2
             // 
@@ -300,7 +324,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(961, 495);
+            this.tabPage2.Size = new System.Drawing.Size(971, 495);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Budget";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -336,6 +360,64 @@
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "Sponsorer";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // textBoxAngivIDSøgSponsor
+            // 
+            this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(49, 344);
+            this.textBoxAngivIDSøgSponsor.Name = "textBoxAngivIDSøgSponsor";
+            this.textBoxAngivIDSøgSponsor.Size = new System.Drawing.Size(111, 20);
+            this.textBoxAngivIDSøgSponsor.TabIndex = 37;
+            // 
+            // LabelIDSøgRytter
+            // 
+            this.LabelIDSøgRytter.AutoSize = true;
+            this.LabelIDSøgRytter.Location = new System.Drawing.Point(84, 327);
+            this.LabelIDSøgRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelIDSøgRytter.Name = "LabelIDSøgRytter";
+            this.LabelIDSøgRytter.Size = new System.Drawing.Size(48, 13);
+            this.LabelIDSøgRytter.TabIndex = 36;
+            this.LabelIDSøgRytter.Text = "Angiv ID";
+            // 
+            // btnVælgSponsor
+            // 
+            this.btnVælgSponsor.BackColor = System.Drawing.Color.DarkGray;
+            this.btnVælgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnVælgSponsor.Location = new System.Drawing.Point(49, 389);
+            this.btnVælgSponsor.Name = "btnVælgSponsor";
+            this.btnVælgSponsor.Size = new System.Drawing.Size(111, 33);
+            this.btnVælgSponsor.TabIndex = 35;
+            this.btnVælgSponsor.Text = "Vælg";
+            this.btnVælgSponsor.UseVisualStyleBackColor = false;
+            // 
+            // labelInputSøgSponsor
+            // 
+            this.labelInputSøgSponsor.AutoSize = true;
+            this.labelInputSøgSponsor.Location = new System.Drawing.Point(80, 161);
+            this.labelInputSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelInputSøgSponsor.Name = "labelInputSøgSponsor";
+            this.labelInputSøgSponsor.Size = new System.Drawing.Size(57, 13);
+            this.labelInputSøgSponsor.TabIndex = 32;
+            this.labelInputSøgSponsor.Text = "Skriv input";
+            // 
+            // labelOpeSøgSponsor
+            // 
+            this.labelOpeSøgSponsor.AutoSize = true;
+            this.labelOpeSøgSponsor.Location = new System.Drawing.Point(72, 112);
+            this.labelOpeSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelOpeSøgSponsor.Name = "labelOpeSøgSponsor";
+            this.labelOpeSøgSponsor.Size = new System.Drawing.Size(74, 13);
+            this.labelOpeSøgSponsor.TabIndex = 31;
+            this.labelOpeSøgSponsor.Text = "Vælg operator";
+            // 
+            // labelParamSøgSponsor
+            // 
+            this.labelParamSøgSponsor.AutoSize = true;
+            this.labelParamSøgSponsor.Location = new System.Drawing.Point(68, 63);
+            this.labelParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParamSøgSponsor.Name = "labelParamSøgSponsor";
+            this.labelParamSøgSponsor.Size = new System.Drawing.Size(82, 13);
+            this.labelParamSøgSponsor.TabIndex = 30;
+            this.labelParamSøgSponsor.Text = "Vælg parameter";
             // 
             // buttonSøgSponsor
             // 
@@ -411,22 +493,12 @@
             this.comboBoxSøgOpeSponsorString.Size = new System.Drawing.Size(84, 21);
             this.comboBoxSøgOpeSponsorString.TabIndex = 29;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(773, 495);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Divison";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tabControl1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(961, 495);
+            this.tabPage4.Size = new System.Drawing.Size(971, 495);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Transfer";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -473,6 +545,44 @@
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Køb Rytter";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // budgetWarningRytter
+            // 
+            this.budgetWarningRytter.AutoSize = true;
+            this.budgetWarningRytter.Location = new System.Drawing.Point(129, 399);
+            this.budgetWarningRytter.Name = "budgetWarningRytter";
+            this.budgetWarningRytter.Size = new System.Drawing.Size(85, 13);
+            this.budgetWarningRytter.TabIndex = 35;
+            this.budgetWarningRytter.Text = "Ikke nok penge!";
+            this.budgetWarningRytter.Visible = false;
+            // 
+            // textBoxAngivIDKRytter
+            // 
+            this.textBoxAngivIDKRytter.Location = new System.Drawing.Point(113, 370);
+            this.textBoxAngivIDKRytter.Name = "textBoxAngivIDKRytter";
+            this.textBoxAngivIDKRytter.Size = new System.Drawing.Size(111, 20);
+            this.textBoxAngivIDKRytter.TabIndex = 34;
+            // 
+            // LabelIDkRytter
+            // 
+            this.LabelIDkRytter.AutoSize = true;
+            this.LabelIDkRytter.Location = new System.Drawing.Point(148, 353);
+            this.LabelIDkRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelIDkRytter.Name = "LabelIDkRytter";
+            this.LabelIDkRytter.Size = new System.Drawing.Size(48, 13);
+            this.LabelIDkRytter.TabIndex = 33;
+            this.LabelIDkRytter.Text = "Angiv ID";
+            // 
+            // btnKøbRytter
+            // 
+            this.btnKøbRytter.BackColor = System.Drawing.Color.DarkGray;
+            this.btnKøbRytter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnKøbRytter.Location = new System.Drawing.Point(113, 415);
+            this.btnKøbRytter.Name = "btnKøbRytter";
+            this.btnKøbRytter.Size = new System.Drawing.Size(111, 33);
+            this.btnKøbRytter.TabIndex = 32;
+            this.btnKøbRytter.Text = "Køb ";
+            this.btnKøbRytter.UseVisualStyleBackColor = false;
             // 
             // labelInput2KRytter
             // 
@@ -959,10 +1069,19 @@
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(950, 470);
+            this.tabPage8.Size = new System.Drawing.Size(954, 470);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "Sælg Træner";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(971, 495);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Divison";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // budgetLabel
             // 
@@ -983,102 +1102,6 @@
             this.label14.Size = new System.Drawing.Size(74, 13);
             this.label14.TabIndex = 26;
             this.label14.Text = "Vælg operator";
-            // 
-            // budgetWarningRytter
-            // 
-            this.budgetWarningRytter.AutoSize = true;
-            this.budgetWarningRytter.Location = new System.Drawing.Point(129, 399);
-            this.budgetWarningRytter.Name = "budgetWarningRytter";
-            this.budgetWarningRytter.Size = new System.Drawing.Size(85, 13);
-            this.budgetWarningRytter.TabIndex = 35;
-            this.budgetWarningRytter.Text = "Ikke nok penge!";
-            this.budgetWarningRytter.Visible = false;
-            // 
-            // textBoxAngivIDKRytter
-            // 
-            this.textBoxAngivIDKRytter.Location = new System.Drawing.Point(113, 370);
-            this.textBoxAngivIDKRytter.Name = "textBoxAngivIDKRytter";
-            this.textBoxAngivIDKRytter.Size = new System.Drawing.Size(111, 20);
-            this.textBoxAngivIDKRytter.TabIndex = 34;
-            // 
-            // LabelIDkRytter
-            // 
-            this.LabelIDkRytter.AutoSize = true;
-            this.LabelIDkRytter.Location = new System.Drawing.Point(148, 353);
-            this.LabelIDkRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LabelIDkRytter.Name = "LabelIDkRytter";
-            this.LabelIDkRytter.Size = new System.Drawing.Size(48, 13);
-            this.LabelIDkRytter.TabIndex = 33;
-            this.LabelIDkRytter.Text = "Angiv ID";
-            // 
-            // btnKøbRytter
-            // 
-            this.btnKøbRytter.BackColor = System.Drawing.Color.DarkGray;
-            this.btnKøbRytter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnKøbRytter.Location = new System.Drawing.Point(113, 415);
-            this.btnKøbRytter.Name = "btnKøbRytter";
-            this.btnKøbRytter.Size = new System.Drawing.Size(111, 33);
-            this.btnKøbRytter.TabIndex = 32;
-            this.btnKøbRytter.Text = "Køb ";
-            this.btnKøbRytter.UseVisualStyleBackColor = false;
-            // 
-            // labelInputSøgSponsor
-            // 
-            this.labelInputSøgSponsor.AutoSize = true;
-            this.labelInputSøgSponsor.Location = new System.Drawing.Point(80, 161);
-            this.labelInputSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelInputSøgSponsor.Name = "labelInputSøgSponsor";
-            this.labelInputSøgSponsor.Size = new System.Drawing.Size(57, 13);
-            this.labelInputSøgSponsor.TabIndex = 32;
-            this.labelInputSøgSponsor.Text = "Skriv input";
-            // 
-            // labelOpeSøgSponsor
-            // 
-            this.labelOpeSøgSponsor.AutoSize = true;
-            this.labelOpeSøgSponsor.Location = new System.Drawing.Point(72, 112);
-            this.labelOpeSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelOpeSøgSponsor.Name = "labelOpeSøgSponsor";
-            this.labelOpeSøgSponsor.Size = new System.Drawing.Size(74, 13);
-            this.labelOpeSøgSponsor.TabIndex = 31;
-            this.labelOpeSøgSponsor.Text = "Vælg operator";
-            // 
-            // labelParamSøgSponsor
-            // 
-            this.labelParamSøgSponsor.AutoSize = true;
-            this.labelParamSøgSponsor.Location = new System.Drawing.Point(68, 63);
-            this.labelParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelParamSøgSponsor.Name = "labelParamSøgSponsor";
-            this.labelParamSøgSponsor.Size = new System.Drawing.Size(82, 13);
-            this.labelParamSøgSponsor.TabIndex = 30;
-            this.labelParamSøgSponsor.Text = "Vælg parameter";
-            // 
-            // textBoxAngivIDSøgSponsor
-            // 
-            this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(49, 344);
-            this.textBoxAngivIDSøgSponsor.Name = "textBoxAngivIDSøgSponsor";
-            this.textBoxAngivIDSøgSponsor.Size = new System.Drawing.Size(111, 20);
-            this.textBoxAngivIDSøgSponsor.TabIndex = 37;
-            // 
-            // LabelIDSøgRytter
-            // 
-            this.LabelIDSøgRytter.AutoSize = true;
-            this.LabelIDSøgRytter.Location = new System.Drawing.Point(84, 327);
-            this.LabelIDSøgRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LabelIDSøgRytter.Name = "LabelIDSøgRytter";
-            this.LabelIDSøgRytter.Size = new System.Drawing.Size(48, 13);
-            this.LabelIDSøgRytter.TabIndex = 36;
-            this.LabelIDSøgRytter.Text = "Angiv ID";
-            // 
-            // btnVælgSponsor
-            // 
-            this.btnVælgSponsor.BackColor = System.Drawing.Color.DarkGray;
-            this.btnVælgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVælgSponsor.Location = new System.Drawing.Point(49, 389);
-            this.btnVælgSponsor.Name = "btnVælgSponsor";
-            this.btnVælgSponsor.Size = new System.Drawing.Size(111, 33);
-            this.btnVælgSponsor.TabIndex = 35;
-            this.btnVælgSponsor.Text = "Vælg";
-            this.btnVælgSponsor.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -1104,16 +1127,15 @@
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Magenta;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabControl.ResumeLayout(false);
-            this.mineRyttereTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.DivisionTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.divisionDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mineRyttereDataGrid)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSponsor)).EndInit();
-            this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
@@ -1138,17 +1160,15 @@
         private System.Windows.Forms.ComboBox LoadList;
         private System.Windows.Forms.Label LoadLabel;
         private System.Windows.Forms.Button MenuBtn;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button DeleteSave;
         private System.Windows.Forms.TextBox deleteTextBox;
         private System.Windows.Forms.Label DeleteHelp;
         private System.Windows.Forms.Label Exists;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage mineRyttereTab;
+        private System.Windows.Forms.TabPage DivisionTab;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView mineRyttereDataGrid;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
@@ -1197,7 +1217,6 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.DataGridView dataGridSponsor;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label budgetWarningTræner;
         //private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxSøgSponsor;
@@ -1215,6 +1234,10 @@
         private System.Windows.Forms.Label labelInputSøgSponsor;
         private System.Windows.Forms.Label labelOpeSøgSponsor;
         private System.Windows.Forms.Label labelParamSøgSponsor;
+        private System.Windows.Forms.DataGridView divisionDataGrid;
+        private System.Windows.Forms.CheckedListBox vaelgRytterCheckBox;
+        private System.Windows.Forms.Button AfholdLoebBtn;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 
