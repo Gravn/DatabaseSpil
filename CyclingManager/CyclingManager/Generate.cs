@@ -24,7 +24,7 @@ namespace CyclingManager
             cmd.Connection = Form1.dbConnection;
 
             //CREATE
-            cmd.CommandText = "Create table Hold(ID integer primary key, LøbID integer, Navn varchar(40), Sæson_Point integer, Division integer, Budget integer, Score integer, Foreign Key (LøbID) references Løb(ID))";
+            cmd.CommandText = "Create table Hold(ID integer primary key, Navn varchar(40), Sæson_Point integer, Division integer, Budget integer, Score integer)";
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "Create table Løb(ID integer primary key, HoldID integer, RytterID integer, Navn varchar(40), Type text, Point integer, Km integer, Etape integer, Foreign Key (HoldID) references Hold(ID), Foreign Key (RytterID) references Rytter(ID))";
@@ -127,7 +127,7 @@ namespace CyclingManager
                 int præmie = r.Next(2500, 10000);
 
                 //SQLite command for at sætte værdierne ind i sponsor tabellen
-                cmd.CommandText = String.Format("Insert into Sponsor (Navn, Præmie) values ('{0}','{1}')", sponsorNavne[i], præmie);
+                cmd.CommandText = String.Format("Insert into Sponsor (Navn,HoldID, Præmie) values ('{0}','0','{1}')", sponsorNavne[i], præmie);
                 cmd.ExecuteNonQuery();
             }
 
@@ -148,7 +148,7 @@ namespace CyclingManager
                     løbstype = "Bjergrig";
                 }
 
-                cmd.CommandText = String.Format("Insert into Løb (Navn, Type, Km, Etape) values ('{0}', '{1}', '{2}', '{3}')", løbsnavne[i], løbstype, kmLængde, etaper);
+                cmd.CommandText = String.Format("Insert into Løb (HoldID,RytterID,Navn, Type, Km, Etape) values ('0','0','{0}', '{1}', '{2}', '{3}')", løbsnavne[i], løbstype, kmLængde, etaper);
                 cmd.ExecuteNonQuery();
             }
             //Indsætter værdier i Træner tabellen

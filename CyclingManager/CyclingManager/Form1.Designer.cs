@@ -426,6 +426,7 @@
             this.btnVælgSponsor.TabIndex = 35;
             this.btnVælgSponsor.Text = "Vælg";
             this.btnVælgSponsor.UseVisualStyleBackColor = false;
+            this.btnVælgSponsor.Click += new System.EventHandler(this.btnVælgSponsor_Click);
             // 
             // labelInputSøgSponsor
             // 

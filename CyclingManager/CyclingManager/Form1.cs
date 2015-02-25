@@ -14,7 +14,7 @@ namespace CyclingManager
     public partial class Form1 : Form
     {
         //string to send to sqlite as command
-        public static string dbname;
+        public static string dbname = "Toms Hold";
 
         //databases saved in /saves.
         public static string[] saves;
@@ -25,7 +25,7 @@ namespace CyclingManager
         public static SQLiteConnection dbConnection = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
 
-
+        
 
         public Form1()
         {
@@ -104,7 +104,7 @@ namespace CyclingManager
                     vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
                 }
             }
-
+   
 
 
         }
@@ -131,14 +131,13 @@ namespace CyclingManager
             ToggleUI();
             fillDataGridViews();
 
-
+            
         }
 
         private void NewGame_Click(object sender, EventArgs e)
         {
             if (saves != null)
             {
-
                 for (int i = 0; i < saves.Length; i++)
                 {
                     if ("saves\\" + dbname + ".db" == saves[i])
@@ -148,14 +147,12 @@ namespace CyclingManager
                     }
                 }
             }
-
-
             Generate.DataTables();
             ToggleUI();
 
             AddtoLoadList();
             fillDataGridViews();
-
+           
         }
 
 
@@ -170,7 +167,7 @@ namespace CyclingManager
         }
 
         private void MenuBtn_Click(object sender, EventArgs e)
-        {
+        { 
             ToggleUI();
             Form1.dbConnection.Close();
         }
@@ -183,8 +180,8 @@ namespace CyclingManager
                 dbname = NewNameInput.Text;
             }
             else
-            {
-                NewNameInput.Text = "Indtast Navn";
+            { 
+                dbname = "Toms Hold";                    
             }
         }
 
@@ -202,13 +199,9 @@ namespace CyclingManager
             DataTable træner = new DataTable();
             c.Fill(træner);
 
-            SQLiteDataAdapter d = new SQLiteDataAdapter("Select * FROM Træner where HoldID = 5", dbConnection);
-            DataTable mineTrænere = new DataTable();
-            d.Fill(mineTrænere);
-
-            SQLiteDataAdapter e = new SQLiteDataAdapter("SELECT * FROM Rytter Where HoldID = 0", dbConnection);
+            SQLiteDataAdapter d = new SQLiteDataAdapter("SELECT * FROM Rytter Where HoldID = 0", dbConnection);
             DataTable købRytter = new DataTable();
-            e.Fill(købRytter);
+            d.Fill(købRytter);
 
             SQLiteDataAdapter f = new SQLiteDataAdapter("SELECT * FROM Sponsor", dbConnection);
             DataTable sponsorer = new DataTable();
@@ -220,7 +213,6 @@ namespace CyclingManager
             divisionDataGrid.DataSource = division;
 
             dataGridTræner.DataSource = træner;
-            STrænerGridView.DataSource = mineTrænere;
 
             dataGridRytter.DataSource = købRytter;
 
@@ -398,14 +390,14 @@ namespace CyclingManager
             dataGridRytter.DataSource = købRytter;
         }
 
-
+        
         private void btnKøbTræner_Click(object sender, EventArgs e)
         {
-
+            
             string input = textBoxAngivIDKTræner.Text;
             cmd.Connection = dbConnection;
 
-            if (GetDataString("Træner", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
+            if(GetDataString("Træner", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
             {
                 cmd.CommandText = String.Format("Select * from Træner where ID = {0}", input);
                 cmd.ExecuteNonQuery();
@@ -610,7 +602,7 @@ namespace CyclingManager
             }
         }
 
-
+        
 
         private void comboBoxParamSøgSponsor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -629,13 +621,13 @@ namespace CyclingManager
 
         private int GetBudget()
         {
-            //cmd.Connection = dbConnection;
+            //cmd.Connection = dbConnectibon;
             //dbConnection.Open();
             SQLiteCommand command = new SQLiteCommand();
 
             command.CommandText = String.Format("Select * from Hold where ID = 5", dbConnection);
             command = new SQLiteCommand(command.CommandText, dbConnection);
-
+            
             SQLiteDataReader reader = command.ExecuteReader();
 
             int i = 0;
@@ -651,7 +643,7 @@ namespace CyclingManager
 
         private void SetBudget(int change)
         {
-
+            
             int newBudget = GetBudget() + change;
 
             cmd.CommandText = String.Format("Update Hold set Budget = {0} where ID = 5", newBudget);
@@ -662,16 +654,16 @@ namespace CyclingManager
             fillDataGridViews();
         }
 
-        private string GetDataString(string table, string parameter, string value, string returnValue, int resultIndex)
+        private string GetDataString(string table,string parameter,string value,string returnValue,int resultIndex)
         {
             //cmd.Connection = dbConnection;
             SQLiteCommand command = new SQLiteCommand();
 
-            command.CommandText = String.Format("Select {0} from {1} where {2} = {3} AND RowID = {4}", returnValue, table, parameter, value, resultIndex, dbConnection);
-            command = new SQLiteCommand(command.CommandText, dbConnection);
-
+            command.CommandText = String.Format("Select {0} from {1} where {2} = {3} AND RowID = {4}",returnValue,table,parameter,value,resultIndex, dbConnection);
+            command = new SQLiteCommand(command.CommandText,dbConnection);
+            
             SQLiteDataReader reader = command.ExecuteReader();
-
+            
             string s = "";
             while (reader.Read())
             {
@@ -681,7 +673,7 @@ namespace CyclingManager
             return s;
         }
 
-        private void UpdateDataAbsolute(string table, string parameter1, string value1, string parameter2, string value2)
+        private void UpdateDataAbsolute(string table, string parameter1, string value1,string parameter2, string value2)
         {
             cmd.Connection = dbConnection;
             cmd.CommandText = String.Format("Update {0} set {1} = {2} where {3} = {4}", table, parameter1, value1, parameter2, value2, dbConnection);
@@ -695,7 +687,7 @@ namespace CyclingManager
             if (GetDataString("Rytter", "HoldID", "5", "HoldID", Int32.Parse(input)) == "5")
             {
                 SRytterWarning.Visible = false;
-
+                
                 int rytterID = Int32.Parse(SRytterInput.Text);
 
                 UpdateDataAbsolute("Rytter", "holdID", "0", "ID", rytterID.ToString());
@@ -714,27 +706,11 @@ namespace CyclingManager
             {
                 SRytterWarning.Visible = true;
             }
-
+            
         }
 
-        private void btnSTræner_Click(object sender, EventArgs e)
-        {
-            string input = textBoxSTræner.Text;
-            if (GetDataString("Træner", "HoldID", "5", "HoldID", Int32.Parse(input)) == "5")
-            {
-                STrænerWarningLbl.Visible = false;
+        
 
-                int trænerID = Int32.Parse(textBoxSTræner.Text);
-
-                UpdateDataAbsolute("Træner", "HoldID", "0", "ID", trænerID.ToString());
-                SetBudget(Int32.Parse(GetDataString("Træner", "ID", trænerID.ToString(), "Løn", trænerID).ToString()) * 4);
-
-            }
-            else
-            {
-                STrænerWarningLbl.Visible = true;
-            }
-        }
 
         //Når vi køber/sælger ryttere:
         //for (int i = 0; i < 100; i++)
