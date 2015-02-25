@@ -43,49 +43,50 @@
             this.DeleteHelp = new System.Windows.Forms.Label();
             this.Exists = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.mineRyttereTab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.buttonSøgSponsor = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.textBoxSøgSponsor = new System.Windows.Forms.TextBox();
-            this.comboBoxSøgSponsor1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxParamSøgSponsor = new System.Windows.Forms.ComboBox();
             this.dataGridSponsor = new System.Windows.Forms.DataGridView();
-            this.comboBoxSøgSponsor3 = new System.Windows.Forms.ComboBox();
-            this.comboBoxSøgSponsor2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSøgOpeSponsorINT = new System.Windows.Forms.ComboBox();
+            this.comboBoxSøgOpeSponsorString = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelInput2KRytter = new System.Windows.Forms.Label();
+            this.labelOpe2KRytter = new System.Windows.Forms.Label();
+            this.labelParam2KRytter = new System.Windows.Forms.Label();
+            this.labelInputKRytter = new System.Windows.Forms.Label();
+            this.labelOpeKRytter = new System.Windows.Forms.Label();
+            this.labelParamKRytter = new System.Windows.Forms.Label();
             this.dataGridRytter = new System.Windows.Forms.DataGridView();
-            this.textBoxKøbRytter2 = new System.Windows.Forms.TextBox();
+            this.textInput2KøbRytter = new System.Windows.Forms.TextBox();
             this.buttonSøgRytter = new System.Windows.Forms.Button();
-            this.comboBoxKøbRytter4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxParam2KøbRytter = new System.Windows.Forms.ComboBox();
             this.checkBoxKøbRytter1 = new System.Windows.Forms.CheckBox();
-            this.textBoxKøbRytter1 = new System.Windows.Forms.TextBox();
-            this.comboBoxKøbRytter5 = new System.Windows.Forms.ComboBox();
-            this.comboBoxKøbRytter2 = new System.Windows.Forms.ComboBox();
-            this.comboBoxKøbRytter6 = new System.Windows.Forms.ComboBox();
-            this.comboBoxKøbRytter1 = new System.Windows.Forms.ComboBox();
-            this.comboBoxKøbRytter3 = new System.Windows.Forms.ComboBox();
+            this.textInput1KøbRytter = new System.Windows.Forms.TextBox();
+            this.comboBoxOperator2KøbRytterINT = new System.Windows.Forms.ComboBox();
+            this.comboBoxOperator2KøbRytterString = new System.Windows.Forms.ComboBox();
+            this.comboBoxParam1KøbRytter = new System.Windows.Forms.ComboBox();
+            this.comboBoxOperator1KøbRytterINT = new System.Windows.Forms.ComboBox();
+            this.comboBoxOperator1KøbRytterString = new System.Windows.Forms.ComboBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.budgetWarningTræner = new System.Windows.Forms.Label();
+            this.textBoxAngivIDKTræner = new System.Windows.Forms.TextBox();
+            this.LabelIDkTræner = new System.Windows.Forms.Label();
+            this.btnKøbTræner = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelParamKTræner = new System.Windows.Forms.Label();
             this.comboBoxKøbTræner2 = new System.Windows.Forms.ComboBox();
             this.textBoxKøbTræner2 = new System.Windows.Forms.TextBox();
             this.checkBoxKøbTræner1 = new System.Windows.Forms.CheckBox();
@@ -98,18 +99,22 @@
             this.comboBoxKøbTræner6 = new System.Windows.Forms.ComboBox();
             this.comboBoxKøbTræner4 = new System.Windows.Forms.ComboBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-<<<<<<< HEAD
-            this.btnKøbTræner = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxAngivID = new System.Windows.Forms.TextBox();
+            this.budgetLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-=======
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.budgetWarningRytter = new System.Windows.Forms.Label();
+            this.textBoxAngivIDKRytter = new System.Windows.Forms.TextBox();
+            this.LabelIDkRytter = new System.Windows.Forms.Label();
+            this.btnKøbRytter = new System.Windows.Forms.Button();
+            this.labelInputSøgSponsor = new System.Windows.Forms.Label();
+            this.labelOpeSøgSponsor = new System.Windows.Forms.Label();
+            this.labelParamSøgSponsor = new System.Windows.Forms.Label();
+            this.textBoxAngivIDSøgSponsor = new System.Windows.Forms.TextBox();
+            this.LabelIDSøgRytter = new System.Windows.Forms.Label();
+            this.btnVælgSponsor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.mineRyttereTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -256,7 +261,7 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.mineRyttereTab);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
@@ -268,16 +273,16 @@
             this.tabControl.TabIndex = 14;
             this.tabControl.Visible = false;
             // 
-            // tabPage1
+            // mineRyttereTab
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(773, 495);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Mine Ryttere";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.mineRyttereTab.Controls.Add(this.dataGridView1);
+            this.mineRyttereTab.Location = new System.Drawing.Point(4, 22);
+            this.mineRyttereTab.Name = "mineRyttereTab";
+            this.mineRyttereTab.Padding = new System.Windows.Forms.Padding(3);
+            this.mineRyttereTab.Size = new System.Drawing.Size(773, 495);
+            this.mineRyttereTab.TabIndex = 0;
+            this.mineRyttereTab.Text = "Mine Ryttere";
+            this.mineRyttereTab.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -312,15 +317,18 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.textBoxAngivIDSøgSponsor);
+            this.tabPage9.Controls.Add(this.LabelIDSøgRytter);
+            this.tabPage9.Controls.Add(this.btnVælgSponsor);
+            this.tabPage9.Controls.Add(this.labelInputSøgSponsor);
+            this.tabPage9.Controls.Add(this.labelOpeSøgSponsor);
+            this.tabPage9.Controls.Add(this.labelParamSøgSponsor);
             this.tabPage9.Controls.Add(this.buttonSøgSponsor);
-            this.tabPage9.Controls.Add(this.label15);
-            this.tabPage9.Controls.Add(this.label14);
-            this.tabPage9.Controls.Add(this.label13);
             this.tabPage9.Controls.Add(this.textBoxSøgSponsor);
-            this.tabPage9.Controls.Add(this.comboBoxSøgSponsor1);
+            this.tabPage9.Controls.Add(this.comboBoxParamSøgSponsor);
             this.tabPage9.Controls.Add(this.dataGridSponsor);
-            this.tabPage9.Controls.Add(this.comboBoxSøgSponsor2);
-            this.tabPage9.Controls.Add(this.comboBoxSøgSponsor3);
+            this.tabPage9.Controls.Add(this.comboBoxSøgOpeSponsorINT);
+            this.tabPage9.Controls.Add(this.comboBoxSøgOpeSponsorString);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -340,37 +348,7 @@
             this.buttonSøgSponsor.TabIndex = 28;
             this.buttonSøgSponsor.Text = "Søg";
             this.buttonSøgSponsor.UseVisualStyleBackColor = false;
-            this.buttonSøgSponsor.Click += new System.EventHandler(this.buttonSøgSponsor_Click_1);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(46, 133);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 13);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Skriv input";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(38, 84);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 13);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Vælg operator";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(34, 35);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "Vælg parameter";
+            this.buttonSøgSponsor.Click += new System.EventHandler(this.buttonSøgSponsor_Click);
             // 
             // textBoxSøgSponsor
             // 
@@ -380,19 +358,19 @@
             this.textBoxSøgSponsor.Size = new System.Drawing.Size(84, 20);
             this.textBoxSøgSponsor.TabIndex = 24;
             // 
-            // comboBoxSøgSponsor1
+            // comboBoxParamSøgSponsor
             // 
-            this.comboBoxSøgSponsor1.FormattingEnabled = true;
-            this.comboBoxSøgSponsor1.Items.AddRange(new object[] {
+            this.comboBoxParamSøgSponsor.FormattingEnabled = true;
+            this.comboBoxParamSøgSponsor.Items.AddRange(new object[] {
             "ID",
             "Navn",
             "Præmie"});
-            this.comboBoxSøgSponsor1.Location = new System.Drawing.Point(32, 53);
-            this.comboBoxSøgSponsor1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxSøgSponsor1.Name = "comboBoxSøgSponsor1";
-            this.comboBoxSøgSponsor1.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxSøgSponsor1.TabIndex = 22;
-            this.comboBoxSøgSponsor1.SelectedIndexChanged += new System.EventHandler(this.comboBoxSøgSponsor1_SelectedIndexChanged_1);
+            this.comboBoxParamSøgSponsor.Location = new System.Drawing.Point(32, 53);
+            this.comboBoxParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxParamSøgSponsor.Name = "comboBoxParamSøgSponsor";
+            this.comboBoxParamSøgSponsor.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxParamSøgSponsor.TabIndex = 22;
+            this.comboBoxParamSøgSponsor.SelectedIndexChanged += new System.EventHandler(this.comboBoxParamSøgSponsor_SelectedIndexChanged);
             // 
             // dataGridSponsor
             // 
@@ -405,33 +383,33 @@
             this.dataGridSponsor.Size = new System.Drawing.Size(541, 469);
             this.dataGridSponsor.TabIndex = 21;
             // 
-            // comboBoxSøgSponsor3
+            // comboBoxSøgOpeSponsorINT
             // 
-            this.comboBoxSøgSponsor3.FormattingEnabled = true;
-            this.comboBoxSøgSponsor3.Items.AddRange(new object[] {
-            "LIKE",
-            "NOT LIKE"});
-            this.comboBoxSøgSponsor3.Location = new System.Drawing.Point(33, 103);
-            this.comboBoxSøgSponsor3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxSøgSponsor3.Name = "comboBoxSøgSponsor3";
-            this.comboBoxSøgSponsor3.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxSøgSponsor3.TabIndex = 29;
-            // 
-            // comboBoxSøgSponsor2
-            // 
-            this.comboBoxSøgSponsor2.FormattingEnabled = true;
-            this.comboBoxSøgSponsor2.Items.AddRange(new object[] {
+            this.comboBoxSøgOpeSponsorINT.FormattingEnabled = true;
+            this.comboBoxSøgOpeSponsorINT.Items.AddRange(new object[] {
             ">",
             "<",
             "=",
             ">=",
             "<="});
-            this.comboBoxSøgSponsor2.Location = new System.Drawing.Point(32, 103);
-            this.comboBoxSøgSponsor2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxSøgSponsor2.Name = "comboBoxSøgSponsor2";
-            this.comboBoxSøgSponsor2.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxSøgSponsor2.TabIndex = 23;
-            this.comboBoxSøgSponsor2.Visible = false;
+            this.comboBoxSøgOpeSponsorINT.Location = new System.Drawing.Point(33, 103);
+            this.comboBoxSøgOpeSponsorINT.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxSøgOpeSponsorINT.Name = "comboBoxSøgOpeSponsorINT";
+            this.comboBoxSøgOpeSponsorINT.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxSøgOpeSponsorINT.TabIndex = 23;
+            this.comboBoxSøgOpeSponsorINT.Visible = false;
+            // 
+            // comboBoxSøgOpeSponsorString
+            // 
+            this.comboBoxSøgOpeSponsorString.FormattingEnabled = true;
+            this.comboBoxSøgOpeSponsorString.Items.AddRange(new object[] {
+            "LIKE",
+            "NOT LIKE"});
+            this.comboBoxSøgOpeSponsorString.Location = new System.Drawing.Point(33, 103);
+            this.comboBoxSøgOpeSponsorString.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxSøgOpeSponsorString.Name = "comboBoxSøgOpeSponsorString";
+            this.comboBoxSøgOpeSponsorString.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxSøgOpeSponsorString.TabIndex = 29;
             // 
             // tabPage3
             // 
@@ -467,23 +445,27 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.label6);
-            this.tabPage5.Controls.Add(this.label5);
-            this.tabPage5.Controls.Add(this.label4);
-            this.tabPage5.Controls.Add(this.label3);
-            this.tabPage5.Controls.Add(this.label2);
-            this.tabPage5.Controls.Add(this.label1);
+            this.tabPage5.Controls.Add(this.budgetWarningRytter);
+            this.tabPage5.Controls.Add(this.textBoxAngivIDKRytter);
+            this.tabPage5.Controls.Add(this.LabelIDkRytter);
+            this.tabPage5.Controls.Add(this.btnKøbRytter);
+            this.tabPage5.Controls.Add(this.labelInput2KRytter);
+            this.tabPage5.Controls.Add(this.labelOpe2KRytter);
+            this.tabPage5.Controls.Add(this.labelParam2KRytter);
+            this.tabPage5.Controls.Add(this.labelInputKRytter);
+            this.tabPage5.Controls.Add(this.labelOpeKRytter);
+            this.tabPage5.Controls.Add(this.labelParamKRytter);
             this.tabPage5.Controls.Add(this.dataGridRytter);
-            this.tabPage5.Controls.Add(this.textBoxKøbRytter2);
+            this.tabPage5.Controls.Add(this.textInput2KøbRytter);
             this.tabPage5.Controls.Add(this.buttonSøgRytter);
-            this.tabPage5.Controls.Add(this.comboBoxKøbRytter4);
+            this.tabPage5.Controls.Add(this.comboBoxParam2KøbRytter);
             this.tabPage5.Controls.Add(this.checkBoxKøbRytter1);
-            this.tabPage5.Controls.Add(this.textBoxKøbRytter1);
-            this.tabPage5.Controls.Add(this.comboBoxKøbRytter5);
-            this.tabPage5.Controls.Add(this.comboBoxKøbRytter6);
-            this.tabPage5.Controls.Add(this.comboBoxKøbRytter1);
-            this.tabPage5.Controls.Add(this.comboBoxKøbRytter2);
-            this.tabPage5.Controls.Add(this.comboBoxKøbRytter3);
+            this.tabPage5.Controls.Add(this.textInput1KøbRytter);
+            this.tabPage5.Controls.Add(this.comboBoxOperator2KøbRytterINT);
+            this.tabPage5.Controls.Add(this.comboBoxOperator2KøbRytterString);
+            this.tabPage5.Controls.Add(this.comboBoxParam1KøbRytter);
+            this.tabPage5.Controls.Add(this.comboBoxOperator1KøbRytterINT);
+            this.tabPage5.Controls.Add(this.comboBoxOperator1KøbRytterString);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -492,114 +474,84 @@
             this.tabPage5.Text = "Køb Rytter";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // labelInput2KRytter
             // 
-            this.label6.AutoSize = true;
-<<<<<<< HEAD
-            this.label6.Location = new System.Drawing.Point(61, 435);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 17);
-=======
-            this.label6.Location = new System.Drawing.Point(46, 353);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Skriv input";
+            this.labelInput2KRytter.AutoSize = true;
+            this.labelInput2KRytter.Location = new System.Drawing.Point(46, 353);
+            this.labelInput2KRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelInput2KRytter.Name = "labelInput2KRytter";
+            this.labelInput2KRytter.Size = new System.Drawing.Size(57, 13);
+            this.labelInput2KRytter.TabIndex = 26;
+            this.labelInput2KRytter.Text = "Skriv input";
             // 
-            // label5
+            // labelOpe2KRytter
             // 
-            this.label5.AutoSize = true;
-<<<<<<< HEAD
-            this.label5.Location = new System.Drawing.Point(50, 380);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 17);
-=======
-            this.label5.Location = new System.Drawing.Point(38, 309);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Vælg operator";
+            this.labelOpe2KRytter.AutoSize = true;
+            this.labelOpe2KRytter.Location = new System.Drawing.Point(38, 309);
+            this.labelOpe2KRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelOpe2KRytter.Name = "labelOpe2KRytter";
+            this.labelOpe2KRytter.Size = new System.Drawing.Size(74, 13);
+            this.labelOpe2KRytter.TabIndex = 25;
+            this.labelOpe2KRytter.Text = "Vælg operator";
             // 
-            // label4
+            // labelParam2KRytter
             // 
-            this.label4.AutoSize = true;
-<<<<<<< HEAD
-            this.label4.Location = new System.Drawing.Point(45, 321);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 17);
-=======
-            this.label4.Location = new System.Drawing.Point(34, 261);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Vælg parameter";
+            this.labelParam2KRytter.AutoSize = true;
+            this.labelParam2KRytter.Location = new System.Drawing.Point(33, 262);
+            this.labelParam2KRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParam2KRytter.Name = "labelParam2KRytter";
+            this.labelParam2KRytter.Size = new System.Drawing.Size(82, 13);
+            this.labelParam2KRytter.TabIndex = 24;
+            this.labelParam2KRytter.Text = "Vælg parameter";
             // 
-            // label3
+            // labelInputKRytter
             // 
-            this.label3.AutoSize = true;
-<<<<<<< HEAD
-            this.label3.Location = new System.Drawing.Point(61, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 17);
-=======
-            this.label3.Location = new System.Drawing.Point(46, 133);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Skriv input";
+            this.labelInputKRytter.AutoSize = true;
+            this.labelInputKRytter.Location = new System.Drawing.Point(46, 133);
+            this.labelInputKRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelInputKRytter.Name = "labelInputKRytter";
+            this.labelInputKRytter.Size = new System.Drawing.Size(57, 13);
+            this.labelInputKRytter.TabIndex = 23;
+            this.labelInputKRytter.Text = "Skriv input";
             // 
-            // label2
+            // labelOpeKRytter
             // 
-            this.label2.AutoSize = true;
-<<<<<<< HEAD
-            this.label2.Location = new System.Drawing.Point(50, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
-=======
-            this.label2.Location = new System.Drawing.Point(38, 84);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Vælg operator";
+            this.labelOpeKRytter.AutoSize = true;
+            this.labelOpeKRytter.Location = new System.Drawing.Point(38, 84);
+            this.labelOpeKRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelOpeKRytter.Name = "labelOpeKRytter";
+            this.labelOpeKRytter.Size = new System.Drawing.Size(74, 13);
+            this.labelOpeKRytter.TabIndex = 22;
+            this.labelOpeKRytter.Text = "Vælg operator";
             // 
-            // label1
+            // labelParamKRytter
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 35);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Vælg parameter";
+            this.labelParamKRytter.AutoSize = true;
+            this.labelParamKRytter.Location = new System.Drawing.Point(34, 35);
+            this.labelParamKRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParamKRytter.Name = "labelParamKRytter";
+            this.labelParamKRytter.Size = new System.Drawing.Size(82, 13);
+            this.labelParamKRytter.TabIndex = 21;
+            this.labelParamKRytter.Text = "Vælg parameter";
             // 
             // dataGridRytter
             // 
             this.dataGridRytter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridRytter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRytter.Location = new System.Drawing.Point(219, 2);
+            this.dataGridRytter.Location = new System.Drawing.Point(237, 2);
             this.dataGridRytter.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridRytter.Name = "dataGridRytter";
             this.dataGridRytter.RowTemplate.Height = 24;
-            this.dataGridRytter.Size = new System.Drawing.Size(541, 469);
+            this.dataGridRytter.Size = new System.Drawing.Size(523, 469);
             this.dataGridRytter.TabIndex = 20;
             // 
-            // textBoxKøbRytter2
+            // textInput2KøbRytter
             // 
-            this.textBoxKøbRytter2.Location = new System.Drawing.Point(32, 370);
-            this.textBoxKøbRytter2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxKøbRytter2.Name = "textBoxKøbRytter2";
-            this.textBoxKøbRytter2.Size = new System.Drawing.Size(84, 20);
-            this.textBoxKøbRytter2.TabIndex = 16;
+            this.textInput2KøbRytter.Location = new System.Drawing.Point(32, 370);
+            this.textInput2KøbRytter.Margin = new System.Windows.Forms.Padding(2);
+            this.textInput2KøbRytter.Name = "textInput2KøbRytter";
+            this.textInput2KøbRytter.Size = new System.Drawing.Size(84, 20);
+            this.textInput2KøbRytter.TabIndex = 16;
             // 
             // buttonSøgRytter
             // 
@@ -614,22 +566,22 @@
             this.buttonSøgRytter.UseVisualStyleBackColor = false;
             this.buttonSøgRytter.Click += new System.EventHandler(this.buttonSøgRytter_Click);
             // 
-            // comboBoxKøbRytter4
+            // comboBoxParam2KøbRytter
             // 
-            this.comboBoxKøbRytter4.FormattingEnabled = true;
-            this.comboBoxKøbRytter4.Items.AddRange(new object[] {
+            this.comboBoxParam2KøbRytter.FormattingEnabled = true;
+            this.comboBoxParam2KøbRytter.Items.AddRange(new object[] {
             "ID",
             "Navn",
             "Alder",
             "Overblik",
             "Støtte",
             "Løn"});
-            this.comboBoxKøbRytter4.Location = new System.Drawing.Point(32, 277);
-            this.comboBoxKøbRytter4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxKøbRytter4.Name = "comboBoxKøbRytter4";
-            this.comboBoxKøbRytter4.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxKøbRytter4.TabIndex = 14;
-            this.comboBoxKøbRytter4.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter4_SelectedIndexChanged);
+            this.comboBoxParam2KøbRytter.Location = new System.Drawing.Point(32, 277);
+            this.comboBoxParam2KøbRytter.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxParam2KøbRytter.Name = "comboBoxParam2KøbRytter";
+            this.comboBoxParam2KøbRytter.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxParam2KøbRytter.TabIndex = 14;
+            this.comboBoxParam2KøbRytter.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter4_SelectedIndexChanged);
             // 
             // checkBoxKøbRytter1
             // 
@@ -642,86 +594,86 @@
             this.checkBoxKøbRytter1.Text = "2. parameter";
             this.checkBoxKøbRytter1.UseVisualStyleBackColor = true;
             // 
-            // textBoxKøbRytter1
+            // textInput1KøbRytter
             // 
-            this.textBoxKøbRytter1.Location = new System.Drawing.Point(32, 150);
-            this.textBoxKøbRytter1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxKøbRytter1.Name = "textBoxKøbRytter1";
-            this.textBoxKøbRytter1.Size = new System.Drawing.Size(84, 20);
-            this.textBoxKøbRytter1.TabIndex = 11;
+            this.textInput1KøbRytter.Location = new System.Drawing.Point(32, 150);
+            this.textInput1KøbRytter.Margin = new System.Windows.Forms.Padding(2);
+            this.textInput1KøbRytter.Name = "textInput1KøbRytter";
+            this.textInput1KøbRytter.Size = new System.Drawing.Size(84, 20);
+            this.textInput1KøbRytter.TabIndex = 11;
             // 
-            // comboBoxKøbRytter5
+            // comboBoxOperator2KøbRytterINT
             // 
-            this.comboBoxKøbRytter5.FormattingEnabled = true;
-            this.comboBoxKøbRytter5.Items.AddRange(new object[] {
+            this.comboBoxOperator2KøbRytterINT.FormattingEnabled = true;
+            this.comboBoxOperator2KøbRytterINT.Items.AddRange(new object[] {
             ">",
             "<",
             "=",
             ">=",
             "<="});
-            this.comboBoxKøbRytter5.Location = new System.Drawing.Point(32, 326);
-            this.comboBoxKøbRytter5.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxKøbRytter5.Name = "comboBoxKøbRytter5";
-            this.comboBoxKøbRytter5.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxKøbRytter5.TabIndex = 18;
+            this.comboBoxOperator2KøbRytterINT.Location = new System.Drawing.Point(32, 326);
+            this.comboBoxOperator2KøbRytterINT.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxOperator2KøbRytterINT.Name = "comboBoxOperator2KøbRytterINT";
+            this.comboBoxOperator2KøbRytterINT.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxOperator2KøbRytterINT.TabIndex = 18;
             // 
-            // comboBoxKøbRytter2
+            // comboBoxOperator2KøbRytterString
             // 
-            this.comboBoxKøbRytter2.FormattingEnabled = true;
-            this.comboBoxKøbRytter2.Items.AddRange(new object[] {
-            ">",
-            "<",
-            "=",
-            ">=",
-            "<="});
-            this.comboBoxKøbRytter2.Location = new System.Drawing.Point(32, 103);
-            this.comboBoxKøbRytter2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxKøbRytter2.Name = "comboBoxKøbRytter2";
-            this.comboBoxKøbRytter2.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxKøbRytter2.TabIndex = 10;
-            // 
-            // comboBoxKøbRytter6
-            // 
-            this.comboBoxKøbRytter6.FormattingEnabled = true;
-            this.comboBoxKøbRytter6.Items.AddRange(new object[] {
+            this.comboBoxOperator2KøbRytterString.FormattingEnabled = true;
+            this.comboBoxOperator2KøbRytterString.Items.AddRange(new object[] {
             "LIKE",
             "NOT LIKE"});
-            this.comboBoxKøbRytter6.Location = new System.Drawing.Point(32, 326);
-            this.comboBoxKøbRytter6.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxKøbRytter6.Name = "comboBoxKøbRytter6";
-            this.comboBoxKøbRytter6.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxKøbRytter6.TabIndex = 19;
-            this.comboBoxKøbRytter6.Visible = false;
+            this.comboBoxOperator2KøbRytterString.Location = new System.Drawing.Point(32, 326);
+            this.comboBoxOperator2KøbRytterString.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxOperator2KøbRytterString.Name = "comboBoxOperator2KøbRytterString";
+            this.comboBoxOperator2KøbRytterString.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxOperator2KøbRytterString.TabIndex = 19;
+            this.comboBoxOperator2KøbRytterString.Visible = false;
             // 
-            // comboBoxKøbRytter1
+            // comboBoxParam1KøbRytter
             // 
-            this.comboBoxKøbRytter1.FormattingEnabled = true;
-            this.comboBoxKøbRytter1.Items.AddRange(new object[] {
+            this.comboBoxParam1KøbRytter.FormattingEnabled = true;
+            this.comboBoxParam1KøbRytter.Items.AddRange(new object[] {
             "ID",
             "Navn",
             "Alder",
             "Overblik",
             "Støtte",
             "Løn"});
-            this.comboBoxKøbRytter1.Location = new System.Drawing.Point(32, 53);
-            this.comboBoxKøbRytter1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxKøbRytter1.Name = "comboBoxKøbRytter1";
-            this.comboBoxKøbRytter1.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxKøbRytter1.TabIndex = 12;
-            this.comboBoxKøbRytter1.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter1_SelectedIndexChanged);
+            this.comboBoxParam1KøbRytter.Location = new System.Drawing.Point(32, 53);
+            this.comboBoxParam1KøbRytter.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxParam1KøbRytter.Name = "comboBoxParam1KøbRytter";
+            this.comboBoxParam1KøbRytter.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxParam1KøbRytter.TabIndex = 12;
+            this.comboBoxParam1KøbRytter.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter1_SelectedIndexChanged);
             // 
-            // comboBoxKøbRytter3
+            // comboBoxOperator1KøbRytterINT
             // 
-            this.comboBoxKøbRytter3.FormattingEnabled = true;
-            this.comboBoxKøbRytter3.Items.AddRange(new object[] {
+            this.comboBoxOperator1KøbRytterINT.FormattingEnabled = true;
+            this.comboBoxOperator1KøbRytterINT.Items.AddRange(new object[] {
+            ">",
+            "<",
+            "=",
+            ">=",
+            "<="});
+            this.comboBoxOperator1KøbRytterINT.Location = new System.Drawing.Point(32, 103);
+            this.comboBoxOperator1KøbRytterINT.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxOperator1KøbRytterINT.Name = "comboBoxOperator1KøbRytterINT";
+            this.comboBoxOperator1KøbRytterINT.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxOperator1KøbRytterINT.TabIndex = 10;
+            // 
+            // comboBoxOperator1KøbRytterString
+            // 
+            this.comboBoxOperator1KøbRytterString.FormattingEnabled = true;
+            this.comboBoxOperator1KøbRytterString.Items.AddRange(new object[] {
             "LIKE",
             "NOT LIKE"});
-            this.comboBoxKøbRytter3.Location = new System.Drawing.Point(32, 103);
-            this.comboBoxKøbRytter3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxKøbRytter3.Name = "comboBoxKøbRytter3";
-            this.comboBoxKøbRytter3.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxKøbRytter3.TabIndex = 17;
-            this.comboBoxKøbRytter3.Visible = false;
+            this.comboBoxOperator1KøbRytterString.Location = new System.Drawing.Point(32, 103);
+            this.comboBoxOperator1KøbRytterString.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxOperator1KøbRytterString.Name = "comboBoxOperator1KøbRytterString";
+            this.comboBoxOperator1KøbRytterString.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxOperator1KøbRytterString.TabIndex = 17;
+            this.comboBoxOperator1KøbRytterString.Visible = false;
             // 
             // tabPage6
             // 
@@ -735,16 +687,16 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.label14);
-            this.tabPage7.Controls.Add(this.textBoxAngivID);
-            this.tabPage7.Controls.Add(this.label13);
+            this.tabPage7.Controls.Add(this.budgetWarningTræner);
+            this.tabPage7.Controls.Add(this.textBoxAngivIDKTræner);
+            this.tabPage7.Controls.Add(this.LabelIDkTræner);
             this.tabPage7.Controls.Add(this.btnKøbTræner);
             this.tabPage7.Controls.Add(this.label12);
             this.tabPage7.Controls.Add(this.label11);
             this.tabPage7.Controls.Add(this.label10);
             this.tabPage7.Controls.Add(this.label9);
             this.tabPage7.Controls.Add(this.label8);
-            this.tabPage7.Controls.Add(this.label7);
+            this.tabPage7.Controls.Add(this.labelParamKTræner);
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner2);
             this.tabPage7.Controls.Add(this.textBoxKøbTræner2);
             this.tabPage7.Controls.Add(this.checkBoxKøbTræner1);
@@ -763,101 +715,104 @@
             this.tabPage7.Text = "Køb Træner";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // budgetWarningTræner
+            // 
+            this.budgetWarningTræner.AutoSize = true;
+            this.budgetWarningTræner.Location = new System.Drawing.Point(150, 399);
+            this.budgetWarningTræner.Name = "budgetWarningTræner";
+            this.budgetWarningTræner.Size = new System.Drawing.Size(85, 13);
+            this.budgetWarningTræner.TabIndex = 31;
+            this.budgetWarningTræner.Text = "Ikke nok penge!";
+            this.budgetWarningTræner.Visible = false;
+            // 
+            // textBoxAngivIDKTræner
+            // 
+            this.textBoxAngivIDKTræner.Location = new System.Drawing.Point(134, 370);
+            this.textBoxAngivIDKTræner.Name = "textBoxAngivIDKTræner";
+            this.textBoxAngivIDKTræner.Size = new System.Drawing.Size(111, 20);
+            this.textBoxAngivIDKTræner.TabIndex = 30;
+            // 
+            // LabelIDkTræner
+            // 
+            this.LabelIDkTræner.AutoSize = true;
+            this.LabelIDkTræner.Location = new System.Drawing.Point(169, 353);
+            this.LabelIDkTræner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelIDkTræner.Name = "LabelIDkTræner";
+            this.LabelIDkTræner.Size = new System.Drawing.Size(48, 13);
+            this.LabelIDkTræner.TabIndex = 29;
+            this.LabelIDkTræner.Text = "Angiv ID";
+            // 
+            // btnKøbTræner
+            // 
+            this.btnKøbTræner.BackColor = System.Drawing.Color.DarkGray;
+            this.btnKøbTræner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnKøbTræner.Location = new System.Drawing.Point(134, 415);
+            this.btnKøbTræner.Name = "btnKøbTræner";
+            this.btnKøbTræner.Size = new System.Drawing.Size(111, 33);
+            this.btnKøbTræner.TabIndex = 28;
+            this.btnKøbTræner.Text = "Køb ";
+            this.btnKøbTræner.UseVisualStyleBackColor = false;
+            this.btnKøbTræner.Click += new System.EventHandler(this.btnKøbTræner_Click);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-<<<<<<< HEAD
-            this.label12.Location = new System.Drawing.Point(61, 435);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 17);
-=======
             this.label12.Location = new System.Drawing.Point(46, 353);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
             this.label12.TabIndex = 27;
             this.label12.Text = "Skriv input";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-<<<<<<< HEAD
-            this.label11.Location = new System.Drawing.Point(61, 164);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 17);
-=======
             this.label11.Location = new System.Drawing.Point(46, 133);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
             this.label11.TabIndex = 26;
             this.label11.Text = "Skriv input";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-<<<<<<< HEAD
-            this.label10.Location = new System.Drawing.Point(50, 380);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 17);
-=======
             this.label10.Location = new System.Drawing.Point(38, 309);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
             this.label10.TabIndex = 25;
             this.label10.Text = "Vælg operator";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-<<<<<<< HEAD
-            this.label9.Location = new System.Drawing.Point(50, 104);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 17);
-=======
             this.label9.Location = new System.Drawing.Point(38, 84);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
             this.label9.TabIndex = 24;
             this.label9.Text = "Vælg operator";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-<<<<<<< HEAD
-            this.label8.Location = new System.Drawing.Point(45, 321);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 17);
-=======
             this.label8.Location = new System.Drawing.Point(34, 261);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
             this.label8.TabIndex = 23;
             this.label8.Text = "Vælg parameter";
             // 
-            // label7
+            // labelParamKTræner
             // 
-            this.label7.AutoSize = true;
-<<<<<<< HEAD
-            this.label7.Location = new System.Drawing.Point(45, 43);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 17);
-=======
-            this.label7.Location = new System.Drawing.Point(34, 35);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Vælg parameter";
+            this.labelParamKTræner.AutoSize = true;
+            this.labelParamKTræner.Location = new System.Drawing.Point(34, 35);
+            this.labelParamKTræner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParamKTræner.Name = "labelParamKTræner";
+            this.labelParamKTræner.Size = new System.Drawing.Size(82, 13);
+            this.labelParamKTræner.TabIndex = 22;
+            this.labelParamKTræner.Text = "Vælg parameter";
             // 
             // comboBoxKøbTræner2
             // 
@@ -950,20 +905,12 @@
             // 
             this.dataGridTræner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridTræner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
-            this.dataGridTræner.Location = new System.Drawing.Point(380, 3);
-            this.dataGridTræner.Name = "dataGridTræner";
-            this.dataGridTræner.ReadOnly = true;
-            this.dataGridTræner.RowTemplate.Height = 24;
-            this.dataGridTræner.Size = new System.Drawing.Size(633, 577);
-=======
-            this.dataGridTræner.Location = new System.Drawing.Point(219, 2);
+            this.dataGridTræner.Location = new System.Drawing.Point(250, 0);
             this.dataGridTræner.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridTræner.Name = "dataGridTræner";
             this.dataGridTræner.ReadOnly = true;
             this.dataGridTræner.RowTemplate.Height = 24;
-            this.dataGridTræner.Size = new System.Drawing.Size(541, 469);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
+            this.dataGridTræner.Size = new System.Drawing.Size(509, 469);
             this.dataGridTræner.TabIndex = 0;
             // 
             // comboBoxKøbTræner5
@@ -972,16 +919,10 @@
             this.comboBoxKøbTræner5.Items.AddRange(new object[] {
             "LIKE ",
             "NOT LIKE"});
-<<<<<<< HEAD
-            this.comboBoxKøbTræner5.Location = new System.Drawing.Point(43, 127);
-            this.comboBoxKøbTræner5.Name = "comboBoxKøbTræner5";
-            this.comboBoxKøbTræner5.Size = new System.Drawing.Size(111, 24);
-=======
             this.comboBoxKøbTræner5.Location = new System.Drawing.Point(32, 103);
             this.comboBoxKøbTræner5.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKøbTræner5.Name = "comboBoxKøbTræner5";
             this.comboBoxKøbTræner5.Size = new System.Drawing.Size(84, 21);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
             this.comboBoxKøbTræner5.TabIndex = 9;
             this.comboBoxKøbTræner5.Visible = false;
             // 
@@ -1022,67 +963,128 @@
             this.tabPage8.Text = "Sælg Træner";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
-            // btnKøbTræner
+            // budgetLabel
             // 
-            this.btnKøbTræner.BackColor = System.Drawing.Color.DarkGray;
-            this.btnKøbTræner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnKøbTræner.Location = new System.Drawing.Point(213, 515);
-            this.btnKøbTræner.Name = "btnKøbTræner";
-            this.btnKøbTræner.Size = new System.Drawing.Size(111, 33);
-            this.btnKøbTræner.TabIndex = 28;
-            this.btnKøbTræner.Text = "Køb ";
-            this.btnKøbTræner.UseVisualStyleBackColor = false;
-            this.btnKøbTræner.Click += new System.EventHandler(this.btnKøbTræner_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(240, 435);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 17);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Angiv ID";
-            // 
-            // textBoxAngivID
-            // 
-            this.textBoxAngivID.Location = new System.Drawing.Point(213, 455);
-            this.textBoxAngivID.Name = "textBoxAngivID";
-            this.textBoxAngivID.Size = new System.Drawing.Size(111, 22);
-            this.textBoxAngivID.TabIndex = 30;
+            this.budgetLabel.AutoSize = true;
+            this.budgetLabel.Location = new System.Drawing.Point(66, 11);
+            this.budgetLabel.Name = "budgetLabel";
+            this.budgetLabel.Size = new System.Drawing.Size(47, 13);
+            this.budgetLabel.TabIndex = 15;
+            this.budgetLabel.Text = "Budget: ";
+            this.budgetLabel.Visible = false;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(217, 492);
+            this.label14.Location = new System.Drawing.Point(38, 84);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 17);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "Ikke nok penge!";
-            this.label14.Visible = false;
+            this.label14.Size = new System.Drawing.Size(74, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "Vælg operator";
             // 
-            // label15
+            // budgetWarningRytter
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(66, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 17);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "Budget: ";
-            this.label15.Visible = false;
+            this.budgetWarningRytter.AutoSize = true;
+            this.budgetWarningRytter.Location = new System.Drawing.Point(137, 399);
+            this.budgetWarningRytter.Name = "budgetWarningRytter";
+            this.budgetWarningRytter.Size = new System.Drawing.Size(85, 13);
+            this.budgetWarningRytter.TabIndex = 35;
+            this.budgetWarningRytter.Text = "Ikke nok penge!";
+            this.budgetWarningRytter.Visible = false;
             // 
-=======
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
+            // textBoxAngivIDKRytter
+            // 
+            this.textBoxAngivIDKRytter.Location = new System.Drawing.Point(121, 370);
+            this.textBoxAngivIDKRytter.Name = "textBoxAngivIDKRytter";
+            this.textBoxAngivIDKRytter.Size = new System.Drawing.Size(111, 20);
+            this.textBoxAngivIDKRytter.TabIndex = 34;
+            // 
+            // LabelIDkRytter
+            // 
+            this.LabelIDkRytter.AutoSize = true;
+            this.LabelIDkRytter.Location = new System.Drawing.Point(156, 353);
+            this.LabelIDkRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelIDkRytter.Name = "LabelIDkRytter";
+            this.LabelIDkRytter.Size = new System.Drawing.Size(48, 13);
+            this.LabelIDkRytter.TabIndex = 33;
+            this.LabelIDkRytter.Text = "Angiv ID";
+            // 
+            // btnKøbRytter
+            // 
+            this.btnKøbRytter.BackColor = System.Drawing.Color.DarkGray;
+            this.btnKøbRytter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnKøbRytter.Location = new System.Drawing.Point(121, 415);
+            this.btnKøbRytter.Name = "btnKøbRytter";
+            this.btnKøbRytter.Size = new System.Drawing.Size(111, 33);
+            this.btnKøbRytter.TabIndex = 32;
+            this.btnKøbRytter.Text = "Køb ";
+            this.btnKøbRytter.UseVisualStyleBackColor = false;
+            // 
+            // labelInputSøgSponsor
+            // 
+            this.labelInputSøgSponsor.AutoSize = true;
+            this.labelInputSøgSponsor.Location = new System.Drawing.Point(47, 134);
+            this.labelInputSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelInputSøgSponsor.Name = "labelInputSøgSponsor";
+            this.labelInputSøgSponsor.Size = new System.Drawing.Size(57, 13);
+            this.labelInputSøgSponsor.TabIndex = 32;
+            this.labelInputSøgSponsor.Text = "Skriv input";
+            // 
+            // labelOpeSøgSponsor
+            // 
+            this.labelOpeSøgSponsor.AutoSize = true;
+            this.labelOpeSøgSponsor.Location = new System.Drawing.Point(39, 85);
+            this.labelOpeSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelOpeSøgSponsor.Name = "labelOpeSøgSponsor";
+            this.labelOpeSøgSponsor.Size = new System.Drawing.Size(74, 13);
+            this.labelOpeSøgSponsor.TabIndex = 31;
+            this.labelOpeSøgSponsor.Text = "Vælg operator";
+            // 
+            // labelParamSøgSponsor
+            // 
+            this.labelParamSøgSponsor.AutoSize = true;
+            this.labelParamSøgSponsor.Location = new System.Drawing.Point(35, 36);
+            this.labelParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParamSøgSponsor.Name = "labelParamSøgSponsor";
+            this.labelParamSøgSponsor.Size = new System.Drawing.Size(82, 13);
+            this.labelParamSøgSponsor.TabIndex = 30;
+            this.labelParamSøgSponsor.Text = "Vælg parameter";
+            // 
+            // textBoxAngivIDSøgSponsor
+            // 
+            this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(26, 316);
+            this.textBoxAngivIDSøgSponsor.Name = "textBoxAngivIDSøgSponsor";
+            this.textBoxAngivIDSøgSponsor.Size = new System.Drawing.Size(111, 20);
+            this.textBoxAngivIDSøgSponsor.TabIndex = 37;
+            // 
+            // LabelIDSøgRytter
+            // 
+            this.LabelIDSøgRytter.AutoSize = true;
+            this.LabelIDSøgRytter.Location = new System.Drawing.Point(61, 299);
+            this.LabelIDSøgRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelIDSøgRytter.Name = "LabelIDSøgRytter";
+            this.LabelIDSøgRytter.Size = new System.Drawing.Size(48, 13);
+            this.LabelIDSøgRytter.TabIndex = 36;
+            this.LabelIDSøgRytter.Text = "Angiv ID";
+            // 
+            // btnVælgSponsor
+            // 
+            this.btnVælgSponsor.BackColor = System.Drawing.Color.DarkGray;
+            this.btnVælgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnVælgSponsor.Location = new System.Drawing.Point(26, 361);
+            this.btnVælgSponsor.Name = "btnVælgSponsor";
+            this.btnVælgSponsor.Size = new System.Drawing.Size(111, 33);
+            this.btnVælgSponsor.TabIndex = 35;
+            this.btnVælgSponsor.Text = "Vælg";
+            this.btnVælgSponsor.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1043, 692);
-            this.Controls.Add(this.label15);
-=======
             this.ClientSize = new System.Drawing.Size(782, 562);
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
+            this.Controls.Add(this.budgetLabel);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.Exists);
             this.Controls.Add(this.DeleteHelp);
@@ -1103,7 +1105,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.mineRyttereTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
@@ -1141,7 +1143,7 @@
         private System.Windows.Forms.Label DeleteHelp;
         private System.Windows.Forms.Label Exists;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage mineRyttereTab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -1164,47 +1166,54 @@
         private System.Windows.Forms.ComboBox comboBoxKøbTræner5;
         private System.Windows.Forms.ComboBox comboBoxKøbTræner6;
         private System.Windows.Forms.DataGridView dataGridRytter;
-        private System.Windows.Forms.TextBox textBoxKøbRytter2;
+        private System.Windows.Forms.TextBox textInput2KøbRytter;
         private System.Windows.Forms.Button buttonSøgRytter;
-        private System.Windows.Forms.ComboBox comboBoxKøbRytter4;
+        private System.Windows.Forms.ComboBox comboBoxParam2KøbRytter;
         private System.Windows.Forms.CheckBox checkBoxKøbRytter1;
-        private System.Windows.Forms.ComboBox comboBoxKøbRytter1;
-        private System.Windows.Forms.TextBox textBoxKøbRytter1;
-        private System.Windows.Forms.ComboBox comboBoxKøbRytter6;
-        private System.Windows.Forms.ComboBox comboBoxKøbRytter5;
-        private System.Windows.Forms.ComboBox comboBoxKøbRytter3;
-        private System.Windows.Forms.ComboBox comboBoxKøbRytter2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxParam1KøbRytter;
+        private System.Windows.Forms.TextBox textInput1KøbRytter;
+        private System.Windows.Forms.ComboBox comboBoxOperator2KøbRytterString;
+        private System.Windows.Forms.ComboBox comboBoxOperator2KøbRytterINT;
+        private System.Windows.Forms.ComboBox comboBoxOperator1KøbRytterString;
+        private System.Windows.Forms.ComboBox comboBoxOperator1KøbRytterINT;
+        private System.Windows.Forms.Label labelParamKRytter;
+        private System.Windows.Forms.Label labelInput2KRytter;
+        private System.Windows.Forms.Label labelOpe2KRytter;
+        private System.Windows.Forms.Label labelParam2KRytter;
+        private System.Windows.Forms.Label labelInputKRytter;
+        private System.Windows.Forms.Label labelOpeKRytter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelParamKTræner;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-<<<<<<< HEAD
-        private System.Windows.Forms.TextBox textBoxAngivID;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBoxAngivIDKTræner;
+        private System.Windows.Forms.Label LabelIDkTræner;
         private System.Windows.Forms.Button btnKøbTræner;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-=======
+        private System.Windows.Forms.Label budgetLabel;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.DataGridView dataGridSponsor;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label budgetWarningTræner;
+        //private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxSøgSponsor;
-        private System.Windows.Forms.ComboBox comboBoxSøgSponsor2;
-        private System.Windows.Forms.ComboBox comboBoxSøgSponsor1;
+        private System.Windows.Forms.ComboBox comboBoxSøgOpeSponsorINT;
+        private System.Windows.Forms.ComboBox comboBoxParamSøgSponsor;
         private System.Windows.Forms.Button buttonSøgSponsor;
-        private System.Windows.Forms.ComboBox comboBoxSøgSponsor3;
->>>>>>> da6a23bee5c6f660d23937dd2790c8e89d2ee839
+        private System.Windows.Forms.ComboBox comboBoxSøgOpeSponsorString;
+        private System.Windows.Forms.Label budgetWarningRytter;
+        private System.Windows.Forms.TextBox textBoxAngivIDKRytter;
+        private System.Windows.Forms.Label LabelIDkRytter;
+        private System.Windows.Forms.Button btnKøbRytter;
+        private System.Windows.Forms.TextBox textBoxAngivIDSøgSponsor;
+        private System.Windows.Forms.Label LabelIDSøgRytter;
+        private System.Windows.Forms.Button btnVælgSponsor;
+        private System.Windows.Forms.Label labelInputSøgSponsor;
+        private System.Windows.Forms.Label labelOpeSøgSponsor;
+        private System.Windows.Forms.Label labelParamSøgSponsor;
     }
 }
 
