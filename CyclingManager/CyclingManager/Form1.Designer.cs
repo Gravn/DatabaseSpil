@@ -126,6 +126,9 @@
             this.budgetLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.sponsorWarninglbl = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridViewMineSponsorer = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.DivisionTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.divisionDataGrid)).BeginInit();
@@ -144,6 +147,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTræner)).BeginInit();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.STrænerGridView)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMineSponsorer)).BeginInit();
             this.SuspendLayout();
             // 
             // NewGame
@@ -312,7 +317,6 @@
             this.AfholdLoebBtn.TabIndex = 35;
             this.AfholdLoebBtn.Text = "Afhold Løb";
             this.AfholdLoebBtn.UseVisualStyleBackColor = false;
-            this.AfholdLoebBtn.Click += new System.EventHandler(this.AfholdLoebBtn_Click);
             // 
             // divisionDataGrid
             // 
@@ -348,6 +352,7 @@
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage9);
+            this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.ItemSize = new System.Drawing.Size(62, 18);
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
@@ -357,6 +362,7 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.sponsorWarninglbl);
             this.tabPage9.Controls.Add(this.textBoxAngivIDSøgSponsor);
             this.tabPage9.Controls.Add(this.LabelIDSøgRytter);
             this.tabPage9.Controls.Add(this.btnVælgSponsor);
@@ -374,7 +380,7 @@
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage9.Size = new System.Drawing.Size(954, 470);
             this.tabPage9.TabIndex = 0;
-            this.tabPage9.Text = "Sponsorer";
+            this.tabPage9.Text = "Find Sponsor";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // textBoxAngivIDSøgSponsor
@@ -404,11 +410,12 @@
             this.btnVælgSponsor.TabIndex = 35;
             this.btnVælgSponsor.Text = "Vælg";
             this.btnVælgSponsor.UseVisualStyleBackColor = false;
+            this.btnVælgSponsor.Click += new System.EventHandler(this.btnVælgSponsor_Click);
             // 
             // labelInputSøgSponsor
             // 
             this.labelInputSøgSponsor.AutoSize = true;
-            this.labelInputSøgSponsor.Location = new System.Drawing.Point(80, 161);
+            this.labelInputSøgSponsor.Location = new System.Drawing.Point(26, 133);
             this.labelInputSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelInputSøgSponsor.Name = "labelInputSøgSponsor";
             this.labelInputSøgSponsor.Size = new System.Drawing.Size(57, 13);
@@ -418,7 +425,7 @@
             // labelOpeSøgSponsor
             // 
             this.labelOpeSøgSponsor.AutoSize = true;
-            this.labelOpeSøgSponsor.Location = new System.Drawing.Point(72, 112);
+            this.labelOpeSøgSponsor.Location = new System.Drawing.Point(18, 84);
             this.labelOpeSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOpeSøgSponsor.Name = "labelOpeSøgSponsor";
             this.labelOpeSøgSponsor.Size = new System.Drawing.Size(74, 13);
@@ -428,7 +435,7 @@
             // labelParamSøgSponsor
             // 
             this.labelParamSøgSponsor.AutoSize = true;
-            this.labelParamSøgSponsor.Location = new System.Drawing.Point(68, 63);
+            this.labelParamSøgSponsor.Location = new System.Drawing.Point(14, 35);
             this.labelParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParamSøgSponsor.Name = "labelParamSøgSponsor";
             this.labelParamSøgSponsor.Size = new System.Drawing.Size(82, 13);
@@ -439,7 +446,7 @@
             // 
             this.buttonSøgSponsor.BackColor = System.Drawing.Color.DarkGray;
             this.buttonSøgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSøgSponsor.Location = new System.Drawing.Point(65, 219);
+            this.buttonSøgSponsor.Location = new System.Drawing.Point(12, 185);
             this.buttonSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSøgSponsor.Name = "buttonSøgSponsor";
             this.buttonSøgSponsor.Size = new System.Drawing.Size(83, 27);
@@ -450,7 +457,7 @@
             // 
             // textBoxSøgSponsor
             // 
-            this.textBoxSøgSponsor.Location = new System.Drawing.Point(65, 177);
+            this.textBoxSøgSponsor.Location = new System.Drawing.Point(12, 150);
             this.textBoxSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSøgSponsor.Name = "textBoxSøgSponsor";
             this.textBoxSøgSponsor.Size = new System.Drawing.Size(84, 20);
@@ -463,7 +470,7 @@
             "ID",
             "Navn",
             "Præmie"});
-            this.comboBoxParamSøgSponsor.Location = new System.Drawing.Point(65, 80);
+            this.comboBoxParamSøgSponsor.Location = new System.Drawing.Point(12, 53);
             this.comboBoxParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxParamSøgSponsor.Name = "comboBoxParamSøgSponsor";
             this.comboBoxParamSøgSponsor.Size = new System.Drawing.Size(84, 21);
@@ -490,7 +497,7 @@
             "=",
             ">=",
             "<="});
-            this.comboBoxSøgOpeSponsorINT.Location = new System.Drawing.Point(66, 130);
+            this.comboBoxSøgOpeSponsorINT.Location = new System.Drawing.Point(12, 103);
             this.comboBoxSøgOpeSponsorINT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxSøgOpeSponsorINT.Name = "comboBoxSøgOpeSponsorINT";
             this.comboBoxSøgOpeSponsorINT.Size = new System.Drawing.Size(84, 21);
@@ -503,7 +510,7 @@
             this.comboBoxSøgOpeSponsorString.Items.AddRange(new object[] {
             "LIKE",
             "NOT LIKE"});
-            this.comboBoxSøgOpeSponsorString.Location = new System.Drawing.Point(66, 130);
+            this.comboBoxSøgOpeSponsorString.Location = new System.Drawing.Point(12, 103);
             this.comboBoxSøgOpeSponsorString.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxSøgOpeSponsorString.Name = "comboBoxSøgOpeSponsorString";
             this.comboBoxSøgOpeSponsorString.Size = new System.Drawing.Size(84, 21);
@@ -1253,6 +1260,37 @@
             this.label14.TabIndex = 26;
             this.label14.Text = "Vælg operator";
             // 
+            // sponsorWarninglbl
+            // 
+            this.sponsorWarninglbl.AutoSize = true;
+            this.sponsorWarninglbl.Location = new System.Drawing.Point(62, 373);
+            this.sponsorWarninglbl.Name = "sponsorWarninglbl";
+            this.sponsorWarninglbl.Size = new System.Drawing.Size(96, 13);
+            this.sponsorWarninglbl.TabIndex = 38;
+            this.sponsorWarninglbl.Text = "Maks 2 Sponsorer!";
+            this.sponsorWarninglbl.Visible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridViewMineSponsorer);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(954, 470);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "Mine Sponsorer";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewMineSponsorer
+            // 
+            this.dataGridViewMineSponsorer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewMineSponsorer.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dataGridViewMineSponsorer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMineSponsorer.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewMineSponsorer.Name = "dataGridViewMineSponsorer";
+            this.dataGridViewMineSponsorer.Size = new System.Drawing.Size(954, 86);
+            this.dataGridViewMineSponsorer.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1300,6 +1338,8 @@
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.STrænerGridView)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMineSponsorer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1406,6 +1446,9 @@
         private System.Windows.Forms.Label STrænerIDlbl;
         private System.Windows.Forms.Button btnSTræner;
         private System.Windows.Forms.DataGridView STrænerGridView;
+        private System.Windows.Forms.Label sponsorWarninglbl;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridViewMineSponsorer;
     }
 }
 
