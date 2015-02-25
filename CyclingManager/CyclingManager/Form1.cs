@@ -22,7 +22,7 @@ namespace CyclingManager
         //current location path
         string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-        public static SQLiteConnection dbConnection;
+        public static SQLiteConnection dbConnection = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
 
         
@@ -149,9 +149,10 @@ namespace CyclingManager
                 }
             }
 
+            
+            Generate.DataTables();
             ToggleUI();
 
-            Generate.DataTables();
             AddtoLoadList();
             fillDataGridViews();
            
@@ -553,10 +554,13 @@ namespace CyclingManager
 
         private int GetBudget()
         {
-            cmd.Connection = dbConnection;
+            //cmd.Connection = dbConnection;
+            //dbConnection.Open();
+            SQLiteCommand command = new SQLiteCommand();
+
+            command.CommandText = String.Format("Select * from Hold where ID = 5", dbConnection);
+            command = new SQLiteCommand(command.CommandText, dbConnection);
             
-            cmd.CommandText = String.Format("Select * from Hold where ID = 5", dbConnection);
-            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
 
             int i = 0;
@@ -585,10 +589,11 @@ namespace CyclingManager
 
         private string GetDataString(string table,string parameter,string value,string returnValue,int resultIndex)
         {
-            cmd.Connection = dbConnection;
+            //cmd.Connection = dbConnection;
+            SQLiteCommand command = new SQLiteCommand();
 
-            cmd.CommandText = String.Format("Select {0} from {1} where {2} = {3} AND RowID = {4}",returnValue,table,parameter,value,resultIndex, dbConnection);
-            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+            command.CommandText = String.Format("Select {0} from {1} where {2} = {3} AND RowID = {4}",returnValue,table,parameter,value,resultIndex, dbConnection);
+            command = new SQLiteCommand(command.CommandText,dbConnection);
             
             SQLiteDataReader reader = command.ExecuteReader();
             
