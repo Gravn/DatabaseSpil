@@ -14,7 +14,7 @@ namespace CyclingManager
     public partial class Form1 : Form
     {
         //string to send to sqlite as command
-        public static string dbname;
+        public static string dbname = "Toms Hold";
 
         //databases saved in /saves.
         public static string[] saves;
@@ -138,7 +138,6 @@ namespace CyclingManager
         {
             if (saves != null)
             {
-
                 for (int i = 0; i < saves.Length; i++)
                 {
                     if ("saves\\" + dbname + ".db" == saves[i])
@@ -183,8 +182,8 @@ namespace CyclingManager
                 dbname = NewNameInput.Text;
             }
             else
-            {
-                NewNameInput.Text = "Indtast Navn";
+            { 
+                dbname = "Toms Hold";                    
             }
         }
 
@@ -554,7 +553,7 @@ namespace CyclingManager
 
         private int GetBudget()
         {
-            //cmd.Connection = dbConnection;
+            //cmd.Connection = dbConnectibon;
             //dbConnection.Open();
             SQLiteCommand command = new SQLiteCommand();
 
