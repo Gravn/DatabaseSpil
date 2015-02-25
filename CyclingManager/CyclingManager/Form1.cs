@@ -410,6 +410,8 @@ namespace CyclingManager
 
             if(GetDataString("Træner", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
             {
+                WarningTrænerlbl.Visible = false;
+                
                 cmd.CommandText = String.Format("Select * from Træner where ID = {0}", input);
                 cmd.ExecuteNonQuery();
 
@@ -428,6 +430,8 @@ namespace CyclingManager
 
                 if (GetBudget() >= trænerPris)
                 {
+
+                    budgetWarningTræner.Visible = false; 
                     cmd.CommandText = String.Format("Update Træner set HoldID = 5 where ID = {0}", input);
                     cmd.ExecuteNonQuery();
 
@@ -452,6 +456,8 @@ namespace CyclingManager
                 WarningTrænerlbl.Visible = true;
             }
 
+            
+
         }
 
         private void btnKøbRytter_Click(object sender, EventArgs e)
@@ -461,6 +467,8 @@ namespace CyclingManager
 
             if (GetDataString("Rytter", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
             {
+                WarningRytterlbl.Visible = false;
+                
                 cmd.CommandText = String.Format("Select * from Rytter where ID = {0}", input);
                 cmd.ExecuteNonQuery();
 
@@ -479,6 +487,7 @@ namespace CyclingManager
 
                 if (GetBudget() >= rytterPris)
                 {
+                    budgetWarningRytter.Visible = false;
                     cmd.CommandText = String.Format("Update Rytter set HoldID = 5 where ID = {0}", input);
                     cmd.ExecuteNonQuery();
 
@@ -794,10 +803,57 @@ namespace CyclingManager
 
         }
 
+        /// <summary>
+        /// Fjerner label beskeder med det samme inputfeltet er tomt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxAngivIDKTræner_TextChanged(object sender, EventArgs e)
+        {
+           if (textBoxAngivIDKTræner.Text == "")
+                {
+                    WarningTrænerlbl.Visible = false;
+                    budgetWarningTræner.Visible = false;
+                }
+        }
 
-
-        
-
+        /// <summary>
+        /// Fjerner label beskeder med det samme inputfeltet er tomt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxSTræner_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSøgSponsor.Text == "")
+            {
+                STrænerWarningLbl.Visible = false;
+            }
+        }
+        /// <summary>
+        /// Fjerner label beskeder med det samme inputfeltet er tomt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxAngivIDKRytter_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxAngivIDKRytter.Text == "")
+            {
+                budgetWarningRytter.Visible = false;
+                WarningRytterlbl.Visible = false;
+            }
+        }
+        /// <summary>
+        /// Fjerner label beskeder med det samme inputfeltet er tomt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SRytterInput_TextChanged(object sender, EventArgs e)
+        {
+            if(SRytterInput.Text == "")
+            {
+                SRytterWarning.Visible = false;
+            }
+        }
 
         //Når vi køber/sælger ryttere:
         //for (int i = 0; i < 100; i++)
