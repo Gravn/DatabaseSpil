@@ -622,6 +622,46 @@ namespace CyclingManager
             SetBudget(Int32.Parse(GetDataString("Rytter", "ID",rytterID.ToString(), "Løn",rytterID).ToString()) * 4);
         }
 
+        private void btnVælgSponsor_Click(object sender, EventArgs e)
+        {
+            cmd.Connection = dbConnection;
+            string input = textBoxAngivIDSøgSponsor.Text;
+
+            cmd.CommandText = String.Format("Select * from Sponsor where ID = {0}", input);
+            cmd.ExecuteNonQuery();
+
+            SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            int præmie = 0;
+
+            while(reader.Read())
+            {
+                præmie = int.Parse((reader["Præmie"]).ToString());
+            }
+
+            if (true)
+            {
+                cmd.CommandText = String.Format("Update Sponsor set HoldID = 5 where ID = {0}", input);
+                cmd.ExecuteNonQuery();
+
+                SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Sponsor", dbConnection);
+                DataTable sponsorer = new DataTable();
+                c.Fill(sponsorer);
+
+                dataGridSponsor.DataSource = sponsorer;
+
+                SetBudget(+præmie);
+
+                fillDataGridViews(); 
+            }
+            else
+            {
+                //textbox with stuff in it
+            }
+            
+        }
+
 
         //Når vi køber/sælger ryttere:
         //for (int i = 0; i < 100; i++)
