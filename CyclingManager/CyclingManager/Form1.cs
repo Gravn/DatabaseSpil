@@ -39,7 +39,6 @@ namespace CyclingManager
             dataGridView1.Enabled = false;
             dataGridView1.Visible = false;
 
-
             AddtoLoadList();
 
         }
@@ -91,9 +90,7 @@ namespace CyclingManager
             tabControl.Enabled = !tabControl.Enabled;
             tabControl.Visible = !tabControl.Visible;
 
-            budgetLabel.Visible = !budgetLabel.Visible;
-
-            
+            budgetLabel.Visible = !budgetLabel.Visible;         
 
         }
 
@@ -178,7 +175,7 @@ namespace CyclingManager
 
         private void fillDataGridViews()
         {
-            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter WHERE HoldID = 51", dbConnection);
+            SQLiteDataAdapter a = new SQLiteDataAdapter("SELECT * FROM Rytter WHERE HoldID = 5", dbConnection);
             DataTable ryttere = new DataTable();
             a.Fill(ryttere);
 
@@ -186,11 +183,11 @@ namespace CyclingManager
             DataTable division = new DataTable();
             b.Fill(division);
 
-            SQLiteDataAdapter c = new SQLiteDataAdapter("SELECT * FROM Træner", dbConnection);
+            SQLiteDataAdapter c = new SQLiteDataAdapter("SELECT * FROM Træner Where HoldID = 0", dbConnection);
             DataTable træner = new DataTable();
             c.Fill(træner);
 
-            SQLiteDataAdapter d = new SQLiteDataAdapter("SELECT * FROM Rytter", dbConnection);
+            SQLiteDataAdapter d = new SQLiteDataAdapter("SELECT * FROM Rytter Where HoldID = 0", dbConnection);
             DataTable købRytter = new DataTable();
             d.Fill(købRytter);
 
@@ -371,7 +368,7 @@ namespace CyclingManager
                 secondString = " order by " + comboBoxParam1KøbRytter.SelectedItem.ToString() + " desc";
             }
 
-            cmd.CommandText = String.Format("Select * from Rytter where {0} {1}{2}", comboBoxParam1KøbRytter.SelectedItem.ToString(), input, secondString);
+            cmd.CommandText = String.Format("Select * from Rytter where {0} {1} AND HoldID = 0{2}", comboBoxParam1KøbRytter.SelectedItem.ToString(), input, secondString);
 
             SQLiteDataAdapter d = new SQLiteDataAdapter(cmd.CommandText, dbConnection);
             DataTable købRytter = new DataTable();
@@ -404,7 +401,7 @@ namespace CyclingManager
 
             if (GetBudget() >= trænerPris)
             {
-                cmd.CommandText = String.Format("Update Træner set HoldID = 51 where ID = {0}", input);
+                cmd.CommandText = String.Format("Update Træner set HoldID = 5 where ID = {0}", input);
                 cmd.ExecuteNonQuery();
 
                 SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Træner", dbConnection);
@@ -543,7 +540,7 @@ namespace CyclingManager
         {
             cmd.Connection = dbConnection;
             
-            cmd.CommandText = String.Format("Select * from Hold where ID = 51", dbConnection);
+            cmd.CommandText = String.Format("Select * from Hold where ID = 5", dbConnection);
             SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
 
@@ -563,7 +560,7 @@ namespace CyclingManager
             
             int newBudget = GetBudget() + change;
 
-            cmd.CommandText = String.Format("Update Hold set Budget = {0} where ID = 51", newBudget);
+            cmd.CommandText = String.Format("Update Hold set Budget = {0} where ID = 5", newBudget);
             cmd.ExecuteNonQuery();
 
             budgetLabel.Text = "Budget: " + newBudget + " kr";

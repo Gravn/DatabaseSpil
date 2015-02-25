@@ -41,23 +41,48 @@ namespace CyclingManager
 
             cmd.CommandText = "Create table Træner(ID integer primary key, HoldID integer, Navn varchar(40), Erfaring integer, Fokus text, Løn integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
-            
+
+
+            ////Random som bruges til variablerne/attributterne i Rytter og Sponsor tabellen.
+            Random r = new Random();
 
             //INSERT
 
             string[] rytterNavne = System.IO.File.ReadAllLines("RytterNavn.txt");
 
+            //blander listen af rytternavne.
+            for (int i = 0; i < rytterNavne.Length; i++)
+            {
+                int a = r.Next(0, rytterNavne.Length);
+                int b = r.Next(0, rytterNavne.Length);
+                string tempnavn = rytterNavne[a];
+                rytterNavne[a] = rytterNavne[b];
+                rytterNavne[b] = tempnavn;
+            }
+
             string[] holdNavne = System.IO.File.ReadAllLines("Holdnavn.txt");
+
+            //udvælger x antal unikke navne
+            string[] pickednames = new String[4];  
+
+            for (int i = 0; i < pickednames.Length; i++)
+            {
+                int randomNameIndex = r.Next(0, holdNavne.Length);
+
+                if (pickednames[i] != holdNavne[randomNameIndex])
+                {
+                    pickednames[i] = holdNavne[randomNameIndex];
+                }
+            }
+            holdNavne = pickednames;
+
+
 
             string[] sponsorNavne = System.IO.File.ReadAllLines("SponsorNavne.txt");
 
             string[] løbsnavne = System.IO.File.ReadAllLines("Løbsnavne.txt");
 
             string[] trænernavne = System.IO.File.ReadAllLines("Trænernavne.txt");
-
-
-            ////Random som bruges til variablerne/attributterne i Rytter og Sponsor tabellen.
-            Random r = new Random();
 
             //Indsætter værdier i Rytter tabellen.
             for (int i = 0; i < rytterNavne.Length; i++)
@@ -85,10 +110,13 @@ namespace CyclingManager
                 }
 
                 //Fordeler rytterene på 10 hold, med ti ryttere på hver hold.
-                holdID = i/10+1;
+                if (i < 50)
+                {
+                    holdID = i / 10 + 1;
+                }
 
-                //SQLite command for at sætte værdierne ind i rytter tabellen.
-                cmd.CommandText = String.Format("Insert into Rytter (Navn, HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}','{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", rytterNavne[i], holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
+                    //SQLite command for at sætte værdierne ind i rytter tabellen.
+                    cmd.CommandText = String.Format("Insert into Rytter (Navn, HoldID, Alder, Løn, Udholdenhed, Styrke, Type, Støtte, Overblik, Talent) values ('{0}','{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", rytterNavne[i], holdID, alder, løn, udholdenhed, styrke, type, støtte, overblik, talent);
                 cmd.ExecuteNonQuery();
             }
 
@@ -139,7 +167,7 @@ namespace CyclingManager
                     fokus = "Bjergrytter";
                 }
 
-                cmd.CommandText = String.Format("Insert into Træner (Navn, Erfaring, Fokus, Løn) values ('{0}', '{1}', '{2}', '{3}')", trænernavne[i], erfaring, fokus, løn);
+                cmd.CommandText = String.Format("Insert into Træner (Navn, Erfaring, Fokus, Løn, HoldID) values ('{0}', '{1}', '{2}', '{3}', '{4}')", trænernavne[i], erfaring, fokus, løn,0);
                 cmd.ExecuteNonQuery();
 
             }
@@ -149,7 +177,6 @@ namespace CyclingManager
 
             for (int i = 0; i < holdNavne.Length; i++)
             {
-
                 int startScore = 0;
                 int startPoint = 0;
                 int division = 0;
@@ -170,7 +197,7 @@ namespace CyclingManager
 
             //Opret spillerhold:
 
-            cmd.CommandText = String.Format("Insert into Hold (Navn, Division, Budget, Sæson_Point, Score) values ('{0}', '{1}', '{2}', '{3}', '{4}')", Form1.dbname, 2, 2500, 0, 0);
+            cmd.CommandText = String.Format("Insert into Hold (Navn, Division, Budget, Sæson_Point, Score) values ('{0}', '{1}', '{2}', '{3}', '{4}')", Form1.dbname, 1, 2500, 0, 0);
             cmd.ExecuteNonQuery();
 
         }
