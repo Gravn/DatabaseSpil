@@ -147,8 +147,6 @@ namespace CyclingManager
                     }
                 }
             }
-
-            
             Generate.DataTables();
             ToggleUI();
 
