@@ -65,6 +65,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.WarningRytterlbl = new System.Windows.Forms.Label();
             this.budgetWarningRytter = new System.Windows.Forms.Label();
             this.textBoxAngivIDKRytter = new System.Windows.Forms.TextBox();
             this.LabelIDkRytter = new System.Windows.Forms.Label();
@@ -87,11 +88,13 @@
             this.comboBoxOperator1KøbRytterINT = new System.Windows.Forms.ComboBox();
             this.comboBoxOperator1KøbRytterString = new System.Windows.Forms.ComboBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.SRytterWarning = new System.Windows.Forms.Label();
             this.SRytterGridView = new System.Windows.Forms.DataGridView();
             this.SRytterInput = new System.Windows.Forms.TextBox();
             this.SRytterLb1 = new System.Windows.Forms.Label();
             this.SRytterBtn = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.WarningTrænerlbl = new System.Windows.Forms.Label();
             this.budgetWarningTræner = new System.Windows.Forms.Label();
             this.textBoxAngivIDKTræner = new System.Windows.Forms.TextBox();
             this.LabelIDkTræner = new System.Windows.Forms.Label();
@@ -118,9 +121,11 @@
             this.budgetLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.WarningTrænerlbl = new System.Windows.Forms.Label();
-            this.WarningRytterlbl = new System.Windows.Forms.Label();
-            this.SRytterWarning = new System.Windows.Forms.Label();
+            this.STrænerGridView = new System.Windows.Forms.DataGridView();
+            this.STrænerWarningLbl = new System.Windows.Forms.Label();
+            this.textBoxSTræner = new System.Windows.Forms.TextBox();
+            this.STrænerIDlbl = new System.Windows.Forms.Label();
+            this.btnSTræner = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.DivisionTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.divisionDataGrid)).BeginInit();
@@ -137,12 +142,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.SRytterGridView)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTræner)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.STrænerGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // NewGame
             // 
             this.NewGame.Location = new System.Drawing.Point(16, 123);
-            this.NewGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NewGame.Margin = new System.Windows.Forms.Padding(4);
             this.NewGame.Name = "NewGame";
             this.NewGame.Size = new System.Drawing.Size(100, 28);
             this.NewGame.TabIndex = 0;
@@ -153,7 +160,7 @@
             // NewNameInput
             // 
             this.NewNameInput.Location = new System.Drawing.Point(16, 91);
-            this.NewNameInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NewNameInput.Margin = new System.Windows.Forms.Padding(4);
             this.NewNameInput.Name = "NewNameInput";
             this.NewNameInput.Size = new System.Drawing.Size(291, 22);
             this.NewNameInput.TabIndex = 1;
@@ -190,7 +197,7 @@
             // LoadGame
             // 
             this.LoadGame.Location = new System.Drawing.Point(759, 124);
-            this.LoadGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoadGame.Margin = new System.Windows.Forms.Padding(4);
             this.LoadGame.Name = "LoadGame";
             this.LoadGame.Size = new System.Drawing.Size(100, 28);
             this.LoadGame.TabIndex = 4;
@@ -203,7 +210,7 @@
             this.LoadList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LoadList.FormattingEnabled = true;
             this.LoadList.Location = new System.Drawing.Point(757, 91);
-            this.LoadList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoadList.Margin = new System.Windows.Forms.Padding(4);
             this.LoadList.Name = "LoadList";
             this.LoadList.Size = new System.Drawing.Size(160, 24);
             this.LoadList.Sorted = true;
@@ -222,7 +229,7 @@
             // MenuBtn
             // 
             this.MenuBtn.Location = new System.Drawing.Point(929, 15);
-            this.MenuBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MenuBtn.Margin = new System.Windows.Forms.Padding(4);
             this.MenuBtn.Name = "MenuBtn";
             this.MenuBtn.Size = new System.Drawing.Size(100, 28);
             this.MenuBtn.TabIndex = 7;
@@ -233,7 +240,7 @@
             // DeleteSave
             // 
             this.DeleteSave.Location = new System.Drawing.Point(16, 234);
-            this.DeleteSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DeleteSave.Margin = new System.Windows.Forms.Padding(4);
             this.DeleteSave.Name = "DeleteSave";
             this.DeleteSave.Size = new System.Drawing.Size(100, 28);
             this.DeleteSave.TabIndex = 10;
@@ -244,7 +251,7 @@
             // deleteTextBox
             // 
             this.deleteTextBox.Location = new System.Drawing.Point(16, 202);
-            this.deleteTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.deleteTextBox.Name = "deleteTextBox";
             this.deleteTextBox.Size = new System.Drawing.Size(291, 22);
             this.deleteTextBox.TabIndex = 11;
@@ -280,7 +287,7 @@
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Enabled = false;
             this.tabControl.Location = new System.Drawing.Point(4, 50);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1305, 641);
@@ -294,9 +301,9 @@
             this.DivisionTab.Controls.Add(this.divisionDataGrid);
             this.DivisionTab.Controls.Add(this.mineRyttereDataGrid);
             this.DivisionTab.Location = new System.Drawing.Point(4, 25);
-            this.DivisionTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DivisionTab.Margin = new System.Windows.Forms.Padding(4);
             this.DivisionTab.Name = "DivisionTab";
-            this.DivisionTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DivisionTab.Padding = new System.Windows.Forms.Padding(4);
             this.DivisionTab.Size = new System.Drawing.Size(1297, 612);
             this.DivisionTab.TabIndex = 0;
             this.DivisionTab.Text = "Division";
@@ -306,7 +313,7 @@
             // 
             this.vaelgRytterCheckBox.FormattingEnabled = true;
             this.vaelgRytterCheckBox.Location = new System.Drawing.Point(819, 321);
-            this.vaelgRytterCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vaelgRytterCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.vaelgRytterCheckBox.Name = "vaelgRytterCheckBox";
             this.vaelgRytterCheckBox.Size = new System.Drawing.Size(211, 276);
             this.vaelgRytterCheckBox.TabIndex = 36;
@@ -316,7 +323,7 @@
             this.AfholdLoebBtn.BackColor = System.Drawing.Color.DarkGray;
             this.AfholdLoebBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AfholdLoebBtn.Location = new System.Drawing.Point(1069, 535);
-            this.AfholdLoebBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AfholdLoebBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AfholdLoebBtn.Name = "AfholdLoebBtn";
             this.AfholdLoebBtn.Size = new System.Drawing.Size(148, 41);
             this.AfholdLoebBtn.TabIndex = 35;
@@ -328,7 +335,7 @@
             this.divisionDataGrid.AllowUserToOrderColumns = true;
             this.divisionDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.divisionDataGrid.Location = new System.Drawing.Point(7, 320);
-            this.divisionDataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.divisionDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.divisionDataGrid.Name = "divisionDataGrid";
             this.divisionDataGrid.ReadOnly = true;
             this.divisionDataGrid.Size = new System.Drawing.Size(800, 279);
@@ -339,7 +346,7 @@
             this.mineRyttereDataGrid.AllowUserToOrderColumns = true;
             this.mineRyttereDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mineRyttereDataGrid.Location = new System.Drawing.Point(7, 5);
-            this.mineRyttereDataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mineRyttereDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.mineRyttereDataGrid.Name = "mineRyttereDataGrid";
             this.mineRyttereDataGrid.ReadOnly = true;
             this.mineRyttereDataGrid.Size = new System.Drawing.Size(1273, 308);
@@ -349,9 +356,9 @@
             // 
             this.tabPage2.Controls.Add(this.tabControl2);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1297, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Budget";
@@ -362,7 +369,7 @@
             this.tabControl2.Controls.Add(this.tabPage9);
             this.tabControl2.ItemSize = new System.Drawing.Size(62, 18);
             this.tabControl2.Location = new System.Drawing.Point(4, 4);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(1283, 610);
@@ -383,9 +390,9 @@
             this.tabPage9.Controls.Add(this.comboBoxSøgOpeSponsorINT);
             this.tabPage9.Controls.Add(this.comboBoxSøgOpeSponsorString);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage9.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage9.Size = new System.Drawing.Size(1275, 584);
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "Sponsorer";
@@ -394,7 +401,7 @@
             // textBoxAngivIDSøgSponsor
             // 
             this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(65, 423);
-            this.textBoxAngivIDSøgSponsor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAngivIDSøgSponsor.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAngivIDSøgSponsor.Name = "textBoxAngivIDSøgSponsor";
             this.textBoxAngivIDSøgSponsor.Size = new System.Drawing.Size(147, 22);
             this.textBoxAngivIDSøgSponsor.TabIndex = 37;
@@ -413,7 +420,7 @@
             this.btnVælgSponsor.BackColor = System.Drawing.Color.DarkGray;
             this.btnVælgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnVælgSponsor.Location = new System.Drawing.Point(65, 479);
-            this.btnVælgSponsor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVælgSponsor.Margin = new System.Windows.Forms.Padding(4);
             this.btnVælgSponsor.Name = "btnVælgSponsor";
             this.btnVælgSponsor.Size = new System.Drawing.Size(148, 41);
             this.btnVælgSponsor.TabIndex = 35;
@@ -525,7 +532,7 @@
             // 
             this.tabPage4.Controls.Add(this.tabControl1);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1297, 612);
             this.tabPage4.TabIndex = 3;
@@ -539,7 +546,7 @@
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Location = new System.Drawing.Point(4, 4);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1283, 610);
@@ -570,13 +577,24 @@
             this.tabPage5.Controls.Add(this.comboBoxOperator1KøbRytterINT);
             this.tabPage5.Controls.Add(this.comboBoxOperator1KøbRytterString);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(1275, 581);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Køb Rytter";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // WarningRytterlbl
+            // 
+            this.WarningRytterlbl.AutoSize = true;
+            this.WarningRytterlbl.Location = new System.Drawing.Point(181, 491);
+            this.WarningRytterlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.WarningRytterlbl.Name = "WarningRytterlbl";
+            this.WarningRytterlbl.Size = new System.Drawing.Size(90, 17);
+            this.WarningRytterlbl.TabIndex = 38;
+            this.WarningRytterlbl.Text = "Allerede ejet!";
+            this.WarningRytterlbl.Visible = false;
             // 
             // budgetWarningRytter
             // 
@@ -592,7 +610,7 @@
             // textBoxAngivIDKRytter
             // 
             this.textBoxAngivIDKRytter.Location = new System.Drawing.Point(151, 455);
-            this.textBoxAngivIDKRytter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAngivIDKRytter.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAngivIDKRytter.Name = "textBoxAngivIDKRytter";
             this.textBoxAngivIDKRytter.Size = new System.Drawing.Size(147, 22);
             this.textBoxAngivIDKRytter.TabIndex = 34;
@@ -611,7 +629,7 @@
             this.btnKøbRytter.BackColor = System.Drawing.Color.DarkGray;
             this.btnKøbRytter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnKøbRytter.Location = new System.Drawing.Point(151, 511);
-            this.btnKøbRytter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKøbRytter.Margin = new System.Windows.Forms.Padding(4);
             this.btnKøbRytter.Name = "btnKøbRytter";
             this.btnKøbRytter.Size = new System.Drawing.Size(148, 41);
             this.btnKøbRytter.TabIndex = 32;
@@ -823,20 +841,30 @@
             this.tabPage6.Controls.Add(this.SRytterLb1);
             this.tabPage6.Controls.Add(this.SRytterBtn);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(1275, 581);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Sælg Rytter";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // SRytterWarning
+            // 
+            this.SRytterWarning.AutoSize = true;
+            this.SRytterWarning.Location = new System.Drawing.Point(56, 485);
+            this.SRytterWarning.Name = "SRytterWarning";
+            this.SRytterWarning.Size = new System.Drawing.Size(102, 17);
+            this.SRytterWarning.TabIndex = 41;
+            this.SRytterWarning.Text = "Ejer ikke rytter!";
+            this.SRytterWarning.Visible = false;
             // 
             // SRytterGridView
             // 
             this.SRytterGridView.AllowUserToOrderColumns = true;
             this.SRytterGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SRytterGridView.Location = new System.Drawing.Point(-3, 5);
-            this.SRytterGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SRytterGridView.Margin = new System.Windows.Forms.Padding(4);
             this.SRytterGridView.Name = "SRytterGridView";
             this.SRytterGridView.ReadOnly = true;
             this.SRytterGridView.Size = new System.Drawing.Size(1273, 308);
@@ -845,7 +873,7 @@
             // SRytterInput
             // 
             this.SRytterInput.Location = new System.Drawing.Point(35, 450);
-            this.SRytterInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SRytterInput.Margin = new System.Windows.Forms.Padding(4);
             this.SRytterInput.Name = "SRytterInput";
             this.SRytterInput.Size = new System.Drawing.Size(147, 22);
             this.SRytterInput.TabIndex = 38;
@@ -864,7 +892,7 @@
             this.SRytterBtn.BackColor = System.Drawing.Color.DarkGray;
             this.SRytterBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.SRytterBtn.Location = new System.Drawing.Point(35, 506);
-            this.SRytterBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SRytterBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SRytterBtn.Name = "SRytterBtn";
             this.SRytterBtn.Size = new System.Drawing.Size(148, 41);
             this.SRytterBtn.TabIndex = 36;
@@ -897,12 +925,23 @@
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner6);
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner4);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(1275, 581);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Køb Træner";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // WarningTrænerlbl
+            // 
+            this.WarningTrænerlbl.AutoSize = true;
+            this.WarningTrænerlbl.Location = new System.Drawing.Point(182, 491);
+            this.WarningTrænerlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.WarningTrænerlbl.Name = "WarningTrænerlbl";
+            this.WarningTrænerlbl.Size = new System.Drawing.Size(90, 17);
+            this.WarningTrænerlbl.TabIndex = 37;
+            this.WarningTrænerlbl.Text = "Allerede ejet!";
+            this.WarningTrænerlbl.Visible = false;
             // 
             // budgetWarningTræner
             // 
@@ -918,7 +957,7 @@
             // textBoxAngivIDKTræner
             // 
             this.textBoxAngivIDKTræner.Location = new System.Drawing.Point(151, 455);
-            this.textBoxAngivIDKTræner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAngivIDKTræner.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAngivIDKTræner.Name = "textBoxAngivIDKTræner";
             this.textBoxAngivIDKTræner.Size = new System.Drawing.Size(147, 22);
             this.textBoxAngivIDKTræner.TabIndex = 30;
@@ -937,7 +976,7 @@
             this.btnKøbTræner.BackColor = System.Drawing.Color.DarkGray;
             this.btnKøbTræner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnKøbTræner.Location = new System.Drawing.Point(151, 511);
-            this.btnKøbTræner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKøbTræner.Margin = new System.Windows.Forms.Padding(4);
             this.btnKøbTræner.Name = "btnKøbTræner";
             this.btnKøbTræner.Size = new System.Drawing.Size(148, 41);
             this.btnKøbTræner.TabIndex = 28;
@@ -1141,8 +1180,13 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.STrænerWarningLbl);
+            this.tabPage8.Controls.Add(this.textBoxSTræner);
+            this.tabPage8.Controls.Add(this.STrænerIDlbl);
+            this.tabPage8.Controls.Add(this.btnSTræner);
+            this.tabPage8.Controls.Add(this.STrænerGridView);
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(1275, 581);
             this.tabPage8.TabIndex = 3;
@@ -1152,7 +1196,7 @@
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1297, 612);
             this.tabPage3.TabIndex = 2;
@@ -1180,37 +1224,57 @@
             this.label14.TabIndex = 26;
             this.label14.Text = "Vælg operator";
             // 
-            // WarningTrænerlbl
+            // STrænerGridView
             // 
-            this.WarningTrænerlbl.AutoSize = true;
-            this.WarningTrænerlbl.Location = new System.Drawing.Point(182, 491);
-            this.WarningTrænerlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.WarningTrænerlbl.Name = "WarningTrænerlbl";
-            this.WarningTrænerlbl.Size = new System.Drawing.Size(90, 17);
-            this.WarningTrænerlbl.TabIndex = 37;
-            this.WarningTrænerlbl.Text = "Allerede ejet!";
-            this.WarningTrænerlbl.Visible = false;
+            this.STrænerGridView.AllowUserToOrderColumns = true;
+            this.STrænerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.STrænerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.STrænerGridView.Location = new System.Drawing.Point(-3, 5);
+            this.STrænerGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.STrænerGridView.Name = "STrænerGridView";
+            this.STrænerGridView.ReadOnly = true;
+            this.STrænerGridView.Size = new System.Drawing.Size(1273, 308);
+            this.STrænerGridView.TabIndex = 41;
             // 
-            // WarningRytterlbl
+            // STrænerWarningLbl
             // 
-            this.WarningRytterlbl.AutoSize = true;
-            this.WarningRytterlbl.Location = new System.Drawing.Point(181, 491);
-            this.WarningRytterlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.WarningRytterlbl.Name = "WarningRytterlbl";
-            this.WarningRytterlbl.Size = new System.Drawing.Size(90, 17);
-            this.WarningRytterlbl.TabIndex = 38;
-            this.WarningRytterlbl.Text = "Allerede ejet!";
-            this.WarningRytterlbl.Visible = false;
+            this.STrænerWarningLbl.AutoSize = true;
+            this.STrænerWarningLbl.Location = new System.Drawing.Point(53, 485);
+            this.STrænerWarningLbl.Name = "STrænerWarningLbl";
+            this.STrænerWarningLbl.Size = new System.Drawing.Size(112, 17);
+            this.STrænerWarningLbl.TabIndex = 45;
+            this.STrænerWarningLbl.Text = "Ejer ikke træner!";
+            this.STrænerWarningLbl.Visible = false;
             // 
-            // SRytterWarning
+            // textBoxSTræner
             // 
-            this.SRytterWarning.AutoSize = true;
-            this.SRytterWarning.Location = new System.Drawing.Point(56, 485);
-            this.SRytterWarning.Name = "SRytterWarning";
-            this.SRytterWarning.Size = new System.Drawing.Size(102, 17);
-            this.SRytterWarning.TabIndex = 41;
-            this.SRytterWarning.Text = "Ejer ikke rytter!";
-            this.SRytterWarning.Visible = false;
+            this.textBoxSTræner.Location = new System.Drawing.Point(35, 450);
+            this.textBoxSTræner.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSTræner.Name = "textBoxSTræner";
+            this.textBoxSTræner.Size = new System.Drawing.Size(147, 22);
+            this.textBoxSTræner.TabIndex = 44;
+            // 
+            // STrænerIDlbl
+            // 
+            this.STrænerIDlbl.AutoSize = true;
+            this.STrænerIDlbl.Location = new System.Drawing.Point(81, 430);
+            this.STrænerIDlbl.Name = "STrænerIDlbl";
+            this.STrænerIDlbl.Size = new System.Drawing.Size(60, 17);
+            this.STrænerIDlbl.TabIndex = 43;
+            this.STrænerIDlbl.Text = "Angiv ID";
+            // 
+            // btnSTræner
+            // 
+            this.btnSTræner.BackColor = System.Drawing.Color.DarkGray;
+            this.btnSTræner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSTræner.Location = new System.Drawing.Point(35, 506);
+            this.btnSTræner.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSTræner.Name = "btnSTræner";
+            this.btnSTræner.Size = new System.Drawing.Size(148, 41);
+            this.btnSTræner.TabIndex = 42;
+            this.btnSTræner.Text = "Sælg";
+            this.btnSTræner.UseVisualStyleBackColor = false;
+            this.btnSTræner.Click += new System.EventHandler(this.btnSTræner_Click);
             // 
             // Form1
             // 
@@ -1232,7 +1296,7 @@
             this.Controls.Add(this.Title);
             this.Controls.Add(this.NewNameInput);
             this.Controls.Add(this.NewGame);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Magenta;
@@ -1257,6 +1321,9 @@
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTræner)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.STrænerGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1358,6 +1425,11 @@
         private System.Windows.Forms.Label WarningTrænerlbl;
         private System.Windows.Forms.Label WarningRytterlbl;
         private System.Windows.Forms.Label SRytterWarning;
+        private System.Windows.Forms.Label STrænerWarningLbl;
+        private System.Windows.Forms.TextBox textBoxSTræner;
+        private System.Windows.Forms.Label STrænerIDlbl;
+        private System.Windows.Forms.Button btnSTræner;
+        private System.Windows.Forms.DataGridView STrænerGridView;
     }
 }
 
