@@ -208,9 +208,13 @@ namespace CyclingManager
             DataTable købRytter = new DataTable();
             e.Fill(købRytter);
 
-            SQLiteDataAdapter f = new SQLiteDataAdapter("SELECT * FROM Sponsor", dbConnection);
+            SQLiteDataAdapter f = new SQLiteDataAdapter("SELECT * FROM Sponsor where HoldID = 0", dbConnection);
             DataTable sponsorer = new DataTable();
             f.Fill(sponsorer);
+
+            SQLiteDataAdapter g = new SQLiteDataAdapter("SELECT * From Sponsor where HoldID = 5", dbConnection);
+            DataTable mineSponsorer = new DataTable();
+            g.Fill(mineSponsorer);
 
             mineRyttereDataGrid.DataSource = ryttere;
             SRytterGridView.DataSource = ryttere;
@@ -223,6 +227,7 @@ namespace CyclingManager
             dataGridRytter.DataSource = købRytter;
 
             dataGridSponsor.DataSource = sponsorer;
+            dataGridViewMineSponsorer.DataSource = mineSponsorer;
         }
 
         private void DeleteSave_Click(object sender, EventArgs e)
@@ -734,6 +739,62 @@ namespace CyclingManager
             }
 
         }
+
+        private void btnVælgSponsor_Click(object sender, EventArgs e)
+        {
+            string input = textBoxAngivIDSøgSponsor.Text;
+            cmd.Connection = dbConnection;
+
+            if(GetDataString("Sponsor", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
+            {
+                cmd.CommandText = String.Format("Select * from Sponsor where ID = {0}", input);
+                cmd.ExecuteNonQuery();
+
+                SQLiteCommand command = new SQLiteCommand(cmd.CommandText, dbConnection);
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                int præmie = 0;
+
+                while (reader.Read())
+                {
+                    præmie = Int32.Parse((reader["Præmie"]).ToString());
+                }
+
+                int sponsors = 0;
+               
+                for (int i = 0; i < 50; i++)
+                {
+                    if (GetDataString("Sponsor", "HoldID", "5", "HoldID", i) == "5")
+                    {
+                        sponsors++;
+                    }
+                   
+                }
+
+                if (sponsors < 2)
+                {
+                    cmd.CommandText = String.Format("Update Sponsor set HoldID = 5 where ID = {0}", input);
+                    cmd.ExecuteNonQuery();
+
+                    SQLiteDataAdapter c = new SQLiteDataAdapter("Select * from Sponsor", dbConnection);
+                    DataTable sponsorer = new DataTable();
+                    c.Fill(sponsorer);
+
+                    dataGridSponsor.DataSource = sponsorer;
+
+                    SetBudget(+præmie);
+
+                    fillDataGridViews();
+                }
+                else
+                {
+                    sponsorWarninglbl.Visible = true;
+                }
+            }
+
+        }
+
+
 
         
 
