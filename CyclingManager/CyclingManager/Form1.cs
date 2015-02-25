@@ -660,7 +660,7 @@ namespace CyclingManager
             fillDataGridViews();
         }
 
-        private string GetDataString(string table,string parameter,string value,string returnValue,int resultIndex)
+        public static string GetDataString(string table,string parameter,string value,string returnValue,int resultIndex)
         {
             //cmd.Connection = dbConnection;
             SQLiteCommand command = new SQLiteCommand();
@@ -733,6 +733,11 @@ namespace CyclingManager
                 STrænerWarningLbl.Visible = true;
             }
 
+        }
+
+        private void AfholdLoebBtn_Click(object sender, EventArgs e)
+        {
+            Division.AfholdLoeb();
         }
 
         
