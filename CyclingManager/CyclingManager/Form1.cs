@@ -96,12 +96,21 @@ namespace CyclingManager
 
             //update check rytter box
 
-            vaelgRytterCheckBox.Items.Clear();
+            VaelgRytter1.Items.Clear();
+            VaelgRytter2.Items.Clear();
+            VaelgRytter3.Items.Clear();
+            VaelgRytter4.Items.Clear();
+            VaelgRytter5.Items.Clear();
+
             for (int i = 0; i < 100; i++)
             {
                 if (GetDataString("Rytter", "HoldID", "5", "Navn", i) != "")
                 {
-                    vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                    VaelgRytter1.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                    VaelgRytter2.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                    VaelgRytter3.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                    VaelgRytter4.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                    VaelgRytter5.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
                 }
             }
    
@@ -501,14 +510,14 @@ namespace CyclingManager
 
                     fillDataGridViews();
 
-                    vaelgRytterCheckBox.Items.Clear();
+                    //vaelgRytterCheckBox.Items.Clear();
 
 
                     for (int i = 0; i < 100; i++)
                     {
                         if (GetDataString("Rytter", "HoldID", "5", "Navn", i) != "")
                         {
-                            vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                            //vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
                         }
                     }
                 }
@@ -674,12 +683,12 @@ namespace CyclingManager
             fillDataGridViews();
         }
 
-        private string GetDataString(string table,string parameter,string value,string returnValue,int resultIndex)
+        public static string GetDataString(string table,string parameter,string value,string returnValue,int resultIndex)
         {
             //cmd.Connection = dbConnection;
             SQLiteCommand command = new SQLiteCommand();
 
-            command.CommandText = String.Format("Select {0} from {1} where {2} = {3} AND RowID = {4}",returnValue,table,parameter,value,resultIndex, dbConnection);
+            command.CommandText = String.Format("Select {0} from {1} where {2} = '{3}' AND RowID = {4}",returnValue,table,parameter,value,resultIndex, dbConnection);
             command = new SQLiteCommand(command.CommandText,dbConnection);
             
             SQLiteDataReader reader = command.ExecuteReader();
@@ -713,12 +722,12 @@ namespace CyclingManager
                 UpdateDataAbsolute("Rytter", "holdID", "0", "ID", rytterID.ToString());
                 SetBudget(Int32.Parse(GetDataString("Rytter", "ID", rytterID.ToString(), "Løn", rytterID).ToString()) * 5);
 
-                vaelgRytterCheckBox.Items.Clear();
+                //vaelgRytterCheckBox.Items.Clear();
                 for (int i = 0; i < 100; i++)
                 {
                     if (GetDataString("Rytter", "HoldID", "5", "Navn", i) != "")
                     {
-                        vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
+                        //vaelgRytterCheckBox.Items.Add(GetDataString("Rytter", "HoldID", "5", "Navn", i));
                     }
                 }
             }
@@ -854,6 +863,60 @@ namespace CyclingManager
                 SRytterWarning.Visible = false;
             }
         }
+
+        private void AfholdLoebBtn_Click(object sender, EventArgs e)
+        {
+            string[] valgteRyttere = new string[] { VaelgRytter1.SelectedItem.ToString(), VaelgRytter2.SelectedItem.ToString(), VaelgRytter3.SelectedItem.ToString(), VaelgRytter4.SelectedItem.ToString(), VaelgRytter5.SelectedItem.ToString() };
+            
+            Division.AfholdLoeb(valgteRyttere);
+
+        }
+
+        private void VaelgRytter1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                
+                VaelgRytter2.Items.Remove(VaelgRytter1.SelectedItem);
+                VaelgRytter3.Items.Remove(VaelgRytter1.SelectedItem);
+                VaelgRytter4.Items.Remove(VaelgRytter1.SelectedItem);
+                VaelgRytter5.Items.Remove(VaelgRytter1.SelectedItem);
+        }
+
+        private void VaelgRytter2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VaelgRytter1.Items.Remove(VaelgRytter2.SelectedItem);
+            
+            VaelgRytter3.Items.Remove(VaelgRytter2.SelectedItem);
+            VaelgRytter4.Items.Remove(VaelgRytter2.SelectedItem);
+            VaelgRytter5.Items.Remove(VaelgRytter2.SelectedItem);
+        }
+
+        private void VaelgRytter3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VaelgRytter1.Items.Remove(VaelgRytter3.SelectedItem);
+            VaelgRytter2.Items.Remove(VaelgRytter3.SelectedItem);
+            
+            VaelgRytter4.Items.Remove(VaelgRytter3.SelectedItem);
+            VaelgRytter5.Items.Remove(VaelgRytter3.SelectedItem);
+        }
+
+        private void VaelgRytter4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VaelgRytter1.Items.Remove(VaelgRytter4.SelectedItem);
+            VaelgRytter2.Items.Remove(VaelgRytter4.SelectedItem);
+            VaelgRytter3.Items.Remove(VaelgRytter4.SelectedItem);
+            
+            VaelgRytter5.Items.Remove(VaelgRytter4.SelectedItem);
+        }
+
+        private void VaelgRytter5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VaelgRytter1.Items.Remove(VaelgRytter5.SelectedItem);
+            VaelgRytter2.Items.Remove(VaelgRytter5.SelectedItem);
+            VaelgRytter3.Items.Remove(VaelgRytter5.SelectedItem);
+            VaelgRytter4.Items.Remove(VaelgRytter5.SelectedItem);
+            
+        }
+
 
         //Når vi køber/sælger ryttere:
         //for (int i = 0; i < 100; i++)

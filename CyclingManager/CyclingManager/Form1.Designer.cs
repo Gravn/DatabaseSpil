@@ -43,7 +43,6 @@
             this.Exists = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.DivisionTab = new System.Windows.Forms.TabPage();
-            this.vaelgRytterCheckBox = new System.Windows.Forms.CheckedListBox();
             this.AfholdLoebBtn = new System.Windows.Forms.Button();
             this.divisionDataGrid = new System.Windows.Forms.DataGridView();
             this.mineRyttereDataGrid = new System.Windows.Forms.DataGridView();
@@ -91,11 +90,11 @@
             this.comboBoxOperator1KøbRytterINT = new System.Windows.Forms.ComboBox();
             this.comboBoxOperator1KøbRytterString = new System.Windows.Forms.ComboBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.SRytterWarning = new System.Windows.Forms.Label();
             this.SRytterGridView = new System.Windows.Forms.DataGridView();
             this.SRytterInput = new System.Windows.Forms.TextBox();
             this.SRytterLb1 = new System.Windows.Forms.Label();
             this.SRytterBtn = new System.Windows.Forms.Button();
+            this.SRytterWarning = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.WarningTrænerlbl = new System.Windows.Forms.Label();
             this.budgetWarningTræner = new System.Windows.Forms.Label();
@@ -129,6 +128,11 @@
             this.budgetLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.VaelgRytter1 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter2 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter3 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter4 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter5 = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.DivisionTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.divisionDataGrid)).BeginInit();
@@ -153,10 +157,9 @@
             // 
             // NewGame
             // 
-            this.NewGame.Location = new System.Drawing.Point(16, 123);
-            this.NewGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NewGame.Location = new System.Drawing.Point(12, 100);
             this.NewGame.Name = "NewGame";
-            this.NewGame.Size = new System.Drawing.Size(100, 28);
+            this.NewGame.Size = new System.Drawing.Size(75, 23);
             this.NewGame.TabIndex = 0;
             this.NewGame.Text = "Start nyt spil";
             this.NewGame.UseVisualStyleBackColor = true;
@@ -164,47 +167,42 @@
             // 
             // NewNameInput
             // 
-            this.NewNameInput.Location = new System.Drawing.Point(16, 91);
-            this.NewNameInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NewNameInput.Location = new System.Drawing.Point(12, 74);
             this.NewNameInput.Name = "NewNameInput";
-            this.NewNameInput.Size = new System.Drawing.Size(291, 22);
+            this.NewNameInput.Size = new System.Drawing.Size(219, 20);
             this.NewNameInput.TabIndex = 1;
             this.NewNameInput.TextChanged += new System.EventHandler(this.NewNameInput_TextChanged);
             // 
             // Title
             // 
             this.Title.AutoSize = true;
-            this.Title.Location = new System.Drawing.Point(452, 12);
-            this.Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Title.Location = new System.Drawing.Point(339, 10);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(149, 17);
+            this.Title.Size = new System.Drawing.Size(113, 13);
             this.Title.TabIndex = 2;
             this.Title.Text = "Cycling Manager 2015";
             // 
             // HoldNavnLabel
             // 
             this.HoldNavnLabel.Location = new System.Drawing.Point(0, 0);
-            this.HoldNavnLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HoldNavnLabel.Name = "HoldNavnLabel";
-            this.HoldNavnLabel.Size = new System.Drawing.Size(133, 28);
+            this.HoldNavnLabel.Size = new System.Drawing.Size(100, 23);
             this.HoldNavnLabel.TabIndex = 0;
             // 
             // NavnLabel
             // 
             this.NavnLabel.AutoSize = true;
-            this.NavnLabel.Location = new System.Drawing.Point(124, 50);
-            this.NavnLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NavnLabel.Location = new System.Drawing.Point(93, 41);
             this.NavnLabel.Name = "NavnLabel";
-            this.NavnLabel.Size = new System.Drawing.Size(74, 17);
+            this.NavnLabel.Size = new System.Drawing.Size(58, 13);
             this.NavnLabel.TabIndex = 3;
             this.NavnLabel.Text = "HoldNavn:";
             // 
             // LoadGame
             // 
-            this.LoadGame.Location = new System.Drawing.Point(759, 124);
-            this.LoadGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoadGame.Location = new System.Drawing.Point(569, 101);
             this.LoadGame.Name = "LoadGame";
-            this.LoadGame.Size = new System.Drawing.Size(100, 28);
+            this.LoadGame.Size = new System.Drawing.Size(75, 23);
             this.LoadGame.TabIndex = 4;
             this.LoadGame.Text = "Fortsæt spil";
             this.LoadGame.UseVisualStyleBackColor = true;
@@ -214,29 +212,26 @@
             // 
             this.LoadList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LoadList.FormattingEnabled = true;
-            this.LoadList.Location = new System.Drawing.Point(757, 91);
-            this.LoadList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoadList.Location = new System.Drawing.Point(568, 74);
             this.LoadList.Name = "LoadList";
-            this.LoadList.Size = new System.Drawing.Size(160, 24);
+            this.LoadList.Size = new System.Drawing.Size(121, 21);
             this.LoadList.Sorted = true;
             this.LoadList.TabIndex = 5;
             // 
             // LoadLabel
             // 
             this.LoadLabel.AutoSize = true;
-            this.LoadLabel.Location = new System.Drawing.Point(753, 50);
-            this.LoadLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LoadLabel.Location = new System.Drawing.Point(565, 41);
             this.LoadLabel.Name = "LoadLabel";
-            this.LoadLabel.Size = new System.Drawing.Size(105, 17);
+            this.LoadLabel.Size = new System.Drawing.Size(79, 13);
             this.LoadLabel.TabIndex = 6;
             this.LoadLabel.Text = "Vælg gemt spil:";
             // 
             // MenuBtn
             // 
-            this.MenuBtn.Location = new System.Drawing.Point(929, 15);
-            this.MenuBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MenuBtn.Location = new System.Drawing.Point(697, 12);
             this.MenuBtn.Name = "MenuBtn";
-            this.MenuBtn.Size = new System.Drawing.Size(100, 28);
+            this.MenuBtn.Size = new System.Drawing.Size(75, 23);
             this.MenuBtn.TabIndex = 7;
             this.MenuBtn.Text = "Menu";
             this.MenuBtn.UseVisualStyleBackColor = true;
@@ -244,10 +239,9 @@
             // 
             // DeleteSave
             // 
-            this.DeleteSave.Location = new System.Drawing.Point(16, 234);
-            this.DeleteSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DeleteSave.Location = new System.Drawing.Point(12, 190);
             this.DeleteSave.Name = "DeleteSave";
-            this.DeleteSave.Size = new System.Drawing.Size(100, 28);
+            this.DeleteSave.Size = new System.Drawing.Size(75, 23);
             this.DeleteSave.TabIndex = 10;
             this.DeleteSave.Text = "Slet Spil";
             this.DeleteSave.UseVisualStyleBackColor = true;
@@ -255,19 +249,17 @@
             // 
             // deleteTextBox
             // 
-            this.deleteTextBox.Location = new System.Drawing.Point(16, 202);
-            this.deleteTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteTextBox.Location = new System.Drawing.Point(12, 164);
             this.deleteTextBox.Name = "deleteTextBox";
-            this.deleteTextBox.Size = new System.Drawing.Size(291, 22);
+            this.deleteTextBox.Size = new System.Drawing.Size(219, 20);
             this.deleteTextBox.TabIndex = 11;
             // 
             // DeleteHelp
             // 
             this.DeleteHelp.AutoSize = true;
-            this.DeleteHelp.Location = new System.Drawing.Point(16, 182);
-            this.DeleteHelp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.DeleteHelp.Location = new System.Drawing.Point(12, 148);
             this.DeleteHelp.Name = "DeleteHelp";
-            this.DeleteHelp.Size = new System.Drawing.Size(244, 17);
+            this.DeleteHelp.Size = new System.Drawing.Size(183, 13);
             this.DeleteHelp.TabIndex = 12;
             this.DeleteHelp.Text = "Indtast navn på spillet der skal slettes";
             // 
@@ -276,10 +268,9 @@
             this.Exists.AutoEllipsis = true;
             this.Exists.AutoSize = true;
             this.Exists.Enabled = false;
-            this.Exists.Location = new System.Drawing.Point(124, 130);
-            this.Exists.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Exists.Location = new System.Drawing.Point(93, 106);
             this.Exists.Name = "Exists";
-            this.Exists.Size = new System.Drawing.Size(108, 17);
+            this.Exists.Size = new System.Drawing.Size(81, 13);
             this.Exists.TabIndex = 13;
             this.Exists.Text = "Findes allerede!";
             this.Exists.Visible = false;
@@ -291,80 +282,70 @@
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Enabled = false;
-            this.tabControl.Location = new System.Drawing.Point(4, 50);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Location = new System.Drawing.Point(3, 41);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1305, 641);
+            this.tabControl.Size = new System.Drawing.Size(979, 521);
             this.tabControl.TabIndex = 14;
             this.tabControl.Visible = false;
             // 
             // DivisionTab
             // 
-            this.DivisionTab.Controls.Add(this.vaelgRytterCheckBox);
+            this.DivisionTab.Controls.Add(this.VaelgRytter5);
+            this.DivisionTab.Controls.Add(this.VaelgRytter4);
+            this.DivisionTab.Controls.Add(this.VaelgRytter3);
+            this.DivisionTab.Controls.Add(this.VaelgRytter2);
+            this.DivisionTab.Controls.Add(this.VaelgRytter1);
             this.DivisionTab.Controls.Add(this.AfholdLoebBtn);
             this.DivisionTab.Controls.Add(this.divisionDataGrid);
             this.DivisionTab.Controls.Add(this.mineRyttereDataGrid);
-            this.DivisionTab.Location = new System.Drawing.Point(4, 25);
-            this.DivisionTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DivisionTab.Location = new System.Drawing.Point(4, 22);
             this.DivisionTab.Name = "DivisionTab";
-            this.DivisionTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.DivisionTab.Size = new System.Drawing.Size(1297, 612);
+            this.DivisionTab.Padding = new System.Windows.Forms.Padding(3);
+            this.DivisionTab.Size = new System.Drawing.Size(971, 495);
             this.DivisionTab.TabIndex = 0;
             this.DivisionTab.Text = "Division";
             this.DivisionTab.UseVisualStyleBackColor = true;
-            // 
-            // vaelgRytterCheckBox
-            // 
-            this.vaelgRytterCheckBox.FormattingEnabled = true;
-            this.vaelgRytterCheckBox.Location = new System.Drawing.Point(819, 321);
-            this.vaelgRytterCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.vaelgRytterCheckBox.Name = "vaelgRytterCheckBox";
-            this.vaelgRytterCheckBox.Size = new System.Drawing.Size(211, 259);
-            this.vaelgRytterCheckBox.TabIndex = 36;
             // 
             // AfholdLoebBtn
             // 
             this.AfholdLoebBtn.BackColor = System.Drawing.Color.DarkGray;
             this.AfholdLoebBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AfholdLoebBtn.Location = new System.Drawing.Point(1069, 535);
-            this.AfholdLoebBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AfholdLoebBtn.Location = new System.Drawing.Point(802, 435);
             this.AfholdLoebBtn.Name = "AfholdLoebBtn";
-            this.AfholdLoebBtn.Size = new System.Drawing.Size(148, 41);
+            this.AfholdLoebBtn.Size = new System.Drawing.Size(111, 33);
             this.AfholdLoebBtn.TabIndex = 35;
             this.AfholdLoebBtn.Text = "Afhold Løb";
             this.AfholdLoebBtn.UseVisualStyleBackColor = false;
+            this.AfholdLoebBtn.Click += new System.EventHandler(this.AfholdLoebBtn_Click);
             // 
             // divisionDataGrid
             // 
             this.divisionDataGrid.AllowUserToOrderColumns = true;
             this.divisionDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.divisionDataGrid.Location = new System.Drawing.Point(7, 320);
-            this.divisionDataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.divisionDataGrid.Location = new System.Drawing.Point(5, 260);
             this.divisionDataGrid.Name = "divisionDataGrid";
             this.divisionDataGrid.ReadOnly = true;
-            this.divisionDataGrid.Size = new System.Drawing.Size(800, 279);
+            this.divisionDataGrid.Size = new System.Drawing.Size(600, 227);
             this.divisionDataGrid.TabIndex = 10;
             // 
             // mineRyttereDataGrid
             // 
             this.mineRyttereDataGrid.AllowUserToOrderColumns = true;
             this.mineRyttereDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mineRyttereDataGrid.Location = new System.Drawing.Point(7, 5);
-            this.mineRyttereDataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mineRyttereDataGrid.Location = new System.Drawing.Point(5, 4);
             this.mineRyttereDataGrid.Name = "mineRyttereDataGrid";
             this.mineRyttereDataGrid.ReadOnly = true;
-            this.mineRyttereDataGrid.Size = new System.Drawing.Size(1273, 308);
+            this.mineRyttereDataGrid.Size = new System.Drawing.Size(955, 250);
             this.mineRyttereDataGrid.TabIndex = 8;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tabControl2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1297, 612);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(971, 495);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Budget";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -374,11 +355,10 @@
             this.tabControl2.Controls.Add(this.tabPage9);
             this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.ItemSize = new System.Drawing.Size(62, 18);
-            this.tabControl2.Location = new System.Drawing.Point(4, 4);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1283, 610);
+            this.tabControl2.Size = new System.Drawing.Size(962, 496);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage9
@@ -397,10 +377,9 @@
             this.tabPage9.Controls.Add(this.comboBoxSøgOpeSponsorINT);
             this.tabPage9.Controls.Add(this.comboBoxSøgOpeSponsorString);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage9.Size = new System.Drawing.Size(1275, 584);
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(954, 470);
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "Find Sponsor";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -408,28 +387,27 @@
             // sponsorWarninglbl
             // 
             this.sponsorWarninglbl.AutoSize = true;
-            this.sponsorWarninglbl.Location = new System.Drawing.Point(83, 459);
-            this.sponsorWarninglbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sponsorWarninglbl.Location = new System.Drawing.Point(62, 373);
             this.sponsorWarninglbl.Name = "sponsorWarninglbl";
-            this.sponsorWarninglbl.Size = new System.Drawing.Size(126, 17);
+            this.sponsorWarninglbl.Size = new System.Drawing.Size(96, 13);
             this.sponsorWarninglbl.TabIndex = 38;
             this.sponsorWarninglbl.Text = "Maks 2 Sponsorer!";
             this.sponsorWarninglbl.Visible = false;
             // 
             // textBoxAngivIDSøgSponsor
             // 
-            this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(65, 423);
-            this.textBoxAngivIDSøgSponsor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(49, 344);
             this.textBoxAngivIDSøgSponsor.Name = "textBoxAngivIDSøgSponsor";
-            this.textBoxAngivIDSøgSponsor.Size = new System.Drawing.Size(147, 22);
+            this.textBoxAngivIDSøgSponsor.Size = new System.Drawing.Size(111, 20);
             this.textBoxAngivIDSøgSponsor.TabIndex = 37;
             // 
             // LabelIDSøgRytter
             // 
             this.LabelIDSøgRytter.AutoSize = true;
-            this.LabelIDSøgRytter.Location = new System.Drawing.Point(112, 402);
+            this.LabelIDSøgRytter.Location = new System.Drawing.Point(84, 327);
+            this.LabelIDSøgRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelIDSøgRytter.Name = "LabelIDSøgRytter";
-            this.LabelIDSøgRytter.Size = new System.Drawing.Size(60, 17);
+            this.LabelIDSøgRytter.Size = new System.Drawing.Size(48, 13);
             this.LabelIDSøgRytter.TabIndex = 36;
             this.LabelIDSøgRytter.Text = "Angiv ID";
             // 
@@ -437,10 +415,9 @@
             // 
             this.btnVælgSponsor.BackColor = System.Drawing.Color.DarkGray;
             this.btnVælgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVælgSponsor.Location = new System.Drawing.Point(65, 479);
-            this.btnVælgSponsor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVælgSponsor.Location = new System.Drawing.Point(49, 389);
             this.btnVælgSponsor.Name = "btnVælgSponsor";
-            this.btnVælgSponsor.Size = new System.Drawing.Size(148, 41);
+            this.btnVælgSponsor.Size = new System.Drawing.Size(111, 33);
             this.btnVælgSponsor.TabIndex = 35;
             this.btnVælgSponsor.Text = "Vælg";
             this.btnVælgSponsor.UseVisualStyleBackColor = false;
@@ -449,27 +426,30 @@
             // labelInputSøgSponsor
             // 
             this.labelInputSøgSponsor.AutoSize = true;
-            this.labelInputSøgSponsor.Location = new System.Drawing.Point(35, 164);
+            this.labelInputSøgSponsor.Location = new System.Drawing.Point(26, 133);
+            this.labelInputSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelInputSøgSponsor.Name = "labelInputSøgSponsor";
-            this.labelInputSøgSponsor.Size = new System.Drawing.Size(74, 17);
+            this.labelInputSøgSponsor.Size = new System.Drawing.Size(57, 13);
             this.labelInputSøgSponsor.TabIndex = 32;
             this.labelInputSøgSponsor.Text = "Skriv input";
             // 
             // labelOpeSøgSponsor
             // 
             this.labelOpeSøgSponsor.AutoSize = true;
-            this.labelOpeSøgSponsor.Location = new System.Drawing.Point(24, 103);
+            this.labelOpeSøgSponsor.Location = new System.Drawing.Point(18, 84);
+            this.labelOpeSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOpeSøgSponsor.Name = "labelOpeSøgSponsor";
-            this.labelOpeSøgSponsor.Size = new System.Drawing.Size(99, 17);
+            this.labelOpeSøgSponsor.Size = new System.Drawing.Size(74, 13);
             this.labelOpeSøgSponsor.TabIndex = 31;
             this.labelOpeSøgSponsor.Text = "Vælg operator";
             // 
             // labelParamSøgSponsor
             // 
             this.labelParamSøgSponsor.AutoSize = true;
-            this.labelParamSøgSponsor.Location = new System.Drawing.Point(19, 43);
+            this.labelParamSøgSponsor.Location = new System.Drawing.Point(14, 35);
+            this.labelParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParamSøgSponsor.Name = "labelParamSøgSponsor";
-            this.labelParamSøgSponsor.Size = new System.Drawing.Size(110, 17);
+            this.labelParamSøgSponsor.Size = new System.Drawing.Size(82, 13);
             this.labelParamSøgSponsor.TabIndex = 30;
             this.labelParamSøgSponsor.Text = "Vælg parameter";
             // 
@@ -477,10 +457,10 @@
             // 
             this.buttonSøgSponsor.BackColor = System.Drawing.Color.DarkGray;
             this.buttonSøgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSøgSponsor.Location = new System.Drawing.Point(16, 228);
-            this.buttonSøgSponsor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSøgSponsor.Location = new System.Drawing.Point(12, 185);
+            this.buttonSøgSponsor.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSøgSponsor.Name = "buttonSøgSponsor";
-            this.buttonSøgSponsor.Size = new System.Drawing.Size(111, 33);
+            this.buttonSøgSponsor.Size = new System.Drawing.Size(83, 27);
             this.buttonSøgSponsor.TabIndex = 28;
             this.buttonSøgSponsor.Text = "Søg";
             this.buttonSøgSponsor.UseVisualStyleBackColor = false;
@@ -488,10 +468,10 @@
             // 
             // textBoxSøgSponsor
             // 
-            this.textBoxSøgSponsor.Location = new System.Drawing.Point(16, 185);
-            this.textBoxSøgSponsor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxSøgSponsor.Location = new System.Drawing.Point(12, 150);
+            this.textBoxSøgSponsor.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSøgSponsor.Name = "textBoxSøgSponsor";
-            this.textBoxSøgSponsor.Size = new System.Drawing.Size(111, 22);
+            this.textBoxSøgSponsor.Size = new System.Drawing.Size(84, 20);
             this.textBoxSøgSponsor.TabIndex = 24;
             // 
             // comboBoxParamSøgSponsor
@@ -501,10 +481,10 @@
             "ID",
             "Navn",
             "Præmie"});
-            this.comboBoxParamSøgSponsor.Location = new System.Drawing.Point(16, 65);
-            this.comboBoxParamSøgSponsor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxParamSøgSponsor.Location = new System.Drawing.Point(12, 53);
+            this.comboBoxParamSøgSponsor.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxParamSøgSponsor.Name = "comboBoxParamSøgSponsor";
-            this.comboBoxParamSøgSponsor.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxParamSøgSponsor.Size = new System.Drawing.Size(84, 21);
             this.comboBoxParamSøgSponsor.TabIndex = 22;
             this.comboBoxParamSøgSponsor.SelectedIndexChanged += new System.EventHandler(this.comboBoxParamSøgSponsor_SelectedIndexChanged);
             // 
@@ -512,11 +492,11 @@
             // 
             this.dataGridSponsor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSponsor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridSponsor.Location = new System.Drawing.Point(327, 6);
-            this.dataGridSponsor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridSponsor.Location = new System.Drawing.Point(245, 5);
+            this.dataGridSponsor.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridSponsor.Name = "dataGridSponsor";
             this.dataGridSponsor.RowTemplate.Height = 24;
-            this.dataGridSponsor.Size = new System.Drawing.Size(933, 566);
+            this.dataGridSponsor.Size = new System.Drawing.Size(700, 460);
             this.dataGridSponsor.TabIndex = 21;
             // 
             // comboBoxSøgOpeSponsorINT
@@ -528,10 +508,10 @@
             "=",
             ">=",
             "<="});
-            this.comboBoxSøgOpeSponsorINT.Location = new System.Drawing.Point(16, 127);
-            this.comboBoxSøgOpeSponsorINT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxSøgOpeSponsorINT.Location = new System.Drawing.Point(12, 103);
+            this.comboBoxSøgOpeSponsorINT.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSøgOpeSponsorINT.Name = "comboBoxSøgOpeSponsorINT";
-            this.comboBoxSøgOpeSponsorINT.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxSøgOpeSponsorINT.Size = new System.Drawing.Size(84, 21);
             this.comboBoxSøgOpeSponsorINT.TabIndex = 23;
             this.comboBoxSøgOpeSponsorINT.Visible = false;
             // 
@@ -541,20 +521,19 @@
             this.comboBoxSøgOpeSponsorString.Items.AddRange(new object[] {
             "LIKE",
             "NOT LIKE"});
-            this.comboBoxSøgOpeSponsorString.Location = new System.Drawing.Point(16, 127);
-            this.comboBoxSøgOpeSponsorString.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxSøgOpeSponsorString.Location = new System.Drawing.Point(12, 103);
+            this.comboBoxSøgOpeSponsorString.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSøgOpeSponsorString.Name = "comboBoxSøgOpeSponsorString";
-            this.comboBoxSøgOpeSponsorString.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxSøgOpeSponsorString.Size = new System.Drawing.Size(84, 21);
             this.comboBoxSøgOpeSponsorString.TabIndex = 29;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridViewMineSponsorer);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1275, 584);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(954, 470);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Mine Sponsorer";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -565,18 +544,16 @@
             this.dataGridViewMineSponsorer.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridViewMineSponsorer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMineSponsorer.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewMineSponsorer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewMineSponsorer.Name = "dataGridViewMineSponsorer";
-            this.dataGridViewMineSponsorer.Size = new System.Drawing.Size(1272, 106);
+            this.dataGridViewMineSponsorer.Size = new System.Drawing.Size(954, 86);
             this.dataGridViewMineSponsorer.TabIndex = 0;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tabControl1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1297, 612);
+            this.tabPage4.Size = new System.Drawing.Size(971, 495);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Transfer";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -587,11 +564,10 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Location = new System.Drawing.Point(4, 4);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1283, 610);
+            this.tabControl1.Size = new System.Drawing.Size(962, 496);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage5
@@ -618,11 +594,10 @@
             this.tabPage5.Controls.Add(this.comboBoxParam1KøbRytter);
             this.tabPage5.Controls.Add(this.comboBoxOperator1KøbRytterINT);
             this.tabPage5.Controls.Add(this.comboBoxOperator1KøbRytterString);
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage5.Size = new System.Drawing.Size(1275, 581);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(954, 470);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Køb Rytter";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -630,10 +605,9 @@
             // WarningRytterlbl
             // 
             this.WarningRytterlbl.AutoSize = true;
-            this.WarningRytterlbl.Location = new System.Drawing.Point(181, 491);
-            this.WarningRytterlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.WarningRytterlbl.Location = new System.Drawing.Point(136, 399);
             this.WarningRytterlbl.Name = "WarningRytterlbl";
-            this.WarningRytterlbl.Size = new System.Drawing.Size(90, 17);
+            this.WarningRytterlbl.Size = new System.Drawing.Size(68, 13);
             this.WarningRytterlbl.TabIndex = 38;
             this.WarningRytterlbl.Text = "Allerede ejet!";
             this.WarningRytterlbl.Visible = false;
@@ -641,29 +615,28 @@
             // budgetWarningRytter
             // 
             this.budgetWarningRytter.AutoSize = true;
-            this.budgetWarningRytter.Location = new System.Drawing.Point(172, 491);
-            this.budgetWarningRytter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.budgetWarningRytter.Location = new System.Drawing.Point(129, 399);
             this.budgetWarningRytter.Name = "budgetWarningRytter";
-            this.budgetWarningRytter.Size = new System.Drawing.Size(107, 17);
+            this.budgetWarningRytter.Size = new System.Drawing.Size(85, 13);
             this.budgetWarningRytter.TabIndex = 35;
             this.budgetWarningRytter.Text = "Ikke nok penge!";
             this.budgetWarningRytter.Visible = false;
             // 
             // textBoxAngivIDKRytter
             // 
-            this.textBoxAngivIDKRytter.Location = new System.Drawing.Point(151, 455);
-            this.textBoxAngivIDKRytter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAngivIDKRytter.Location = new System.Drawing.Point(113, 370);
             this.textBoxAngivIDKRytter.Name = "textBoxAngivIDKRytter";
-            this.textBoxAngivIDKRytter.Size = new System.Drawing.Size(147, 22);
+            this.textBoxAngivIDKRytter.Size = new System.Drawing.Size(111, 20);
             this.textBoxAngivIDKRytter.TabIndex = 34;
             this.textBoxAngivIDKRytter.TextChanged += new System.EventHandler(this.textBoxAngivIDKRytter_TextChanged);
             // 
             // LabelIDkRytter
             // 
             this.LabelIDkRytter.AutoSize = true;
-            this.LabelIDkRytter.Location = new System.Drawing.Point(197, 434);
+            this.LabelIDkRytter.Location = new System.Drawing.Point(148, 353);
+            this.LabelIDkRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelIDkRytter.Name = "LabelIDkRytter";
-            this.LabelIDkRytter.Size = new System.Drawing.Size(60, 17);
+            this.LabelIDkRytter.Size = new System.Drawing.Size(48, 13);
             this.LabelIDkRytter.TabIndex = 33;
             this.LabelIDkRytter.Text = "Angiv ID";
             // 
@@ -671,10 +644,9 @@
             // 
             this.btnKøbRytter.BackColor = System.Drawing.Color.DarkGray;
             this.btnKøbRytter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnKøbRytter.Location = new System.Drawing.Point(151, 511);
-            this.btnKøbRytter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKøbRytter.Location = new System.Drawing.Point(113, 415);
             this.btnKøbRytter.Name = "btnKøbRytter";
-            this.btnKøbRytter.Size = new System.Drawing.Size(148, 41);
+            this.btnKøbRytter.Size = new System.Drawing.Size(111, 33);
             this.btnKøbRytter.TabIndex = 32;
             this.btnKøbRytter.Text = "Køb ";
             this.btnKøbRytter.UseVisualStyleBackColor = false;
@@ -683,54 +655,60 @@
             // labelInput2KRytter
             // 
             this.labelInput2KRytter.AutoSize = true;
-            this.labelInput2KRytter.Location = new System.Drawing.Point(35, 434);
+            this.labelInput2KRytter.Location = new System.Drawing.Point(26, 353);
+            this.labelInput2KRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelInput2KRytter.Name = "labelInput2KRytter";
-            this.labelInput2KRytter.Size = new System.Drawing.Size(74, 17);
+            this.labelInput2KRytter.Size = new System.Drawing.Size(57, 13);
             this.labelInput2KRytter.TabIndex = 26;
             this.labelInput2KRytter.Text = "Skriv input";
             // 
             // labelOpe2KRytter
             // 
             this.labelOpe2KRytter.AutoSize = true;
-            this.labelOpe2KRytter.Location = new System.Drawing.Point(24, 380);
+            this.labelOpe2KRytter.Location = new System.Drawing.Point(18, 309);
+            this.labelOpe2KRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOpe2KRytter.Name = "labelOpe2KRytter";
-            this.labelOpe2KRytter.Size = new System.Drawing.Size(99, 17);
+            this.labelOpe2KRytter.Size = new System.Drawing.Size(74, 13);
             this.labelOpe2KRytter.TabIndex = 25;
             this.labelOpe2KRytter.Text = "Vælg operator";
             // 
             // labelParam2KRytter
             // 
             this.labelParam2KRytter.AutoSize = true;
-            this.labelParam2KRytter.Location = new System.Drawing.Point(17, 322);
+            this.labelParam2KRytter.Location = new System.Drawing.Point(13, 262);
+            this.labelParam2KRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParam2KRytter.Name = "labelParam2KRytter";
-            this.labelParam2KRytter.Size = new System.Drawing.Size(110, 17);
+            this.labelParam2KRytter.Size = new System.Drawing.Size(82, 13);
             this.labelParam2KRytter.TabIndex = 24;
             this.labelParam2KRytter.Text = "Vælg parameter";
             // 
             // labelInputKRytter
             // 
             this.labelInputKRytter.AutoSize = true;
-            this.labelInputKRytter.Location = new System.Drawing.Point(35, 164);
+            this.labelInputKRytter.Location = new System.Drawing.Point(26, 133);
+            this.labelInputKRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelInputKRytter.Name = "labelInputKRytter";
-            this.labelInputKRytter.Size = new System.Drawing.Size(74, 17);
+            this.labelInputKRytter.Size = new System.Drawing.Size(57, 13);
             this.labelInputKRytter.TabIndex = 23;
             this.labelInputKRytter.Text = "Skriv input";
             // 
             // labelOpeKRytter
             // 
             this.labelOpeKRytter.AutoSize = true;
-            this.labelOpeKRytter.Location = new System.Drawing.Point(24, 103);
+            this.labelOpeKRytter.Location = new System.Drawing.Point(18, 84);
+            this.labelOpeKRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOpeKRytter.Name = "labelOpeKRytter";
-            this.labelOpeKRytter.Size = new System.Drawing.Size(99, 17);
+            this.labelOpeKRytter.Size = new System.Drawing.Size(74, 13);
             this.labelOpeKRytter.TabIndex = 22;
             this.labelOpeKRytter.Text = "Vælg operator";
             // 
             // labelParamKRytter
             // 
             this.labelParamKRytter.AutoSize = true;
-            this.labelParamKRytter.Location = new System.Drawing.Point(19, 43);
+            this.labelParamKRytter.Location = new System.Drawing.Point(14, 35);
+            this.labelParamKRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParamKRytter.Name = "labelParamKRytter";
-            this.labelParamKRytter.Size = new System.Drawing.Size(110, 17);
+            this.labelParamKRytter.Size = new System.Drawing.Size(82, 13);
             this.labelParamKRytter.TabIndex = 21;
             this.labelParamKRytter.Text = "Vælg parameter";
             // 
@@ -738,30 +716,30 @@
             // 
             this.dataGridRytter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridRytter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRytter.Location = new System.Drawing.Point(327, 6);
-            this.dataGridRytter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridRytter.Location = new System.Drawing.Point(245, 5);
+            this.dataGridRytter.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridRytter.Name = "dataGridRytter";
             this.dataGridRytter.RowTemplate.Height = 24;
             this.dataGridRytter.ShowRowErrors = false;
-            this.dataGridRytter.Size = new System.Drawing.Size(933, 566);
+            this.dataGridRytter.Size = new System.Drawing.Size(700, 460);
             this.dataGridRytter.TabIndex = 20;
             // 
             // textInput2KøbRytter
             // 
-            this.textInput2KøbRytter.Location = new System.Drawing.Point(16, 455);
-            this.textInput2KøbRytter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textInput2KøbRytter.Location = new System.Drawing.Point(12, 370);
+            this.textInput2KøbRytter.Margin = new System.Windows.Forms.Padding(2);
             this.textInput2KøbRytter.Name = "textInput2KøbRytter";
-            this.textInput2KøbRytter.Size = new System.Drawing.Size(111, 22);
+            this.textInput2KøbRytter.Size = new System.Drawing.Size(84, 20);
             this.textInput2KøbRytter.TabIndex = 16;
             // 
             // buttonSøgRytter
             // 
             this.buttonSøgRytter.BackColor = System.Drawing.Color.DarkGray;
             this.buttonSøgRytter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSøgRytter.Location = new System.Drawing.Point(16, 514);
-            this.buttonSøgRytter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSøgRytter.Location = new System.Drawing.Point(12, 418);
+            this.buttonSøgRytter.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSøgRytter.Name = "buttonSøgRytter";
-            this.buttonSøgRytter.Size = new System.Drawing.Size(111, 33);
+            this.buttonSøgRytter.Size = new System.Drawing.Size(83, 27);
             this.buttonSøgRytter.TabIndex = 15;
             this.buttonSøgRytter.Text = "Søg";
             this.buttonSøgRytter.UseVisualStyleBackColor = false;
@@ -777,30 +755,30 @@
             "Overblik",
             "Støtte",
             "Løn"});
-            this.comboBoxParam2KøbRytter.Location = new System.Drawing.Point(16, 341);
-            this.comboBoxParam2KøbRytter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxParam2KøbRytter.Location = new System.Drawing.Point(12, 277);
+            this.comboBoxParam2KøbRytter.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxParam2KøbRytter.Name = "comboBoxParam2KøbRytter";
-            this.comboBoxParam2KøbRytter.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxParam2KøbRytter.Size = new System.Drawing.Size(84, 21);
             this.comboBoxParam2KøbRytter.TabIndex = 14;
             this.comboBoxParam2KøbRytter.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter4_SelectedIndexChanged);
             // 
             // checkBoxKøbRytter1
             // 
             this.checkBoxKøbRytter1.AutoSize = true;
-            this.checkBoxKøbRytter1.Location = new System.Drawing.Point(16, 281);
-            this.checkBoxKøbRytter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxKøbRytter1.Location = new System.Drawing.Point(12, 228);
+            this.checkBoxKøbRytter1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxKøbRytter1.Name = "checkBoxKøbRytter1";
-            this.checkBoxKøbRytter1.Size = new System.Drawing.Size(111, 21);
+            this.checkBoxKøbRytter1.Size = new System.Drawing.Size(85, 17);
             this.checkBoxKøbRytter1.TabIndex = 13;
             this.checkBoxKøbRytter1.Text = "2. parameter";
             this.checkBoxKøbRytter1.UseVisualStyleBackColor = true;
             // 
             // textInput1KøbRytter
             // 
-            this.textInput1KøbRytter.Location = new System.Drawing.Point(16, 185);
-            this.textInput1KøbRytter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textInput1KøbRytter.Location = new System.Drawing.Point(12, 150);
+            this.textInput1KøbRytter.Margin = new System.Windows.Forms.Padding(2);
             this.textInput1KøbRytter.Name = "textInput1KøbRytter";
-            this.textInput1KøbRytter.Size = new System.Drawing.Size(111, 22);
+            this.textInput1KøbRytter.Size = new System.Drawing.Size(84, 20);
             this.textInput1KøbRytter.TabIndex = 11;
             // 
             // comboBoxOperator2KøbRytterINT
@@ -812,10 +790,10 @@
             "=",
             ">=",
             "<="});
-            this.comboBoxOperator2KøbRytterINT.Location = new System.Drawing.Point(16, 401);
-            this.comboBoxOperator2KøbRytterINT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxOperator2KøbRytterINT.Location = new System.Drawing.Point(12, 326);
+            this.comboBoxOperator2KøbRytterINT.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxOperator2KøbRytterINT.Name = "comboBoxOperator2KøbRytterINT";
-            this.comboBoxOperator2KøbRytterINT.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxOperator2KøbRytterINT.Size = new System.Drawing.Size(84, 21);
             this.comboBoxOperator2KøbRytterINT.TabIndex = 18;
             // 
             // comboBoxOperator2KøbRytterString
@@ -824,10 +802,10 @@
             this.comboBoxOperator2KøbRytterString.Items.AddRange(new object[] {
             "LIKE",
             "NOT LIKE"});
-            this.comboBoxOperator2KøbRytterString.Location = new System.Drawing.Point(16, 401);
-            this.comboBoxOperator2KøbRytterString.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxOperator2KøbRytterString.Location = new System.Drawing.Point(12, 326);
+            this.comboBoxOperator2KøbRytterString.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxOperator2KøbRytterString.Name = "comboBoxOperator2KøbRytterString";
-            this.comboBoxOperator2KøbRytterString.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxOperator2KøbRytterString.Size = new System.Drawing.Size(84, 21);
             this.comboBoxOperator2KøbRytterString.TabIndex = 19;
             this.comboBoxOperator2KøbRytterString.Visible = false;
             // 
@@ -841,10 +819,10 @@
             "Overblik",
             "Støtte",
             "Løn"});
-            this.comboBoxParam1KøbRytter.Location = new System.Drawing.Point(16, 65);
-            this.comboBoxParam1KøbRytter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxParam1KøbRytter.Location = new System.Drawing.Point(12, 53);
+            this.comboBoxParam1KøbRytter.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxParam1KøbRytter.Name = "comboBoxParam1KøbRytter";
-            this.comboBoxParam1KøbRytter.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxParam1KøbRytter.Size = new System.Drawing.Size(84, 21);
             this.comboBoxParam1KøbRytter.TabIndex = 12;
             this.comboBoxParam1KøbRytter.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbRytter1_SelectedIndexChanged);
             // 
@@ -857,10 +835,10 @@
             "=",
             ">=",
             "<="});
-            this.comboBoxOperator1KøbRytterINT.Location = new System.Drawing.Point(16, 127);
-            this.comboBoxOperator1KøbRytterINT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxOperator1KøbRytterINT.Location = new System.Drawing.Point(12, 103);
+            this.comboBoxOperator1KøbRytterINT.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxOperator1KøbRytterINT.Name = "comboBoxOperator1KøbRytterINT";
-            this.comboBoxOperator1KøbRytterINT.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxOperator1KøbRytterINT.Size = new System.Drawing.Size(84, 21);
             this.comboBoxOperator1KøbRytterINT.TabIndex = 10;
             // 
             // comboBoxOperator1KøbRytterString
@@ -869,10 +847,10 @@
             this.comboBoxOperator1KøbRytterString.Items.AddRange(new object[] {
             "LIKE",
             "NOT LIKE"});
-            this.comboBoxOperator1KøbRytterString.Location = new System.Drawing.Point(16, 127);
-            this.comboBoxOperator1KøbRytterString.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxOperator1KøbRytterString.Location = new System.Drawing.Point(12, 103);
+            this.comboBoxOperator1KøbRytterString.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxOperator1KøbRytterString.Name = "comboBoxOperator1KøbRytterString";
-            this.comboBoxOperator1KøbRytterString.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxOperator1KøbRytterString.Size = new System.Drawing.Size(84, 21);
             this.comboBoxOperator1KøbRytterString.TabIndex = 17;
             this.comboBoxOperator1KøbRytterString.Visible = false;
             // 
@@ -883,51 +861,39 @@
             this.tabPage6.Controls.Add(this.SRytterLb1);
             this.tabPage6.Controls.Add(this.SRytterBtn);
             this.tabPage6.Controls.Add(this.SRytterWarning);
-            this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage6.Size = new System.Drawing.Size(1275, 581);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(954, 470);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Sælg Rytter";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // SRytterWarning
-            // 
-            this.SRytterWarning.AutoSize = true;
-            this.SRytterWarning.Location = new System.Drawing.Point(56, 485);
-            this.SRytterWarning.Name = "SRytterWarning";
-            this.SRytterWarning.Size = new System.Drawing.Size(102, 17);
-            this.SRytterWarning.TabIndex = 41;
-            this.SRytterWarning.Text = "Ejer ikke rytter!";
-            this.SRytterWarning.Visible = false;
             // 
             // SRytterGridView
             // 
             this.SRytterGridView.AllowUserToOrderColumns = true;
             this.SRytterGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SRytterGridView.Location = new System.Drawing.Point(-3, 5);
-            this.SRytterGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SRytterGridView.Location = new System.Drawing.Point(-2, 4);
             this.SRytterGridView.Name = "SRytterGridView";
             this.SRytterGridView.ReadOnly = true;
-            this.SRytterGridView.Size = new System.Drawing.Size(1273, 308);
+            this.SRytterGridView.Size = new System.Drawing.Size(955, 250);
             this.SRytterGridView.TabIndex = 40;
             // 
             // SRytterInput
             // 
-            this.SRytterInput.Location = new System.Drawing.Point(35, 450);
-            this.SRytterInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SRytterInput.Location = new System.Drawing.Point(26, 366);
             this.SRytterInput.Name = "SRytterInput";
-            this.SRytterInput.Size = new System.Drawing.Size(147, 22);
+            this.SRytterInput.Size = new System.Drawing.Size(111, 20);
             this.SRytterInput.TabIndex = 38;
             this.SRytterInput.TextChanged += new System.EventHandler(this.SRytterInput_TextChanged);
             // 
             // SRytterLb1
             // 
             this.SRytterLb1.AutoSize = true;
-            this.SRytterLb1.Location = new System.Drawing.Point(81, 430);
+            this.SRytterLb1.Location = new System.Drawing.Point(61, 349);
+            this.SRytterLb1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SRytterLb1.Name = "SRytterLb1";
-            this.SRytterLb1.Size = new System.Drawing.Size(60, 17);
+            this.SRytterLb1.Size = new System.Drawing.Size(48, 13);
             this.SRytterLb1.TabIndex = 37;
             this.SRytterLb1.Text = "Angiv ID";
             // 
@@ -935,14 +901,24 @@
             // 
             this.SRytterBtn.BackColor = System.Drawing.Color.DarkGray;
             this.SRytterBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SRytterBtn.Location = new System.Drawing.Point(35, 506);
-            this.SRytterBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SRytterBtn.Location = new System.Drawing.Point(26, 411);
             this.SRytterBtn.Name = "SRytterBtn";
-            this.SRytterBtn.Size = new System.Drawing.Size(148, 41);
+            this.SRytterBtn.Size = new System.Drawing.Size(111, 33);
             this.SRytterBtn.TabIndex = 36;
             this.SRytterBtn.Text = "Sælg";
             this.SRytterBtn.UseVisualStyleBackColor = false;
             this.SRytterBtn.Click += new System.EventHandler(this.SRytterBtn_Click);
+            // 
+            // SRytterWarning
+            // 
+            this.SRytterWarning.AutoSize = true;
+            this.SRytterWarning.Location = new System.Drawing.Point(42, 394);
+            this.SRytterWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SRytterWarning.Name = "SRytterWarning";
+            this.SRytterWarning.Size = new System.Drawing.Size(77, 13);
+            this.SRytterWarning.TabIndex = 41;
+            this.SRytterWarning.Text = "Ejer ikke rytter!";
+            this.SRytterWarning.Visible = false;
             // 
             // tabPage7
             // 
@@ -968,10 +944,9 @@
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner5);
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner6);
             this.tabPage7.Controls.Add(this.comboBoxKøbTræner4);
-            this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1275, 581);
+            this.tabPage7.Size = new System.Drawing.Size(954, 470);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Køb Træner";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -979,10 +954,9 @@
             // WarningTrænerlbl
             // 
             this.WarningTrænerlbl.AutoSize = true;
-            this.WarningTrænerlbl.Location = new System.Drawing.Point(181, 491);
-            this.WarningTrænerlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.WarningTrænerlbl.Location = new System.Drawing.Point(136, 399);
             this.WarningTrænerlbl.Name = "WarningTrænerlbl";
-            this.WarningTrænerlbl.Size = new System.Drawing.Size(90, 17);
+            this.WarningTrænerlbl.Size = new System.Drawing.Size(68, 13);
             this.WarningTrænerlbl.TabIndex = 37;
             this.WarningTrænerlbl.Text = "Allerede ejet!";
             this.WarningTrænerlbl.Visible = false;
@@ -990,29 +964,28 @@
             // budgetWarningTræner
             // 
             this.budgetWarningTræner.AutoSize = true;
-            this.budgetWarningTræner.Location = new System.Drawing.Point(172, 491);
-            this.budgetWarningTræner.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.budgetWarningTræner.Location = new System.Drawing.Point(129, 399);
             this.budgetWarningTræner.Name = "budgetWarningTræner";
-            this.budgetWarningTræner.Size = new System.Drawing.Size(107, 17);
+            this.budgetWarningTræner.Size = new System.Drawing.Size(85, 13);
             this.budgetWarningTræner.TabIndex = 31;
             this.budgetWarningTræner.Text = "Ikke nok penge!";
             this.budgetWarningTræner.Visible = false;
             // 
             // textBoxAngivIDKTræner
             // 
-            this.textBoxAngivIDKTræner.Location = new System.Drawing.Point(151, 455);
-            this.textBoxAngivIDKTræner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAngivIDKTræner.Location = new System.Drawing.Point(113, 370);
             this.textBoxAngivIDKTræner.Name = "textBoxAngivIDKTræner";
-            this.textBoxAngivIDKTræner.Size = new System.Drawing.Size(147, 22);
+            this.textBoxAngivIDKTræner.Size = new System.Drawing.Size(111, 20);
             this.textBoxAngivIDKTræner.TabIndex = 30;
             this.textBoxAngivIDKTræner.TextChanged += new System.EventHandler(this.textBoxAngivIDKTræner_TextChanged);
             // 
             // LabelIDkTræner
             // 
             this.LabelIDkTræner.AutoSize = true;
-            this.LabelIDkTræner.Location = new System.Drawing.Point(197, 434);
+            this.LabelIDkTræner.Location = new System.Drawing.Point(148, 353);
+            this.LabelIDkTræner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelIDkTræner.Name = "LabelIDkTræner";
-            this.LabelIDkTræner.Size = new System.Drawing.Size(60, 17);
+            this.LabelIDkTræner.Size = new System.Drawing.Size(48, 13);
             this.LabelIDkTræner.TabIndex = 29;
             this.LabelIDkTræner.Text = "Angiv ID";
             // 
@@ -1020,10 +993,9 @@
             // 
             this.btnKøbTræner.BackColor = System.Drawing.Color.DarkGray;
             this.btnKøbTræner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnKøbTræner.Location = new System.Drawing.Point(151, 511);
-            this.btnKøbTræner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKøbTræner.Location = new System.Drawing.Point(113, 415);
             this.btnKøbTræner.Name = "btnKøbTræner";
-            this.btnKøbTræner.Size = new System.Drawing.Size(148, 41);
+            this.btnKøbTræner.Size = new System.Drawing.Size(111, 33);
             this.btnKøbTræner.TabIndex = 28;
             this.btnKøbTræner.Text = "Køb ";
             this.btnKøbTræner.UseVisualStyleBackColor = false;
@@ -1032,54 +1004,60 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(35, 434);
+            this.label12.Location = new System.Drawing.Point(26, 353);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 17);
+            this.label12.Size = new System.Drawing.Size(57, 13);
             this.label12.TabIndex = 27;
             this.label12.Text = "Skriv input";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(35, 164);
+            this.label11.Location = new System.Drawing.Point(26, 133);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 17);
+            this.label11.Size = new System.Drawing.Size(57, 13);
             this.label11.TabIndex = 26;
             this.label11.Text = "Skriv input";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 380);
+            this.label10.Location = new System.Drawing.Point(18, 309);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 17);
+            this.label10.Size = new System.Drawing.Size(74, 13);
             this.label10.TabIndex = 25;
             this.label10.Text = "Vælg operator";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 103);
+            this.label9.Location = new System.Drawing.Point(18, 84);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 17);
+            this.label9.Size = new System.Drawing.Size(74, 13);
             this.label9.TabIndex = 24;
             this.label9.Text = "Vælg operator";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 321);
+            this.label8.Location = new System.Drawing.Point(14, 261);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 17);
+            this.label8.Size = new System.Drawing.Size(82, 13);
             this.label8.TabIndex = 23;
             this.label8.Text = "Vælg parameter";
             // 
             // labelParamKTræner
             // 
             this.labelParamKTræner.AutoSize = true;
-            this.labelParamKTræner.Location = new System.Drawing.Point(19, 43);
+            this.labelParamKTræner.Location = new System.Drawing.Point(14, 35);
+            this.labelParamKTræner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParamKTræner.Name = "labelParamKTræner";
-            this.labelParamKTræner.Size = new System.Drawing.Size(110, 17);
+            this.labelParamKTræner.Size = new System.Drawing.Size(82, 13);
             this.labelParamKTræner.TabIndex = 22;
             this.labelParamKTræner.Text = "Vælg parameter";
             // 
@@ -1092,27 +1070,27 @@
             "=",
             ">=",
             "<="});
-            this.comboBoxKøbTræner2.Location = new System.Drawing.Point(16, 127);
-            this.comboBoxKøbTræner2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKøbTræner2.Location = new System.Drawing.Point(12, 103);
+            this.comboBoxKøbTræner2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKøbTræner2.Name = "comboBoxKøbTræner2";
-            this.comboBoxKøbTræner2.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbTræner2.Size = new System.Drawing.Size(84, 21);
             this.comboBoxKøbTræner2.TabIndex = 3;
             // 
             // textBoxKøbTræner2
             // 
-            this.textBoxKøbTræner2.Location = new System.Drawing.Point(16, 455);
-            this.textBoxKøbTræner2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKøbTræner2.Location = new System.Drawing.Point(12, 370);
+            this.textBoxKøbTræner2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKøbTræner2.Name = "textBoxKøbTræner2";
-            this.textBoxKøbTræner2.Size = new System.Drawing.Size(111, 22);
+            this.textBoxKøbTræner2.Size = new System.Drawing.Size(84, 20);
             this.textBoxKøbTræner2.TabIndex = 8;
             // 
             // checkBoxKøbTræner1
             // 
             this.checkBoxKøbTræner1.AutoSize = true;
-            this.checkBoxKøbTræner1.Location = new System.Drawing.Point(16, 281);
-            this.checkBoxKøbTræner1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxKøbTræner1.Location = new System.Drawing.Point(12, 228);
+            this.checkBoxKøbTræner1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxKøbTræner1.Name = "checkBoxKøbTræner1";
-            this.checkBoxKøbTræner1.Size = new System.Drawing.Size(111, 21);
+            this.checkBoxKøbTræner1.Size = new System.Drawing.Size(85, 17);
             this.checkBoxKøbTræner1.TabIndex = 6;
             this.checkBoxKøbTræner1.Text = "2. parameter";
             this.checkBoxKøbTræner1.UseVisualStyleBackColor = true;
@@ -1121,10 +1099,10 @@
             // 
             this.buttonSøgTræner.BackColor = System.Drawing.Color.DarkGray;
             this.buttonSøgTræner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSøgTræner.Location = new System.Drawing.Point(16, 514);
-            this.buttonSøgTræner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSøgTræner.Location = new System.Drawing.Point(12, 418);
+            this.buttonSøgTræner.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSøgTræner.Name = "buttonSøgTræner";
-            this.buttonSøgTræner.Size = new System.Drawing.Size(111, 33);
+            this.buttonSøgTræner.Size = new System.Drawing.Size(83, 27);
             this.buttonSøgTræner.TabIndex = 5;
             this.buttonSøgTræner.Text = "Søg";
             this.buttonSøgTræner.UseVisualStyleBackColor = false;
@@ -1132,10 +1110,10 @@
             // 
             // textBoxKøbTræner1
             // 
-            this.textBoxKøbTræner1.Location = new System.Drawing.Point(16, 185);
-            this.textBoxKøbTræner1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKøbTræner1.Location = new System.Drawing.Point(12, 150);
+            this.textBoxKøbTræner1.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKøbTræner1.Name = "textBoxKøbTræner1";
-            this.textBoxKøbTræner1.Size = new System.Drawing.Size(111, 22);
+            this.textBoxKøbTræner1.Size = new System.Drawing.Size(84, 20);
             this.textBoxKøbTræner1.TabIndex = 4;
             // 
             // comboBoxKøbTræner3
@@ -1147,10 +1125,10 @@
             "Fokus",
             "Erfaring",
             "Løn"});
-            this.comboBoxKøbTræner3.Location = new System.Drawing.Point(16, 341);
-            this.comboBoxKøbTræner3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKøbTræner3.Location = new System.Drawing.Point(12, 277);
+            this.comboBoxKøbTræner3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKøbTræner3.Name = "comboBoxKøbTræner3";
-            this.comboBoxKøbTræner3.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbTræner3.Size = new System.Drawing.Size(84, 21);
             this.comboBoxKøbTræner3.TabIndex = 2;
             this.comboBoxKøbTræner3.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbTræner3_SelectedIndexChanged);
             // 
@@ -1163,10 +1141,10 @@
             "Fokus",
             "Erfaring",
             "Løn"});
-            this.comboBoxKøbTræner1.Location = new System.Drawing.Point(16, 65);
-            this.comboBoxKøbTræner1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKøbTræner1.Location = new System.Drawing.Point(12, 53);
+            this.comboBoxKøbTræner1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKøbTræner1.Name = "comboBoxKøbTræner1";
-            this.comboBoxKøbTræner1.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbTræner1.Size = new System.Drawing.Size(84, 21);
             this.comboBoxKøbTræner1.TabIndex = 1;
             this.comboBoxKøbTræner1.SelectedIndexChanged += new System.EventHandler(this.comboBoxKøbTræner1_SelectedIndexChanged);
             // 
@@ -1174,12 +1152,12 @@
             // 
             this.dataGridTræner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridTræner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTræner.Location = new System.Drawing.Point(327, 6);
-            this.dataGridTræner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridTræner.Location = new System.Drawing.Point(245, 5);
+            this.dataGridTræner.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridTræner.Name = "dataGridTræner";
             this.dataGridTræner.ReadOnly = true;
             this.dataGridTræner.RowTemplate.Height = 24;
-            this.dataGridTræner.Size = new System.Drawing.Size(933, 566);
+            this.dataGridTræner.Size = new System.Drawing.Size(700, 460);
             this.dataGridTræner.TabIndex = 0;
             // 
             // comboBoxKøbTræner5
@@ -1188,10 +1166,10 @@
             this.comboBoxKøbTræner5.Items.AddRange(new object[] {
             "LIKE ",
             "NOT LIKE"});
-            this.comboBoxKøbTræner5.Location = new System.Drawing.Point(16, 127);
-            this.comboBoxKøbTræner5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKøbTræner5.Location = new System.Drawing.Point(12, 103);
+            this.comboBoxKøbTræner5.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKøbTræner5.Name = "comboBoxKøbTræner5";
-            this.comboBoxKøbTræner5.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbTræner5.Size = new System.Drawing.Size(84, 21);
             this.comboBoxKøbTræner5.TabIndex = 9;
             this.comboBoxKøbTræner5.Visible = false;
             // 
@@ -1201,10 +1179,10 @@
             this.comboBoxKøbTræner6.Items.AddRange(new object[] {
             "LIKE",
             "NOT LIKE"});
-            this.comboBoxKøbTræner6.Location = new System.Drawing.Point(16, 401);
-            this.comboBoxKøbTræner6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKøbTræner6.Location = new System.Drawing.Point(12, 326);
+            this.comboBoxKøbTræner6.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKøbTræner6.Name = "comboBoxKøbTræner6";
-            this.comboBoxKøbTræner6.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbTræner6.Size = new System.Drawing.Size(84, 21);
             this.comboBoxKøbTræner6.TabIndex = 10;
             this.comboBoxKøbTræner6.Visible = false;
             // 
@@ -1217,10 +1195,10 @@
             "=",
             ">=",
             "<="});
-            this.comboBoxKøbTræner4.Location = new System.Drawing.Point(16, 401);
-            this.comboBoxKøbTræner4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKøbTræner4.Location = new System.Drawing.Point(12, 326);
+            this.comboBoxKøbTræner4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKøbTræner4.Name = "comboBoxKøbTræner4";
-            this.comboBoxKøbTræner4.Size = new System.Drawing.Size(111, 24);
+            this.comboBoxKøbTræner4.Size = new System.Drawing.Size(84, 21);
             this.comboBoxKøbTræner4.TabIndex = 7;
             // 
             // tabPage8
@@ -1230,10 +1208,9 @@
             this.tabPage8.Controls.Add(this.STrænerIDlbl);
             this.tabPage8.Controls.Add(this.btnSTræner);
             this.tabPage8.Controls.Add(this.STrænerGridView);
-            this.tabPage8.Location = new System.Drawing.Point(4, 25);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1275, 581);
+            this.tabPage8.Size = new System.Drawing.Size(954, 470);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "Sælg Træner";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1241,28 +1218,29 @@
             // STrænerWarningLbl
             // 
             this.STrænerWarningLbl.AutoSize = true;
-            this.STrænerWarningLbl.Location = new System.Drawing.Point(53, 485);
+            this.STrænerWarningLbl.Location = new System.Drawing.Point(40, 394);
+            this.STrænerWarningLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.STrænerWarningLbl.Name = "STrænerWarningLbl";
-            this.STrænerWarningLbl.Size = new System.Drawing.Size(112, 17);
+            this.STrænerWarningLbl.Size = new System.Drawing.Size(85, 13);
             this.STrænerWarningLbl.TabIndex = 45;
             this.STrænerWarningLbl.Text = "Ejer ikke træner!";
             this.STrænerWarningLbl.Visible = false;
             // 
             // textBoxSTræner
             // 
-            this.textBoxSTræner.Location = new System.Drawing.Point(35, 450);
-            this.textBoxSTræner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxSTræner.Location = new System.Drawing.Point(26, 366);
             this.textBoxSTræner.Name = "textBoxSTræner";
-            this.textBoxSTræner.Size = new System.Drawing.Size(147, 22);
+            this.textBoxSTræner.Size = new System.Drawing.Size(111, 20);
             this.textBoxSTræner.TabIndex = 44;
             this.textBoxSTræner.TextChanged += new System.EventHandler(this.textBoxSTræner_TextChanged);
             // 
             // STrænerIDlbl
             // 
             this.STrænerIDlbl.AutoSize = true;
-            this.STrænerIDlbl.Location = new System.Drawing.Point(81, 430);
+            this.STrænerIDlbl.Location = new System.Drawing.Point(61, 349);
+            this.STrænerIDlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.STrænerIDlbl.Name = "STrænerIDlbl";
-            this.STrænerIDlbl.Size = new System.Drawing.Size(60, 17);
+            this.STrænerIDlbl.Size = new System.Drawing.Size(48, 13);
             this.STrænerIDlbl.TabIndex = 43;
             this.STrænerIDlbl.Text = "Angiv ID";
             // 
@@ -1270,10 +1248,9 @@
             // 
             this.btnSTræner.BackColor = System.Drawing.Color.DarkGray;
             this.btnSTræner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSTræner.Location = new System.Drawing.Point(35, 506);
-            this.btnSTræner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSTræner.Location = new System.Drawing.Point(26, 411);
             this.btnSTræner.Name = "btnSTræner";
-            this.btnSTræner.Size = new System.Drawing.Size(148, 41);
+            this.btnSTræner.Size = new System.Drawing.Size(111, 33);
             this.btnSTræner.TabIndex = 42;
             this.btnSTræner.Text = "Sælg";
             this.btnSTræner.UseVisualStyleBackColor = false;
@@ -1284,19 +1261,17 @@
             this.STrænerGridView.AllowUserToOrderColumns = true;
             this.STrænerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.STrænerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.STrænerGridView.Location = new System.Drawing.Point(-3, 5);
-            this.STrænerGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.STrænerGridView.Location = new System.Drawing.Point(-2, 4);
             this.STrænerGridView.Name = "STrænerGridView";
             this.STrænerGridView.ReadOnly = true;
-            this.STrænerGridView.Size = new System.Drawing.Size(1273, 308);
+            this.STrænerGridView.Size = new System.Drawing.Size(955, 250);
             this.STrænerGridView.TabIndex = 41;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1297, 612);
+            this.tabPage3.Size = new System.Drawing.Size(971, 495);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Divison";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1304,10 +1279,9 @@
             // budgetLabel
             // 
             this.budgetLabel.AutoSize = true;
-            this.budgetLabel.Location = new System.Drawing.Point(88, 14);
-            this.budgetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.budgetLabel.Location = new System.Drawing.Point(66, 11);
             this.budgetLabel.Name = "budgetLabel";
-            this.budgetLabel.Size = new System.Drawing.Size(61, 17);
+            this.budgetLabel.Size = new System.Drawing.Size(47, 13);
             this.budgetLabel.TabIndex = 15;
             this.budgetLabel.Text = "Budget: ";
             this.budgetLabel.Visible = false;
@@ -1322,11 +1296,56 @@
             this.label14.TabIndex = 26;
             this.label14.Text = "Vælg operator";
             // 
+            // VaelgRytter1
+            // 
+            this.VaelgRytter1.FormattingEnabled = true;
+            this.VaelgRytter1.Location = new System.Drawing.Point(636, 296);
+            this.VaelgRytter1.Name = "VaelgRytter1";
+            this.VaelgRytter1.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter1.TabIndex = 36;
+            this.VaelgRytter1.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter1_SelectedIndexChanged);
+            // 
+            // VaelgRytter2
+            // 
+            this.VaelgRytter2.FormattingEnabled = true;
+            this.VaelgRytter2.Location = new System.Drawing.Point(636, 323);
+            this.VaelgRytter2.Name = "VaelgRytter2";
+            this.VaelgRytter2.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter2.TabIndex = 37;
+            this.VaelgRytter2.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter2_SelectedIndexChanged);
+            // 
+            // VaelgRytter3
+            // 
+            this.VaelgRytter3.FormattingEnabled = true;
+            this.VaelgRytter3.Location = new System.Drawing.Point(636, 350);
+            this.VaelgRytter3.Name = "VaelgRytter3";
+            this.VaelgRytter3.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter3.TabIndex = 38;
+            this.VaelgRytter3.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter3_SelectedIndexChanged);
+            // 
+            // VaelgRytter4
+            // 
+            this.VaelgRytter4.FormattingEnabled = true;
+            this.VaelgRytter4.Location = new System.Drawing.Point(636, 377);
+            this.VaelgRytter4.Name = "VaelgRytter4";
+            this.VaelgRytter4.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter4.TabIndex = 39;
+            this.VaelgRytter4.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter4_SelectedIndexChanged);
+            // 
+            // VaelgRytter5
+            // 
+            this.VaelgRytter5.FormattingEnabled = true;
+            this.VaelgRytter5.Location = new System.Drawing.Point(636, 404);
+            this.VaelgRytter5.Name = "VaelgRytter5";
+            this.VaelgRytter5.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter5.TabIndex = 40;
+            this.VaelgRytter5.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter5_SelectedIndexChanged);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 692);
+            this.ClientSize = new System.Drawing.Size(984, 562);
             this.Controls.Add(this.budgetLabel);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.Exists);
@@ -1342,7 +1361,6 @@
             this.Controls.Add(this.Title);
             this.Controls.Add(this.NewNameInput);
             this.Controls.Add(this.NewGame);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Magenta;
@@ -1463,7 +1481,6 @@
         private System.Windows.Forms.Label labelOpeSøgSponsor;
         private System.Windows.Forms.Label labelParamSøgSponsor;
         private System.Windows.Forms.DataGridView divisionDataGrid;
-        private System.Windows.Forms.CheckedListBox vaelgRytterCheckBox;
         private System.Windows.Forms.Button AfholdLoebBtn;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView SRytterGridView;
@@ -1481,6 +1498,11 @@
         private System.Windows.Forms.Label sponsorWarninglbl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridViewMineSponsorer;
+        private System.Windows.Forms.ComboBox VaelgRytter5;
+        private System.Windows.Forms.ComboBox VaelgRytter4;
+        private System.Windows.Forms.ComboBox VaelgRytter3;
+        private System.Windows.Forms.ComboBox VaelgRytter2;
+        private System.Windows.Forms.ComboBox VaelgRytter1;
     }
 }
 
