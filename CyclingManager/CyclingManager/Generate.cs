@@ -36,9 +36,6 @@ namespace CyclingManager
             cmd.CommandText = "Create table Sponsor(ID integer primary key, HoldID integer, Navn varchar(40), Præmie integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table Transfer(ID integer primary key, HoldID integer, RytterID integer, Bud integer, Auktionspris integer, Tid real, Foreign Key (HoldID) references Hold(ID), Foreign Key (RytterID) references Rytter(ID))";
-            cmd.ExecuteNonQuery();
-
             cmd.CommandText = "Create table Træner(ID integer primary key, HoldID integer, Navn varchar(40), Erfaring integer, Fokus text, Løn integer, Foreign Key (HoldID) references Hold(ID))";
             cmd.ExecuteNonQuery();
 
