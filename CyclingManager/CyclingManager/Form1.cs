@@ -164,7 +164,6 @@ namespace CyclingManager
            
         }
 
-
         private void OpenConnection()
         {
             //specifies database name via dbname
@@ -269,6 +268,11 @@ namespace CyclingManager
                 input = "0";
             }
 
+            if (input1 == "")
+            {
+                input1 = "0";
+            }
+
 
             int i = 0;
             int i1 = 0;
@@ -369,7 +373,6 @@ namespace CyclingManager
                 else
                 {
                     //Input type must be int.
-
                     return;
                 }
             }
@@ -409,8 +412,7 @@ namespace CyclingManager
 
             dataGridRytter.DataSource = købRytter;
         }
-
-        
+       
         private void btnKøbTræner_Click(object sender, EventArgs e)
         {
             
@@ -418,9 +420,7 @@ namespace CyclingManager
             cmd.Connection = dbConnection;
 
             if(GetDataString("Træner", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
-            {
-                WarningTrænerlbl.Visible = false;
-                
+            {                
                 cmd.CommandText = String.Format("Select * from Træner where ID = {0}", input);
                 cmd.ExecuteNonQuery();
 
@@ -475,9 +475,7 @@ namespace CyclingManager
             cmd.Connection = dbConnection;
 
             if (GetDataString("Rytter", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
-            {
-                WarningRytterlbl.Visible = false;
-                
+            {               
                 cmd.CommandText = String.Format("Select * from Rytter where ID = {0}", input);
                 cmd.ExecuteNonQuery();
 
@@ -630,9 +628,7 @@ namespace CyclingManager
                 comboBoxOperator2KøbRytterINT.Visible = true;
             }
         }
-
-        
-
+     
         private void comboBoxParamSøgSponsor_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxParamSøgSponsor.SelectedItem.ToString() == "Navn")
@@ -646,7 +642,6 @@ namespace CyclingManager
                 comboBoxSøgOpeSponsorINT.Visible = true;
             }
         }
-
 
         private int GetBudget()
         {
@@ -714,9 +709,7 @@ namespace CyclingManager
             //debug. Sælger rytter.
             string input = SRytterInput.Text;
             if (GetDataString("Rytter", "HoldID", "5", "HoldID", Int32.Parse(input)) == "5")
-            {
-                SRytterWarning.Visible = false;
-                
+            {                
                 int rytterID = Int32.Parse(SRytterInput.Text);
 
                 UpdateDataAbsolute("Rytter", "holdID", "0", "ID", rytterID.ToString());
@@ -743,8 +736,6 @@ namespace CyclingManager
             string input = textBoxSTræner.Text;
             if (GetDataString("Træner", "HoldID", "5", "HoldID", Int32.Parse(input)) == "5")
             {
-                STrænerWarningLbl.Visible = false;
-
                 int trænerID = Int32.Parse(textBoxSTræner.Text);
 
                 UpdateDataAbsolute("Træner", "HoldID", "0", "ID", trænerID.ToString());
@@ -762,6 +753,11 @@ namespace CyclingManager
         {
             string input = textBoxAngivIDSøgSponsor.Text;
             cmd.Connection = dbConnection;
+
+            if (input == "")
+            {
+                input = "0";
+            }
 
             if(GetDataString("Sponsor", "HoldID", "0", "HoldID", Int32.Parse(input)) == "0")
             {
@@ -808,6 +804,10 @@ namespace CyclingManager
                 {
                     sponsorWarninglbl.Visible = true;
                 }
+            }
+            else
+            {
+                sponsorWarninglbl.Visible = true;
             }
 
         }
@@ -864,6 +864,14 @@ namespace CyclingManager
             }
         }
 
+        private void textBoxAngivIDSøgSponsor_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxAngivIDSøgSponsor.Text == "")
+            {
+                sponsorWarninglbl.Visible = false;
+            }
+        }
+
         private void AfholdLoebBtn_Click(object sender, EventArgs e)
         {
             string[] valgteRyttere = new string[] { VaelgRytter1.SelectedItem.ToString(), VaelgRytter2.SelectedItem.ToString(), VaelgRytter3.SelectedItem.ToString(), VaelgRytter4.SelectedItem.ToString(), VaelgRytter5.SelectedItem.ToString() };
@@ -916,7 +924,6 @@ namespace CyclingManager
             VaelgRytter4.Items.Remove(VaelgRytter5.SelectedItem);
             
         }
-
 
         //Når vi køber/sælger ryttere:
         //for (int i = 0; i < 100; i++)

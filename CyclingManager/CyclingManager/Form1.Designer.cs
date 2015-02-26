@@ -43,6 +43,11 @@
             this.Exists = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.DivisionTab = new System.Windows.Forms.TabPage();
+            this.VaelgRytter5 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter4 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter3 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter2 = new System.Windows.Forms.ComboBox();
+            this.VaelgRytter1 = new System.Windows.Forms.ComboBox();
             this.AfholdLoebBtn = new System.Windows.Forms.Button();
             this.divisionDataGrid = new System.Windows.Forms.DataGridView();
             this.mineRyttereDataGrid = new System.Windows.Forms.DataGridView();
@@ -128,11 +133,6 @@
             this.budgetLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.VaelgRytter1 = new System.Windows.Forms.ComboBox();
-            this.VaelgRytter2 = new System.Windows.Forms.ComboBox();
-            this.VaelgRytter3 = new System.Windows.Forms.ComboBox();
-            this.VaelgRytter4 = new System.Windows.Forms.ComboBox();
-            this.VaelgRytter5 = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.DivisionTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.divisionDataGrid)).BeginInit();
@@ -307,6 +307,51 @@
             this.DivisionTab.Text = "Division";
             this.DivisionTab.UseVisualStyleBackColor = true;
             // 
+            // VaelgRytter5
+            // 
+            this.VaelgRytter5.FormattingEnabled = true;
+            this.VaelgRytter5.Location = new System.Drawing.Point(636, 404);
+            this.VaelgRytter5.Name = "VaelgRytter5";
+            this.VaelgRytter5.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter5.TabIndex = 40;
+            this.VaelgRytter5.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter5_SelectedIndexChanged);
+            // 
+            // VaelgRytter4
+            // 
+            this.VaelgRytter4.FormattingEnabled = true;
+            this.VaelgRytter4.Location = new System.Drawing.Point(636, 377);
+            this.VaelgRytter4.Name = "VaelgRytter4";
+            this.VaelgRytter4.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter4.TabIndex = 39;
+            this.VaelgRytter4.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter4_SelectedIndexChanged);
+            // 
+            // VaelgRytter3
+            // 
+            this.VaelgRytter3.FormattingEnabled = true;
+            this.VaelgRytter3.Location = new System.Drawing.Point(636, 350);
+            this.VaelgRytter3.Name = "VaelgRytter3";
+            this.VaelgRytter3.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter3.TabIndex = 38;
+            this.VaelgRytter3.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter3_SelectedIndexChanged);
+            // 
+            // VaelgRytter2
+            // 
+            this.VaelgRytter2.FormattingEnabled = true;
+            this.VaelgRytter2.Location = new System.Drawing.Point(636, 323);
+            this.VaelgRytter2.Name = "VaelgRytter2";
+            this.VaelgRytter2.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter2.TabIndex = 37;
+            this.VaelgRytter2.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter2_SelectedIndexChanged);
+            // 
+            // VaelgRytter1
+            // 
+            this.VaelgRytter1.FormattingEnabled = true;
+            this.VaelgRytter1.Location = new System.Drawing.Point(636, 296);
+            this.VaelgRytter1.Name = "VaelgRytter1";
+            this.VaelgRytter1.Size = new System.Drawing.Size(121, 21);
+            this.VaelgRytter1.TabIndex = 36;
+            this.VaelgRytter1.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter1_SelectedIndexChanged);
+            // 
             // AfholdLoebBtn
             // 
             this.AfholdLoebBtn.BackColor = System.Drawing.Color.DarkGray;
@@ -387,24 +432,25 @@
             // sponsorWarninglbl
             // 
             this.sponsorWarninglbl.AutoSize = true;
-            this.sponsorWarninglbl.Location = new System.Drawing.Point(62, 373);
+            this.sponsorWarninglbl.Location = new System.Drawing.Point(112, 173);
             this.sponsorWarninglbl.Name = "sponsorWarninglbl";
-            this.sponsorWarninglbl.Size = new System.Drawing.Size(96, 13);
+            this.sponsorWarninglbl.Size = new System.Drawing.Size(101, 13);
             this.sponsorWarninglbl.TabIndex = 38;
-            this.sponsorWarninglbl.Text = "Maks 2 Sponsorer!";
+            this.sponsorWarninglbl.Text = "Maks 2/Ingen Valgt";
             this.sponsorWarninglbl.Visible = false;
             // 
             // textBoxAngivIDSøgSponsor
             // 
-            this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(49, 344);
+            this.textBoxAngivIDSøgSponsor.Location = new System.Drawing.Point(106, 150);
             this.textBoxAngivIDSøgSponsor.Name = "textBoxAngivIDSøgSponsor";
             this.textBoxAngivIDSøgSponsor.Size = new System.Drawing.Size(111, 20);
             this.textBoxAngivIDSøgSponsor.TabIndex = 37;
+            this.textBoxAngivIDSøgSponsor.TextChanged += new System.EventHandler(this.textBoxAngivIDSøgSponsor_TextChanged);
             // 
             // LabelIDSøgRytter
             // 
             this.LabelIDSøgRytter.AutoSize = true;
-            this.LabelIDSøgRytter.Location = new System.Drawing.Point(84, 327);
+            this.LabelIDSøgRytter.Location = new System.Drawing.Point(143, 134);
             this.LabelIDSøgRytter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelIDSøgRytter.Name = "LabelIDSøgRytter";
             this.LabelIDSøgRytter.Size = new System.Drawing.Size(48, 13);
@@ -415,7 +461,7 @@
             // 
             this.btnVælgSponsor.BackColor = System.Drawing.Color.DarkGray;
             this.btnVælgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVælgSponsor.Location = new System.Drawing.Point(49, 389);
+            this.btnVælgSponsor.Location = new System.Drawing.Point(106, 185);
             this.btnVælgSponsor.Name = "btnVælgSponsor";
             this.btnVælgSponsor.Size = new System.Drawing.Size(111, 33);
             this.btnVælgSponsor.TabIndex = 35;
@@ -457,7 +503,7 @@
             // 
             this.buttonSøgSponsor.BackColor = System.Drawing.Color.DarkGray;
             this.buttonSøgSponsor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSøgSponsor.Location = new System.Drawing.Point(12, 185);
+            this.buttonSøgSponsor.Location = new System.Drawing.Point(13, 188);
             this.buttonSøgSponsor.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSøgSponsor.Name = "buttonSøgSponsor";
             this.buttonSøgSponsor.Size = new System.Drawing.Size(83, 27);
@@ -754,7 +800,8 @@
             "Alder",
             "Overblik",
             "Støtte",
-            "Løn"});
+            "Løn",
+            "Talent"});
             this.comboBoxParam2KøbRytter.Location = new System.Drawing.Point(12, 277);
             this.comboBoxParam2KøbRytter.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxParam2KøbRytter.Name = "comboBoxParam2KøbRytter";
@@ -818,7 +865,8 @@
             "Alder",
             "Overblik",
             "Støtte",
-            "Løn"});
+            "Løn",
+            "Talent"});
             this.comboBoxParam1KøbRytter.Location = new System.Drawing.Point(12, 53);
             this.comboBoxParam1KøbRytter.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxParam1KøbRytter.Name = "comboBoxParam1KøbRytter";
@@ -1295,51 +1343,6 @@
             this.label14.Size = new System.Drawing.Size(74, 13);
             this.label14.TabIndex = 26;
             this.label14.Text = "Vælg operator";
-            // 
-            // VaelgRytter1
-            // 
-            this.VaelgRytter1.FormattingEnabled = true;
-            this.VaelgRytter1.Location = new System.Drawing.Point(636, 296);
-            this.VaelgRytter1.Name = "VaelgRytter1";
-            this.VaelgRytter1.Size = new System.Drawing.Size(121, 21);
-            this.VaelgRytter1.TabIndex = 36;
-            this.VaelgRytter1.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter1_SelectedIndexChanged);
-            // 
-            // VaelgRytter2
-            // 
-            this.VaelgRytter2.FormattingEnabled = true;
-            this.VaelgRytter2.Location = new System.Drawing.Point(636, 323);
-            this.VaelgRytter2.Name = "VaelgRytter2";
-            this.VaelgRytter2.Size = new System.Drawing.Size(121, 21);
-            this.VaelgRytter2.TabIndex = 37;
-            this.VaelgRytter2.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter2_SelectedIndexChanged);
-            // 
-            // VaelgRytter3
-            // 
-            this.VaelgRytter3.FormattingEnabled = true;
-            this.VaelgRytter3.Location = new System.Drawing.Point(636, 350);
-            this.VaelgRytter3.Name = "VaelgRytter3";
-            this.VaelgRytter3.Size = new System.Drawing.Size(121, 21);
-            this.VaelgRytter3.TabIndex = 38;
-            this.VaelgRytter3.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter3_SelectedIndexChanged);
-            // 
-            // VaelgRytter4
-            // 
-            this.VaelgRytter4.FormattingEnabled = true;
-            this.VaelgRytter4.Location = new System.Drawing.Point(636, 377);
-            this.VaelgRytter4.Name = "VaelgRytter4";
-            this.VaelgRytter4.Size = new System.Drawing.Size(121, 21);
-            this.VaelgRytter4.TabIndex = 39;
-            this.VaelgRytter4.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter4_SelectedIndexChanged);
-            // 
-            // VaelgRytter5
-            // 
-            this.VaelgRytter5.FormattingEnabled = true;
-            this.VaelgRytter5.Location = new System.Drawing.Point(636, 404);
-            this.VaelgRytter5.Name = "VaelgRytter5";
-            this.VaelgRytter5.Size = new System.Drawing.Size(121, 21);
-            this.VaelgRytter5.TabIndex = 40;
-            this.VaelgRytter5.SelectedIndexChanged += new System.EventHandler(this.VaelgRytter5_SelectedIndexChanged);
             // 
             // Form1
             // 
