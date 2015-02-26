@@ -291,6 +291,7 @@
             // 
             // DivisionTab
             // 
+            this.DivisionTab.Controls.Add(this.mineRyttereDataGrid);
             this.DivisionTab.Controls.Add(this.VaelgRytter5);
             this.DivisionTab.Controls.Add(this.VaelgRytter4);
             this.DivisionTab.Controls.Add(this.VaelgRytter3);
@@ -298,7 +299,6 @@
             this.DivisionTab.Controls.Add(this.VaelgRytter1);
             this.DivisionTab.Controls.Add(this.AfholdLoebBtn);
             this.DivisionTab.Controls.Add(this.divisionDataGrid);
-            this.DivisionTab.Controls.Add(this.mineRyttereDataGrid);
             this.DivisionTab.Location = new System.Drawing.Point(4, 22);
             this.DivisionTab.Name = "DivisionTab";
             this.DivisionTab.Padding = new System.Windows.Forms.Padding(3);

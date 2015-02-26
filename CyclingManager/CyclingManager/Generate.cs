@@ -89,23 +89,23 @@ namespace CyclingManager
             {
                 //Variabler for alle attributterne i Rytter tabellen. 
                 int alder = r.Next(17, 34);
-                int udholdenhed = r.Next(0, 100);
-                int styrke = r.Next(0, 100);
+                int udholdenhed = r.Next(1, 100);
+                int styrke = r.Next(1, 100);
                 int type = 1;
                 int overblik = 0;
                 int støtte = 0;
                 int holdID = 0;
-                int talent = r.Next(0, 100);
+                int talent = r.Next(1, 100);
                 int løn = alder + udholdenhed + styrke + 2 * talent;
 
                 if (udholdenhed > styrke)
                 {
                     type = 0;
-                    støtte = r.Next(0, 100);
+                    støtte = r.Next(1, 100);
                 }
                 else
                 {
-                    overblik = r.Next(0, 100);
+                    overblik = r.Next(1, 100);
                     type = 1;
                 }
 
@@ -196,8 +196,8 @@ namespace CyclingManager
             }
 
             //Opret spillerhold:
-
-            cmd.CommandText = String.Format("Insert into Hold (Navn, Division, Budget, Sæson_Point, Score) values ('{0}', '{1}', '{2}', '{3}', '{4}')", Form1.dbname, 1, 2500, 0, 0);
+            int spillerStartBudget = r.Next(2500, 5000);
+            cmd.CommandText = String.Format("Insert into Hold (Navn, Division, Budget, Sæson_Point, Score) values ('{0}', '{1}', '{2}', '{3}', '{4}')", Form1.dbname, 1, spillerStartBudget, 0, 0);
             cmd.ExecuteNonQuery();
 
         }
