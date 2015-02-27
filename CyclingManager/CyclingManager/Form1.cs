@@ -19,13 +19,13 @@ namespace CyclingManager
         //databases saved in /saves.
         public static string[] saves;
 
+        public static int løbnr = 0;
+
         //current location path
         string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public static SQLiteConnection dbConnection = new SQLiteConnection();
-        SQLiteCommand cmd = new SQLiteCommand();
-
-        
+        public static SQLiteCommand cmd = new SQLiteCommand();
 
         public Form1()
         {
@@ -697,7 +697,7 @@ namespace CyclingManager
             return s;
         }
 
-        private void UpdateDataAbsolute(string table, string parameter1, string value1,string parameter2, string value2)
+        public static void UpdateDataAbsolute(string table, string parameter1, string value1,string parameter2, string value2)
         {
             cmd.Connection = dbConnection;
             cmd.CommandText = String.Format("Update {0} set {1} = {2} where {3} = {4}", table, parameter1, value1, parameter2, value2, dbConnection);
@@ -874,9 +874,14 @@ namespace CyclingManager
 
         private void AfholdLoebBtn_Click(object sender, EventArgs e)
         {
-            string[] valgteRyttere = new string[] { VaelgRytter1.SelectedItem.ToString(), VaelgRytter2.SelectedItem.ToString(), VaelgRytter3.SelectedItem.ToString(), VaelgRytter4.SelectedItem.ToString(), VaelgRytter5.SelectedItem.ToString() };
-            
-            Division.AfholdLoeb(valgteRyttere);
+            if (VaelgRytter1.SelectedItem != null && VaelgRytter2.SelectedItem != null && VaelgRytter3.SelectedItem != null && VaelgRytter4.SelectedItem != null && VaelgRytter5.SelectedItem != null)
+            {
+                string[] valgteRyttere = new string[] { VaelgRytter1.SelectedItem.ToString(), VaelgRytter2.SelectedItem.ToString(), VaelgRytter3.SelectedItem.ToString(), VaelgRytter4.SelectedItem.ToString(), VaelgRytter5.SelectedItem.ToString() };
+
+                Division.AfholdLoeb(valgteRyttere);
+                fillDataGridViews();
+            }
+            int i = 0;
 
         }
 

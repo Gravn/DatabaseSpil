@@ -8,6 +8,8 @@ namespace CyclingManager
 {
     class Division
     {
+        
+
         public Division()
         {
             
@@ -72,8 +74,11 @@ namespace CyclingManager
             }
             int[] top5P = new int[5];
             int[] top5ID = new int[5];
-            int type = 0;
-            if (type == 0)
+
+
+
+            string type = Form1.GetDataString("Løb","ID","1","Type",Form1.løbnr);
+            if (type == "Flad")
             {
                 //FladtLøb ranking:
 
@@ -101,7 +106,7 @@ namespace CyclingManager
                     {
                         for (int k = 5; k < 10; k++)
                         {
-                            if (top5ID[0] != id[j, k - 5] && top5ID[0] != id[j, k - 5] && top5ID[1] != id[j, k - 5] && top5ID[2] != id[j, k - 5] && top5ID[3] != id[j, k - 4])
+                            if (top5ID[0] != id[j, k - 5] && top5ID[0] != id[j, k - 5] && top5ID[1] != id[j, k - 5] && top5ID[2] != id[j, k - 5] && top5ID[3] != id[j, k - 5])
                                 if (stats[j, k] > top5P[i])
                                 {
                                     top5P[i] = stats[j, k];
@@ -117,16 +122,48 @@ namespace CyclingManager
                 }
             }
 
+            string[] holdID = new string[5];
+            int[] s_points = new int[5];
+            int[] score = new int[5];
 
+            for(int i=0;i<5;i++)
+            {
+                for(int j=0;j<100;j++)
+                {
+                    if (Form1.GetDataString("Rytter", "ID", top5ID[i].ToString(), "HoldID", j) != "")
+                    {
+                        holdID[i] = Form1.GetDataString("Rytter", "ID", top5ID[i].ToString(), "HoldID", j);
+                    }
+                }
+                if (Form1.GetDataString("Hold", "ID", holdID[i].ToString(), "Sæson_Point", Int32.Parse(holdID[i])) != "")
+                {
+                    s_points[i] = Int32.Parse(Form1.GetDataString("Hold", "ID", holdID[i].ToString(), "Sæson_Point",Int32.Parse(holdID[i])));
+                    score[i] = Int32.Parse(Form1.GetDataString("Hold", "ID", holdID[i].ToString(), "Score", Int32.Parse(holdID[i])));
+                }
+                
+                //s_points[i]++;
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                s_points[Int32.Parse(holdID[i])]++;
+                score[Int32.Parse(holdID[i])]++;
+            }
 
+            for (int i = 0; i < 5; i++)
+            {
+                Form1.UpdateDataAbsolute("Hold", "Sæson_Point", s_points[i].ToString(), "ID", (i + 1).ToString());
+                Form1.UpdateDataAbsolute("Hold", "Score", (score[i]).ToString(), "ID", (i + 1).ToString());
+            }
 
-
-                stats[1, 1] = 0;
-
-
-            //Udholdenhed Sum(*1.5 Støtte ved fladt løb
-            //Styrke Sumu Sum*1.5 Overblik ved bjergløb
-            
+            Form1.løbnr++;
+            if (Form1.løbnr == 10)
+            {
+                for (int i = 1; i < 6;i++)
+                {
+                    Form1.UpdateDataAbsolute("Hold", "Sæson_Point","0", "ID",i.ToString());
+                }
+                Form1.løbnr = 0;
+            }
             
         }
 

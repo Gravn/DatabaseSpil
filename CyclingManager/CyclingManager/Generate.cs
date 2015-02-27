@@ -136,11 +136,11 @@ namespace CyclingManager
                 int kmLængde = 150;
                 string løbstype = "";
 
-                if (i == 0 | i == 2 | i == 4 | i == 5 | i == 8)
+                if (i == 0 || i == 2 || i == 4 || i == 5 || i == 8)
                 {
                     løbstype = "Flad";
                 }
-                else if (i == 1 | i == 3 | i == 6 | i == 7 | i == 9)
+                else if (i == 1 || i == 3 || i == 6 || i == 7 || i == 9)
                 {
                     løbstype = "Bjergrig";
                 }
